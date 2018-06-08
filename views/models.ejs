@@ -1,0 +1,17 @@
+<h1>THIS IS THE MODELS PAGE</h1>
+<form action="/models" method="POST">
+	<label for="name">
+		<input type="text" id="name" placeholder="Name" name="name">
+	</label>
+	<label for="image">
+		<input type="text" id="image" placeholder="Photo" name="image">
+	</label>
+	<button type="submit">Submit</button>
+</form>
+
+<div>
+	<ul>
+		<li><% console.log(models) %></li>
+		<img src="<%= models.image %>" alt="">
+	</ul>
+</div>
