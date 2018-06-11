@@ -1,17 +1,19 @@
+<%- include('./partials/header') %>
+
 <h1>THIS IS THE MODELS PAGE</h1>
-<form action="/models" method="POST">
-	<label for="name">
-		<input type="text" id="name" placeholder="Name" name="name">
-	</label>
-	<label for="image">
-		<input type="text" id="image" placeholder="Photo" name="image">
-	</label>
-	<button type="submit">Submit</button>
-</form>
+<a href="/models/new">
+	<button class="btn btn-primary">Add New Model</button>
+</a>
 
 <div>
-	<ul>
-		<li><% console.log(models) %></li>
-		<img src="<%= models.image %>" alt="">
-	</ul>
+	<div class="row">
+		<% models.forEach((model) => { %>	
+			<div class="col-md-3 col-md-6">
+				<%= model.name %>
+				<img src="<%= model.image %>" alt="Model" class="img-thumbnail">		
+			</div>
+		<% }) %>
+	</div>
 </div>
+
+<%- include('./partials/footer') %>

@@ -18,6 +18,7 @@ db.once('open', function() {
 	console.log('DB succesfully connected!');
 })
 //create mongoose schema
+
 const modelSchema = mongoose.Schema({
 	name: String,
 	image: String
@@ -39,6 +40,10 @@ app.get('/models', (req, res) => {
 	})
 });
 
+app.get('/models/new', (req, res) => {
+	res.render('newModel');
+})
+
 app.post('/models', (req, res) => {
 	const name = req.body.name;
 	const imageUrl = req.body.image;
@@ -52,7 +57,14 @@ app.post('/models', (req, res) => {
 		if(err) {
 			console.log(err);
 		} else {
-			console.log(model);
+			Model.find({}, (err, models) => {
+				if(err) {
+					alert('check console');
+					console.log(err);
+				} else {
+					res.render('models', {models: models});
+				}
+			})
 		}
 	})
 
