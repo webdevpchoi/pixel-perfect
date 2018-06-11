@@ -7,11 +7,10 @@
 
 <div>
 	<div class="row">
-		<% models.forEach((model) => { %>	
-			<div class="col-md-3 col-md-6">
-				<%= model.name %>
+		<% models.forEach((model) => { %>
+			<a class="col-md-3 col-md-6" href="/models/<%= model._id %>">
 				<img src="<%= model.image %>" alt="Model" class="img-thumbnail">		
-			</div>
+			</a>
 		<% }) %>
 	</div>
 </div>
