@@ -1,6 +1,8 @@
 const 	express = require('express'),
 		mongoose = require('mongoose'),
 		bodyParser = require('body-parser');
+		Model = require('./schemas/model');
+		seedDB = require('./seeds');
 
 const app = express();
 const port = 3000;
@@ -17,56 +19,9 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
 	console.log('DB succesfully connected!');
 })
-//create mongoose schema
 
-const modelSchema = mongoose.Schema({
-	name: String,
-	image: String,
-	desc: String,
-})
-//compile schema into model so it had methods available to maniuplate data
-//first argument of model is the singular name of the collection your model is for
-const Model = mongoose.model('Model', modelSchema);
-
-//remove all sample models
-Model.deleteMany((err, dltedModels) => {
-	if(err) {
-		console.log(err)
-	} else {
-		console.log('Everything was deleted at the start!');
-	}
-});
-
-//sample models
-Model.insertMany([
-	{
-		name: "Melissa",
-		image: "https://images.pexels.com/photos/573299/pexels-photo-573299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-		desc: "Modeling for only 2 years, Melissa has mastered it all within a short time period."
-	},
-	{
-		name: "John Smith",
-		image: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&h=350",
-		desc: "Despite his unoriginal name, John makes a mark on modeling history with his signature dead-eyed-mackeral facial expressions",
-	},
-	{
-		name: "John Park",
-		image: "https://images.pexels.com/photos/450214/pexels-photo-450214.jpeg?auto=compress&cs=tinysrgb&h=350",
-		desc: "A sea of Asians could surround this particular model, and he'd STILL stand out. That's how good he is!"
-	},
-	{
-		name: "Ashley Sins",
-		image: "https://images.pexels.com/photos/301298/pexels-photo-301298.jpeg?auto=compress&cs=tinysrgb&h=350",
-		desc: "She might only have 10/10 vision, but Ashley's singature bangs gives her a signature BANG."
-	}
-], (err, sampleModels) => {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log("All sample models added to database!")
-	}
-})
-
+//input sample data into DB
+seedDB();
 
 app.get('/', (req, res) => res.render('landing'));
 
