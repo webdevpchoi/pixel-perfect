@@ -91,10 +91,10 @@ app.post('/models/:id/comments', (req, res) => {
 			console.log('no model');
 			console.log(err);
 		} else {
+			console.log(model);
 			Comment.create(req.body.comment, (err, comment) => {
 				if(err) {
-					console.log('comment not created');
-					console.log(err);
+					console.log('COMMENT WAS NOT CREATED');
 				} else {
 					model.comments.push(comment);
 					model.save();
