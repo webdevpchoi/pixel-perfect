@@ -44,8 +44,9 @@ app.get('/models/new', (req, res) => {
 //show route
 app.get('/models/:id', (req, res) => {
 	const userId = req.params.id;
-	Model.findById(userId, (err, user) => {
-		res.render('show', {user: user});
+	Model.findOne({_id: userId}).populate('comments').exec((err, model) => {
+		console.log(model);
+		res.render('show', {model: model})
 	})
 });
 

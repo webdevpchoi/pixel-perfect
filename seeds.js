@@ -49,7 +49,6 @@ function seedDB() {
 							if(err) {
 								console.log(err);
 							} else {
-								console.log(model);
 								model.comments.push(comment);
 								model.save();
 								console.log('New comment created!');

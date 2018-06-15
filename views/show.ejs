@@ -1,6 +1,12 @@
 <%- include('./partials/header') %>
 
-<h1><%= user.name %></h1>
-<h4><%= user.desc %></h4>
+<h1><%= model.name %></h1>
+<h4><%= model.desc %></h4>
+<ul class="comments">
+	<% model.comments.forEach((comment) => { %>
+		<p><%= comment.text %></p>
+		<p><%= comment.author %></p>
+	<% }) %>
+</ul>
 
 <%- include('./partials/footer') %>
