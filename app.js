@@ -1,7 +1,8 @@
 const 	express = require('express'),
 		mongoose = require('mongoose'),
-		bodyParser = require('body-parser');
-		Model = require('./schemas/model');
+		bodyParser = require('body-parser'),
+		Model = require('./schemas/model'),
+		Comment = require('./schemas/comment'),
 		seedDB = require('./seeds');
 
 const app = express();
@@ -9,7 +10,7 @@ const port = 3000;
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 //connect to db
 mongoose.connect('mongodb://localhost/tgr');
@@ -31,26 +32,25 @@ app.get('/models', (req, res) => {
 		if(err) {
 			console.log('Could not find the models');
 		} else {
-			res.render("models", {models: models})
+			res.render("models/index", {models: models})
 		}
 	})
 });
 
-//new route
+//new model route
 app.get('/models/new', (req, res) => {
-	res.render('newModel');
+	res.render('models/new');
 })
 
 //show route
 app.get('/models/:id', (req, res) => {
 	const userId = req.params.id;
 	Model.findOne({_id: userId}).populate('comments').exec((err, model) => {
-		console.log(model);
-		res.render('show', {model: model})
+		res.render('models/show', {model: model})
 	})
 });
 
-//post route
+//post route model
 app.post('/models', (req, res) => {
 	const name = req.body.name;
 	const imageUrl = req.body.image;
@@ -71,6 +71,40 @@ app.post('/models', (req, res) => {
 	})
 
 })
+
+//get route for new comments
+app.get('/models/:id/comments/new', (req, res) => {
+	Model.findOne({_id: req.params.id}, (err, model) => {
+		if(err) {
+			console.log(err)
+		} else {
+			console.log(model);
+			res.render('comments/new', {model: model});
+		}
+	})
+})
+
+//post route for new comments
+app.post('/models/:id/comments', (req, res) => {
+	Model.findOne({_id: req.params.id}, (err, model) => {
+		if(err) {
+			console.log('no model');
+			console.log(err);
+		} else {
+			Comment.create(req.body.comment, (err, comment) => {
+				if(err) {
+					console.log('comment not created');
+					console.log(err);
+				} else {
+					model.comments.push(comment);
+					model.save();
+					res.redirect('/models/' + model._id);
+				}
+			})
+		}
+	})
+	res.send('your comment was added!')
+});
 
 //listening to port
 app.listen(port, () => {

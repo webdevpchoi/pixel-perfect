@@ -1,4 +1,4 @@
-<%- include('./partials/header') %>
+<%- include('../partials/header') %>
 
 <h1><%= model.name %></h1>
 <h4><%= model.desc %></h4>
@@ -8,5 +8,8 @@
 		<p><%= comment.author %></p>
 	<% }) %>
 </ul>
+<a href="/models/<%= model._id %>/comments/new">
+	<button class="btn btn-primary">Add New Comment</button>
+</a>
 
-<%- include('./partials/footer') %>
+<%- include('../partials/footer') %>
