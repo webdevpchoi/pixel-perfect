@@ -26,7 +26,7 @@ seedDB();
 
 app.get('/', (req, res) => res.render('landing'));
 
-//index route
+//model index route
 app.get('/models', (req, res) => {
 		Model.find({}, (err, models) => {
 		if(err) {
@@ -91,7 +91,6 @@ app.post('/models/:id/comments', (req, res) => {
 			console.log('no model');
 			console.log(err);
 		} else {
-			console.log(model);
 			Comment.create(req.body.comment, (err, comment) => {
 				if(err) {
 					console.log('COMMENT WAS NOT CREATED');
@@ -103,7 +102,6 @@ app.post('/models/:id/comments', (req, res) => {
 			})
 		}
 	})
-	res.send('your comment was added!')
 });
 
 //listening to port
