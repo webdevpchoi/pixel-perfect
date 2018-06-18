@@ -2,25 +2,76 @@
 
 body, html {
 	background: #f8f8f8;
+	font-family: 'IBM Plex Sans', sans-serif;
 }
+
+ul {
+	list-style-type: none;
+}
+
+h1, h3 {
+	margin: 1rem 0;
+}
+
 //landing page
+
+.jumbotron {
+	margin-top: 2rem;
+}
 
 .models, .photographers {	
 	margin: 5% 0;
 	text-align: center;
 	position: relative;
+
+	img {
+		box-shadow: 0 0 8px rgba(0,0,0,.2);
+	}
 }
 
 .btn {
-	border-radius: 500px !important;
 	width: 100%;
+	border-radius: 0;
 }
 
-.to-model, .to-photographer {
-	position: absolute;
-	left: 50%;
-	transform: translate(-50%,0);
-	bottom: 0;
-	width: 250px;
-	margin: 5% 0;
+//add new model
+
+.add-model {
+	label {
+		width: 100%;
+
+		input, textarea {
+			width: 100%;
+		}
+	}
 }
+
+//show page
+
+.desc {
+	margin: 10% 0;
+}
+
+.comments {
+	padding: 0;
+
+	li {
+		box-shadow: 0 0 8px rgba(0,0,0,.2);
+		background: #FFFFFF;
+		padding: 10px;
+		margin: 10px;
+	}
+}
+
+//new commend page
+
+.add-comment {
+	label {
+		width: 100%;
+
+		input, textarea {
+			width: 100%;
+		}
+	}
+}
+

@@ -1,11 +1,20 @@
 <%- include('../partials/header') %>
-
-<h1><%= model.name %></h1>
-<h4><%= model.desc %></h4>
+<img class="img-thumbnail" src="<%= model.image %>" alt="Profile picture of model">
+<h3 class="text-center"><%= model.name %></h3>
+<div class="desc">
+	<h4>About <%= model.name %></h4>
+	<p><%= model.desc %></p>
+</div>
 <ul class="comments">
 	<% model.comments.forEach((comment) => { %>
-		<p><%= comment.text %></p>
-		<p><%= comment.author %></p>
+		<li>
+			<%= comment.text %>
+			<br>
+			<br>
+			<div class="text-right">
+				<em><%= comment.author %></em>
+			</div>
+		</li>
 	<% }) %>
 </ul>
 <a href="/models/<%= model._id %>/comments/new">
