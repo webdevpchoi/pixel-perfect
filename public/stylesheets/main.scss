@@ -1,0 +1,26 @@
+//global styles 
+
+body, html {
+	background: #f8f8f8;
+}
+//landing page
+
+.models, .photographers {	
+	margin: 5% 0;
+	text-align: center;
+	position: relative;
+}
+
+.btn {
+	border-radius: 500px !important;
+	width: 100%;
+}
+
+.to-model, .to-photographer {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0);
+	bottom: 0;
+	width: 250px;
+	margin: 5% 0;
+}

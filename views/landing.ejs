@@ -1,22 +1,29 @@
 <%- include('./partials/header') %>
 <section class="">
-	<h1>The Golden Rule</h1>
-	<a href="/models">
-		<button>I am a Photographer</button>
-	</a>
-	<a href="/photographers">
-		<button>I am a Model</button>
-	</a>
+	<h1 class="text-center">Pixel Perfect</h1>
+	<div class="desc">
+		<p>The Golden Rule makes it easy to find a freelance model/photographer!</p>
+		<br>
+		<p>Find your favorite model/photographer, add yourself, and see the experience others had with that particular person.</p>
+	</div>
 
-</section>
-<section class="desc">
-	<div>step1</div>
-	<div>step2</div>
-	<div>step3</div>
-</section>
+	<h3>Looking for a...</h3>
+	<div class="row">
+		<div class="models col-md-6">
+			<img src="images/model-home.jpg" alt="" class="img-fluid">
+			<a href="/models" class="to-model">
+				<button class="btn btn-primary">Model</button>
+			</a>			
+		</div>
+		<div class="photographers col-md-6">
+			<img src="images/photographer-home.jpg" alt="" class="img-fluid">
+			<a href="/photographers" class="to-photographer">
+			<button class="btn btn-primary">Photographer</button>
+		</a>		
+		</div>
+	</div>
 <section>
 	
 </section>
 
 <%- include('./partials/footer') %>
-
