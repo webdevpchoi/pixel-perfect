@@ -37,8 +37,12 @@
 	        <a class="nav-link disabled" href="#">Disabled</a>
 	      </li>
 	    </ul>
-	    <a href="/login">Login</a>
-	    <a href="/signup">Register</a>
+	    <% if (!currentUser) { %>
+		    <a href="/login">Login</a>
+		    <a href="/signup">Sign Up</a>	    	
+	    <% } else { %>
+		    <a href="/logout">Log Out</a>
+	    <% } %>
 	  </div>
 	</nav>
 	<div class="container">

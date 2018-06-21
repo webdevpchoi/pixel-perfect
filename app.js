@@ -27,6 +27,12 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use(function(req, res, next){
+	console.log(req.user);
+   	res.locals.currentUser = req.user;
+   	next();
+});
+
 //connect to db
 mongoose.connect('mongodb://localhost/tgr');
 //check if connection to db was successful
@@ -87,6 +93,38 @@ app.post('/models', (req, res) => {
 
 })
 
+//post route for new comments
+app.post('/models/:id/comments', (req, res) => {
+	Model.findOne({_id: req.params.id}, (err, model) => {
+		if(err) {
+			console.log('no model');
+			console.log(err);
+		} else {
+			Comment.create(req.body.comment, (err, comment) => {
+				if(err) {
+					console.log('COMMENT WAS NOT CREATED');
+				} else {
+					model.comments.push(comment);
+					model.save();
+					res.redirect('/models/' + model._id);
+				}
+			})
+		}
+	})
+});
+
+//get route for new comments
+app.get('/models/:id/comments/new', (req, res) => {
+	Model.findOne({_id: req.params.id}, (err, model) => {
+		if(err) {
+			console.log(err)
+		} else {
+			console.log(model);
+			res.render('comments/new', {model: model});
+		}
+	})
+})
+
 //auth routes
 app.get('/login', (req, res) => {
 	res.render('auth/login');
@@ -118,37 +156,21 @@ app.post('/signup', (req, res) => {
 	});
 });
 
-//get route for new comments
-app.get('/models/:id/comments/new', (req, res) => {
-	Model.findOne({_id: req.params.id}, (err, model) => {
-		if(err) {
-			console.log(err)
-		} else {
-			console.log(model);
-			res.render('comments/new', {model: model});
-		}
-	})
+app.get('/logout', (req, res) => {
+	req.logout();
+	console.log('User is now logged out!');
+	res.redirect('/');
 })
 
-//post route for new comments
-app.post('/models/:id/comments', (req, res) => {
-	Model.findOne({_id: req.params.id}, (err, model) => {
-		if(err) {
-			console.log('no model');
-			console.log(err);
-		} else {
-			Comment.create(req.body.comment, (err, comment) => {
-				if(err) {
-					console.log('COMMENT WAS NOT CREATED');
-				} else {
-					model.comments.push(comment);
-					model.save();
-					res.redirect('/models/' + model._id);
-				}
-			})
-		}
-	})
-});
+function isLoggedIn(req, res, next) {
+	if(req.isAuthenticated()) {
+		return next();
+	} else {
+		res.redirect('/login');
+	}
+}
+
+
 
 //listening to port
 app.listen(port, () => {
