@@ -9,7 +9,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="/">Perfect Pixel</a>
+	  <a class="navbar-brand" href="/">Pixel Perfect</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -33,16 +33,36 @@
 	          <a class="dropdown-item" href="#">Something else here</a>
 	        </div>
 	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link disabled" href="#">Disabled</a>
-	      </li>
 	    </ul>
-	    <% if (!currentUser) { %>
-		    <a href="/login">Login</a>
-		    <a href="/signup">Sign Up</a>	    	
-	    <% } else { %>
-		    <a href="/logout">Log Out</a>
-	    <% } %>
+	    <ul class="navbar-nav">
+		    <% if (!currentUser) { %>
+		    <li class="d-flex justify-content-center">
+			    <form class="form-inline my-2 my-lg-0" id="navbar-form" action="/login" method="POST">
+			    	<label for="username">
+			    		<input class="form-control" type="text" id="username" name="username" placeholder="Username">
+			    	</label>
+			    	<label for="password">
+			    		<input class="form-control" type="password" id="password" name="password" placeholder="Password">
+			    	</label>
+			    	<button class="btn btn-outline-success" type="submit">Log In</button>
+				    <a class="nav-link" href="/signup">
+				    	<button type="button" class="btn btn-outline-warning">Sign Up</button>
+				    </a>	    
+			    </form>
+		    </li>
+		    <% } else { %>
+		    <div class="logout" id="logout">
+		    	<h5 class="user">
+		    		<div>
+			    		Logged in as <em><strong><%=currentUser.username %></strong></em>
+		    		</div>
+		    	</h5>
+			    <a class="nav-link" href="/logout">
+			    	<button class="btn btn-outline-danger">Log Out</button>
+			    </a>		    	
+		    </div>
+		    <% } %>
+	    </ul>
 	  </div>
 	</nav>
 	<div class="container">

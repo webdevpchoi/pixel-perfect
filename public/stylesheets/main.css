@@ -8,6 +8,27 @@ ul {
 h1, h3 {
   margin: 1rem 0; }
 
+.navbar .user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px; }
+.navbar #navbar-form {
+  justify-content: center;
+  align-items: center;
+  max-width: 340px; }
+  .navbar #navbar-form label[for='username'], .navbar #navbar-form label[for='password'] {
+    width: 100%; }
+  .navbar #navbar-form a, .navbar #navbar-form button {
+    width: 100%; }
+.navbar .logout {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .navbar .logout a {
+    max-width: 340px;
+    width: 100%; }
+
 .jumbotron {
   margin-top: 2rem; }
 
@@ -19,8 +40,7 @@ h1, h3 {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); }
 
 .btn {
-  width: 100%;
-  border-radius: 0; }
+  width: 100%; }
 
 .add-model label {
   width: 100%; }
@@ -42,3 +62,31 @@ h1, h3 {
   width: 100%; }
   .add-comment label input, .add-comment label textarea {
     width: 100%; }
+
+@media (min-width: 576px) {
+  #navbar-form label {
+    margin-bottom: .5rem; }
+    #navbar-form label input {
+      width: 100%; }
+  #navbar-form .form-inline .form-control {
+    display: inline-block;
+    width: 100%; }
+    #navbar-form .form-inline .form-control button {
+      max-width: 340px; } }
+@media (min-width: 992px) {
+  #navbar-form {
+    flex-wrap: nowrap;
+    width: auto;
+    max-width: 600px !important; }
+    #navbar-form a {
+      padding: 0;
+      width: auto !important; }
+    #navbar-form label {
+      margin: 0 5px;
+      width: auto; }
+    #navbar-form button {
+      width: auto !important;
+      margin: 0 5px; }
+
+  .logout {
+    flex-direction: row !important; } }

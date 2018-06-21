@@ -59,7 +59,7 @@ app.get('/models', (req, res) => {
 });
 
 //new model route
-app.get('/models/new', (req, res) => {
+app.get('/models/new', isLoggedIn, (req, res) => {
 	res.render('models/new');
 })
 
@@ -94,7 +94,7 @@ app.post('/models', (req, res) => {
 })
 
 //post route for new comments
-app.post('/models/:id/comments', (req, res) => {
+app.post('/models/:id/comments', isLoggedIn, (req, res) => {
 	Model.findOne({_id: req.params.id}, (err, model) => {
 		if(err) {
 			console.log('no model');
@@ -114,7 +114,7 @@ app.post('/models/:id/comments', (req, res) => {
 });
 
 //get route for new comments
-app.get('/models/:id/comments/new', (req, res) => {
+app.get('/models/:id/comments/new', isLoggedIn, (req, res) => {
 	Model.findOne({_id: req.params.id}, (err, model) => {
 		if(err) {
 			console.log(err)

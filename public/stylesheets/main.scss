@@ -13,6 +13,41 @@ h1, h3 {
 	margin: 1rem 0;
 }
 
+//navbar 
+.navbar {
+	.user {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 10px;
+	}
+
+	#navbar-form {
+		justify-content: center;
+		align-items: center;
+		max-width: 340px;
+
+		label[for='username'], label[for='password'] {
+			width: 100%;
+		}
+
+		a, button {
+			width: 100%;
+		}
+	}
+	
+	.logout {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		a {
+			max-width: 340px;
+			width: 100%;
+		}
+	}
+}
+
 //landing page
 
 .jumbotron {
@@ -31,7 +66,6 @@ h1, h3 {
 
 .btn {
 	width: 100%;
-	border-radius: 0;
 }
 
 //add new model
@@ -75,3 +109,51 @@ h1, h3 {
 	}
 }
 
+@media (min-width: 576px) {
+	#navbar-form {
+
+	   label {
+	    	margin-bottom: .5rem;
+		    input {
+		    	width: 100%;
+		    }
+	    }
+
+		.form-inline .form-control {
+		    display: inline-block;
+		    width: 100%;
+
+			button {
+				max-width: 340px;
+			}
+		}	
+	}
+}
+
+@media (min-width: 992px) {
+
+	#navbar-form {
+		flex-wrap: nowrap;
+		width: auto;
+		max-width: 600px !important;
+
+		a {
+			padding: 0;
+			width: auto !important;
+		}
+
+		label {
+			margin: 0 5px;
+			width: auto;
+		}
+
+		button {
+			width: auto !important;
+			margin: 0 5px;
+		}
+	}
+
+	.logout {
+		flex-direction: row !important;
+	}
+}
