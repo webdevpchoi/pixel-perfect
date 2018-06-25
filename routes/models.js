@@ -26,15 +26,20 @@ router.get('/:id', (req, res) => {
 });
 
 //post route model
-router.post('/', (req, res) => {
+router.post('/', isLoggedIn, (req, res) => {
 	const name = req.body.name;
 	const imageUrl = req.body.image;
 	const desc = req.body.desc;
+	const creator = {
+		id: req.user._id,
+		username: req.user.username
+	}
 
 	const model = new Model({
 		name: name,
 		image: imageUrl,
 		desc: desc,
+		creator: creator,
 	})
 
 	Model.create(model, (err, model) => {

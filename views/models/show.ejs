@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 <img class="img-thumbnail" src="<%= model.image %>" alt="Profile picture of model">
+<h6 class="m-2"><em>Model posted by: <%= model.creator.username %></em></h6>
 <h3 class="text-center"><%= model.name %></h3>
 <div class="desc">
 	<h4>About <%= model.name %></h4>
@@ -12,11 +13,12 @@
 			<br>
 			<br>
 			<div class="text-right">
-				<em><%= comment.author %></em>
+				<em><%= comment.author.username %></em>
 			</div>
 		</li>
 	<% }) %>
 </ul>
+
 <a href="/models/<%= model._id %>/comments/new">
 	<button class="btn btn-primary">Add New Comment</button>
 </a>
