@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<h3 class="text-center">Edit Model</h3>
+<form action="/models/<%= model._id %>?_method=PUT" method="POST" class="form-group add-model">
+	<label for="name">
+		<input class="form-control" type="text" id="name" value="<%= model.name %>" name="name">
+	</label>
+	<label for="image">
+		<input class="form-control" type="text" id="image" value="<%= model.image %>" name="image">
+	</label>
+	<label for="desc">
+		<textarea class="form-control" name="desc" id="desc" cols="30" rows="10"><%= model.desc %></textarea>
+	</label>
+	<button class="btn btn-success" type="submit">Submit</button>
+</form>
+
+<%- include('../partials/footer') %>

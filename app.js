@@ -1,4 +1,5 @@
-const 	LocalStrategy = require('passport-local'),
+const	methodOverride = require('method-override'),
+		LocalStrategy = require('passport-local'),
 		Comment = require('./schemas/comment'),
 		session = require('express-session'),
 		bodyParser = require('body-parser'),
@@ -20,6 +21,7 @@ const port = 3000;
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
+app.use(methodOverride('_method'));
 
 app.use(require("express-session")({
     secret: "Beauty is in the eye of the beholder.",

@@ -51,6 +51,35 @@ router.post('/', isLoggedIn, (req, res) => {
 	})
 })
 
+//edit model routes
+router.get('/:id/edit', (req, res) => {
+	const userId = req.params.id;
+	Model.findOne({_id: userId}, (err, model) => {
+		if(err) {
+			res.redirect('/model');
+		} else {
+			res.render('models/edit', {model: model});
+		}
+	})
+})
+
+router.put('/:id', (req, res) => {
+	const userId = req.params.id;
+	const updated = {
+		name: req.body.name,
+		image: req.body.image,
+		desc: req.body.desc,
+	}
+
+	Model.findByIdAndUpdate(userId, updated, (err, updatedModel) => {
+		if(err) {
+			console.log(err);
+		} else {
+			res.redirect('/models/' + userId);
+		}
+	})
+})
+
 function isLoggedIn(req, res, next) {
 	if(req.isAuthenticated()) {
 		return next();
