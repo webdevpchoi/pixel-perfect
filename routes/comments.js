@@ -37,6 +37,30 @@ router.get('/new', isLoggedIn, (req, res) => {
 	})
 })
 
+//edit route for comments
+router.get('/:comment_id/edit', (req, res) => {
+	const campgroundId = req.params.id;
+	Comment.findOne({_id: req.params.comment_id}, (err, comment) => {
+		if(err) {
+			res.send('Error editing comment!');
+		} else {
+			res.render('comments/edit', {comment: comment, campgroundId: campgroundId});
+		}
+	})
+})
+
+router.post('/:comment_id', (req, res) => {
+	console.log(req.body.desc);
+	Comment.findByIdAndUpdate({_id: req.params.comment_id},  req.body.comment, (err, comment) => {
+		if(err) {
+			res.redirect('back');
+		} else {
+			console.log(comment);
+			res.redirect('/models/' + req.params.id);
+		}
+	})
+})
+
 function isLoggedIn(req, res, next) {
 	if(req.isAuthenticated()) {
 		return next();

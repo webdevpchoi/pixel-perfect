@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+
+<h3 class="text-center">Edit Comments</h3>
+<form action="/models/<%= campgroundId %>/comments/<%= comment._id %>" method="POST" class="form-group add-model">
+	<label for="desc">
+		<textarea class="form-control" name="comment[text]" id="desc" cols="30" rows="10"><%= comment.text %></textarea>
+	</label>
+	<button class="btn btn-success" type="submit">Submit</button>
+</form>
+
+<%- include('../partials/footer') %>

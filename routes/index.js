@@ -1,5 +1,6 @@
 const	passport = require('passport'),
 		express = require('express'),
+		User = require('../schemas/user');
 		router = express.Router();
 
 router.get('/', (req, res) => res.render('landing'));

@@ -2,9 +2,16 @@
 <img class="img-thumbnail" src="<%= model.image %>" alt="Profile picture of model">
 <div>
 	<h6 class="m-2"><em>Model posted by: <%= model.creator.username %></em></h6>
-	<a href="/models/<%= model._id %>/edit">
-		<button>Edit Model</button>
-	</a>
+	<% if (currentUser && model.creator.id.equals(currentUser._id)) { %>
+		<a href="/models/<%= model._id %>/edit">
+			<button class="btn btn-warning">Edit Model</button>
+		</a>
+		<form action="/models/<%= model._id %>?_method=DELETE" method="POST">
+			<a href="/models/<%= model._id %>">
+				<button class="btn btn-danger">Delete Model</button>
+			</a>
+		</form>
+	<% } %>
 </div>
 <h3 class="text-center"><%= model.name %></h3>
 <div class="desc">
@@ -20,6 +27,11 @@
 			<div class="text-right">
 				<em><%= comment.author.username %></em>
 			</div>
+			<% console.log(comment.author.id) %>
+			<% if (comment.author.id.equals(currentUser._id)) { %>
+				<a href="/models/<%= model._id %>/comments/<%= comment._id %>/edit">Edit Comment</a>
+				<a href="">Delete</a>
+			<% } %>			
 		</li>
 	<% }) %>
 </ul>

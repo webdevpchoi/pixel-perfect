@@ -52,7 +52,7 @@ router.post('/', isLoggedIn, (req, res) => {
 })
 
 //edit model routes
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', checkOwnership, (req, res) => {
 	const userId = req.params.id;
 	Model.findOne({_id: userId}, (err, model) => {
 		if(err) {
@@ -79,6 +79,39 @@ router.put('/:id', (req, res) => {
 		}
 	})
 })
+
+router.delete('/:id', (req, res) => {
+	Model.findByIdAndDelete({_id: req.params.id}, (err) => {
+		if(err) {
+			res.redirect('back');
+		} else {
+			res.redirect('/models');
+		}
+	})
+})
+
+function checkOwnership(req, res, next) {
+	//check if user is logged in
+	if(req.isAuthenticated()) {
+	// find model
+		console.log('user authenticated');
+		Model.findOne({_id: req.params.id}, (err, model) => {
+			if(err) {
+				res.send('SHIT GO BACK')
+			} else {
+	//compare id of user who created model and user who is logged in
+				console.log(model);
+				if(model.creator.id.equals(req.user._id)) {
+					next();
+				} else {
+					res.send('SHIT GO BACK')
+				}
+			}
+		})
+	} else {
+		res.redirect('/login');
+	}
+}
 
 function isLoggedIn(req, res, next) {
 	if(req.isAuthenticated()) {
