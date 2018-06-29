@@ -1,5 +1,6 @@
 const	Model = require('../schemas/model'),
 	 	express = require('express'),
+	 	middleware = require('../middleware'),
 		router 	= express.Router();
 
 router.get('/', (req, res) => {
@@ -13,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 //new model route
-router.get('/new', isLoggedIn, (req, res) => {
+router.get('/new', middleware.isLoggedIn, (req, res) => {
 	res.render('models/new');
 })
 
@@ -26,7 +27,7 @@ router.get('/:id', (req, res) => {
 });
 
 //post route model
-router.post('/', isLoggedIn, (req, res) => {
+router.post('/', middleware.isLoggedIn, (req, res) => {
 	const name = req.body.name;
 	const imageUrl = req.body.image;
 	const desc = req.body.desc;
@@ -46,13 +47,14 @@ router.post('/', isLoggedIn, (req, res) => {
 		if(err) {
 			console.log(err);
 		} else {
+			req.flash('success', 'Model Added')
 			res.redirect('models');
 		}
 	})
 })
 
 //edit model routes
-router.get('/:id/edit', checkOwnership, (req, res) => {
+router.get('/:id/edit', middleware.checkOwnership, (req, res) => {
 	const userId = req.params.id;
 	Model.findOne({_id: userId}, (err, model) => {
 		if(err) {
@@ -75,6 +77,7 @@ router.put('/:id', (req, res) => {
 		if(err) {
 			console.log(err);
 		} else {
+			req.flash('success', 'Model edited successfully')
 			res.redirect('/models/' + userId);
 		}
 	})
@@ -85,40 +88,10 @@ router.delete('/:id', (req, res) => {
 		if(err) {
 			res.redirect('back');
 		} else {
+			req.flash('success', 'Model successfully removed');
 			res.redirect('/models');
 		}
 	})
 })
-
-function checkOwnership(req, res, next) {
-	//check if user is logged in
-	if(req.isAuthenticated()) {
-	// find model
-		console.log('user authenticated');
-		Model.findOne({_id: req.params.id}, (err, model) => {
-			if(err) {
-				res.send('SHIT GO BACK')
-			} else {
-	//compare id of user who created model and user who is logged in
-				console.log(model);
-				if(model.creator.id.equals(req.user._id)) {
-					next();
-				} else {
-					res.send('SHIT GO BACK')
-				}
-			}
-		})
-	} else {
-		res.redirect('/login');
-	}
-}
-
-function isLoggedIn(req, res, next) {
-	if(req.isAuthenticated()) {
-		return next();
-	} else {
-		res.redirect('/login');
-	}
-}
 
 module.exports = router;

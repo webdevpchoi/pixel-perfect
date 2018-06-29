@@ -1,23 +1,25 @@
 const	Comment = require('../schemas/comment'),
+	 	middleware = require('../middleware'),
 		Model = require('../schemas/model'),
 	 	express = require('express'),
 		router = express.Router({mergeParams: true});
 		
 //post route for new comments
-router.post('/', isLoggedIn, (req, res) => {
+router.post('/', middleware.isLoggedIn, (req, res) => {
 	Model.findOne({_id: req.params.id}, (err, model) => {
 		if(err) {
 			console.log(err);
 		} else {
 			Comment.create(req.body.comment, (err, comment) => {
 				if(err) {
-					console.log('COMMENT WAS NOT CREATED');
+					req.flash('error', 'Your comment was unable to be created');
 				} else {
 					comment.author.id = req.user._id;
 					comment.author.username = req.user.username;
 					comment.save();
 					model.comments.push(comment);
 					model.save();
+					req.flash('success', 'Your comment was successfully added!')
 					res.redirect('/models/' + model._id);
 				}
 			})
@@ -26,7 +28,7 @@ router.post('/', isLoggedIn, (req, res) => {
 });
 
 //get route for new comments
-router.get('/new', isLoggedIn, (req, res) => {
+router.get('/new', middleware.isLoggedIn, (req, res) => {
 	Model.findOne({_id: req.params.id}, (err, model) => {
 		if(err) {
 			console.log(err)
@@ -50,24 +52,26 @@ router.get('/:comment_id/edit', (req, res) => {
 })
 
 router.post('/:comment_id', (req, res) => {
-	console.log(req.body.desc);
 	Comment.findByIdAndUpdate({_id: req.params.comment_id},  req.body.comment, (err, comment) => {
 		if(err) {
 			res.redirect('back');
 		} else {
-			console.log(comment);
+			req.flash('success', 'Your comment was successfully edited.');
 			res.redirect('/models/' + req.params.id);
 		}
 	})
 })
 
-function isLoggedIn(req, res, next) {
-	if(req.isAuthenticated()) {
-		return next();
-	} else {
-		res.redirect('/login');
-	}
-}
-
+//delete route for comments
+router.delete('/:comment_id', (req, res) => {
+	Comment.findByIdAndRemove({_id: req.params.comment_id}, (err) => {
+		if(err) {
+			res.send('Comment could not be deleted');
+		} else {
+			req.flash('success', 'Your comment was successfully deleted');
+			res.redirect(`/models/${req.params.id}`)
+		}
+	})
+})
 
 module.exports = router;

@@ -1,12 +1,14 @@
 const	passport = require('passport'),
+	 	middleware = require('../middleware'),
+		User = require('../schemas/user'),
 		express = require('express'),
-		User = require('../schemas/user');
 		router = express.Router();
 
 router.get('/', (req, res) => res.render('landing'));
 
 //auth routes
 router.get('/login', (req, res) => {
+	console.log('you need to log in');
 	res.render('auth/login');
 })
 
@@ -25,11 +27,11 @@ router.post('/signup', (req, res) => {
 	const newUser = new User({username: req.body.username});
 	User.register(newUser, req.body.password, (err, user) => {
 		if(err) {
-			console.log(err);
-			return res.render('signup');
+			req.flash('error', err.message);
+			res.render('auth/signup');
 		} else {
 			passport.authenticate('local')(req, res, function() {
-				console.log('user was created and authenticated!');
+				req.flash('success', 'Welcome to Pixel Perfect!');
 				res.redirect('/');
 			})
 		}
@@ -37,17 +39,9 @@ router.post('/signup', (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
+	req.flash('success', `Logged Out`)
 	req.logout();
-	console.log('User is now logged out!');
 	res.redirect('/');
 })
-
-function isLoggedIn(req, res, next) {
-	if(req.isAuthenticated()) {
-		return next();
-	} else {
-		res.redirect('/login');
-	}
-}
 
 module.exports = router;
