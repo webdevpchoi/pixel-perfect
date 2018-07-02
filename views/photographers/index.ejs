@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+<h1>Photographers</h1>
+
+<div class="row">
+	<% photographers.forEach((photographer) => { %>
+		<div class="photographer col-md-3 col-md-6">
+			<img src="<%= photographer.img %>" alt="" class="img-thumbnail">
+			<p><%= photographer.name %></p>
+		</div>
+	<% }) %>
+</div>
+<%- include('../partials/footer') %>

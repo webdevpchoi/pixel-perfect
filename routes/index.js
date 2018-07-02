@@ -8,7 +8,6 @@ router.get('/', (req, res) => res.render('landing'));
 
 //auth routes
 router.get('/login', (req, res) => {
-	console.log('you need to log in');
 	res.render('auth/login');
 })
 

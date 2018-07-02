@@ -1,4 +1,5 @@
-const	methodOverride = require('method-override'),
+const	Photographer = require('./schemas/photographer'),
+		methodOverride = require('method-override'),
 		LocalStrategy = require('passport-local'),
 		Comment = require('./schemas/comment'),
 		session = require('express-session'),
@@ -58,6 +59,16 @@ seedDB();
 app.use('/', index);
 app.use('/models/', models);
 app.use('/models/:id/comments', comments);
+
+app.get('/photographers', (req, res) => {
+	Photographer.find({}, (err, photographers) => {
+		if(err) {
+			console.log('error');
+		} else {
+			res.render('photographers/index', {photographers: photographers});
+		}
+	})
+})
 
 
 //listening to port
