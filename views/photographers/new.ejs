@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<h1>Add New Photographer</h1>
+
+<form action="/photographers" method="POST" class="form-group">
+	<div class="form-group">
+		<label for="name">
+			<input type="text" id="name" placeholder="name" name="photographer[name]" class="form-control">
+		</label>
+		<label for="img">
+			<input type="text" placeholder="Image URL" name="photographer[img]" class="form-control">
+		</label>
+		<label for="desc">
+			<textarea name="photographer[desc]" placeholder="Describe yourself!" id="" cols="30" rows="10" class="form-control"></textarea>
+		</label>
+		<button>Submit</button>
+	</div>
+</form>
+
+<%- include('../partials/footer') %>

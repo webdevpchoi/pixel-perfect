@@ -70,6 +70,47 @@ app.get('/photographers', (req, res) => {
 	})
 })
 
+app.get('/photographers/new', (req, res) => {
+	res.render('photographers/new');
+})
+
+app.post('/photographers', (req, res) => {
+	const pg = req.body.photographer;
+	const newPhotographer = {
+		name: pg.name,
+		img: pg.img,
+		desc: pg.desc,
+	}
+
+	Photographer.create(newPhotographer, (err, photographer) => {
+		if(err) {
+			console.log(err);
+		} else {
+			res.redirect('/photographers');
+		}
+	})
+});
+
+app.get('/photographers/:id', (req, res) => {
+	const pgId = req.params.id;
+	Photographer.findOne({_id: pgId}).populate('comments').exec((err, photographer) => {
+		if(err) {
+			console.log(err);
+		} else {
+			res.render('photographers/show', {photographer: photographer});
+		}
+	});
+})
+
+app.delete('/photographers/:id', (req, res) => {
+	Photographer.findByIdAndDelete({_id: req.params.id}, (err) => {
+		if(err) {
+			console.log('Something wrong with deleting');
+		} else {
+			res.redirect('/photographers');
+		}
+	})
+})
 
 //listening to port
 app.listen(port, () => {

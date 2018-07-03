@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<h1>SHOW TEMPLATE</h1>
+<% console.log(photographer) %>
+<img src="<%= photographer.img %>" alt="" class="img-thumbnail">
+
+<a href="">
+	<button class="btn btn-warning">Edit</button>
+</a>
+<form action="/photographers/<%= photographer._id %>?_method=DELETE" method="POST">
+	<button class="btn btn-danger">Delete</button>
+</form>
+
+<ul>
+	<li><%= photographer.name %></li>
+	<li><%= photographer.desc %></li>
+</ul>
+
+<ul>
+	<% photographer.comments.forEach((comment) => { %>
+		<li><%= comment.text %></li>
+		<li><%= comment.author.username %></li>
+	<% }) %>
+</ul>
+
+
+<%- include('../partials/footer') %>

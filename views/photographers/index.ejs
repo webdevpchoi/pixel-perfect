@@ -1,10 +1,13 @@
 <%- include('../partials/header') %>
 <h1>Photographers</h1>
+<a href="/photographers/new"><button class="btn btn-primary">New Photographer</button></a>
 
 <div class="row">
 	<% photographers.forEach((photographer) => { %>
 		<div class="photographer col-md-3 col-md-6">
-			<img src="<%= photographer.img %>" alt="" class="img-thumbnail">
+			<a href="/photographers/<%= photographer._id %>">
+				<img src="<%= photographer.img %>" alt="" class="img-thumbnail">
+			</a>
 			<p><%= photographer.name %></p>
 		</div>
 	<% }) %>

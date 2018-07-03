@@ -94,6 +94,20 @@ function seedDB() {
 						console.log(err)
 					} else {
 						console.log(`Added photographer ${photographer.name}`);
+						Comment.create({
+							text: "This is the default comment for the PHOTOGRAPHER.",
+							author: {
+								username: "APOLLO",
+							},
+						}, (err, newComment) => {
+							if(err) {
+								console.log(err)
+							} else {
+								console.log(`Comment added for photographer`);
+								photographer.comments.push(newComment);
+								photographer.save();
+							}
+						})
 					}
 				})
 			})
