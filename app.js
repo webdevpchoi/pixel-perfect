@@ -41,6 +41,7 @@ app.use(function(req, res, next){
    	res.locals.currentUser = req.user;
    	res.locals.error = req.flash('error');
    	res.locals.success = req.flash('success');
+   	res.locals.isModel = false;
    	next();
 });
 
@@ -91,12 +92,14 @@ app.post('/photographers', (req, res) => {
 	})
 });
 
+//show route
 app.get('/photographers/:id', (req, res) => {
 	const pgId = req.params.id;
 	Photographer.findOne({_id: pgId}).populate('comments').exec((err, photographer) => {
 		if(err) {
 			console.log(err);
 		} else {
+			console.log(photographer)
 			res.render('photographers/show', {photographer: photographer});
 		}
 	});
@@ -110,6 +113,80 @@ app.delete('/photographers/:id', (req, res) => {
 			res.redirect('/photographers');
 		}
 	})
+})
+
+//edit route
+app.get('/photographers/:id/edit', (req, res) => {
+	Photographer.findOne({_id: req.params.id}, (err, photographer) => {
+		if(err) {
+			console.log(err)
+		} else {
+			res.render('photographers/edit', {photographer: photographer});
+		}
+	})
+})
+
+app.put('/photographers/:id', (req, res) => {
+	Photographer.findByIdAndUpdate({_id: req.params.id}, req.body.pg, (err, photographer) => {
+		if(err) {
+			console.log(err);
+		} else {
+			res.redirect('/photographers/' + req.params.id);
+		}
+	})
+})
+
+//comments route
+app.get('/photographers/:id/comments/new', (req, res) => {
+	res.locals.isModel = false;
+	const id = req. params.id;
+	Photographer.findOne({_id: req.params.id}, (err, photographer) => {
+		if(err) {
+			console.log(err);
+		} else {
+			res.render('comments/new', {photographer: photographer, id: id});
+		}
+	})
+})
+
+app.post('/photographers/:id/comments', (req, res) => {
+	Photographer.findOne({_id: req.params.id}, (err, photographer) => {
+		if(err) {
+			console.log(err);
+		} else {
+			Comment.create(req.body.comment, (err, comment) => {
+				if(err) {
+					console.log(err);
+				} else {
+					photographer.comments.push(comment);
+					photographer.save();
+					res.redirect(`/photographers/${req.params.id}`);
+				}
+			})
+		}
+	})
+})
+
+app.get('/photographers/:id/comments/:comment_id/edit', (req, res) => {
+	res.locals.isModel = false;
+	const pgId = req.params.id
+	Comment.findOne({_id: req.params.comment_id}, (err, comment) => {
+		if(err) {
+			console.log(err);
+		} else {
+			res.render('comments/edit', {comment: comment, pgId: pgId});
+		}
+	})
+})
+
+app.put('/photographers/:id/comments/:comment_id', (req, res) => {
+	Comment.findByIdAndUpdate({_id: req.params.comment_id}, req.body.comment, (err, comment) => {
+		if(err) {
+			console.log(err);
+		} else {
+			res.redirect(`/photographers/${req.params.id}/`);
+		}
+	} )
 })
 
 //listening to port

@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 <h1>SHOW TEMPLATE</h1>
-<% console.log(photographer) %>
+
 <img src="<%= photographer.img %>" alt="" class="img-thumbnail">
 
-<a href="">
+<a href="/photographers/<%= photographer._id %>/edit">
 	<button class="btn btn-warning">Edit</button>
 </a>
 <form action="/photographers/<%= photographer._id %>?_method=DELETE" method="POST">
@@ -15,12 +15,27 @@
 	<li><%= photographer.desc %></li>
 </ul>
 
-<ul>
+<ul class="comments">
 	<% photographer.comments.forEach((comment) => { %>
-		<li><%= comment.text %></li>
-		<li><%= comment.author.username %></li>
+		<li>
+			<%= comment.text %>
+		<br>
+		<br>
+		<div class="text-right">
+			<em>User</em>
+		</div>
+		<a href="/photographers/<%= photographer._id %>/comments/<%=comment._id %>/edit">
+			<button class="btn btn-warning">Edit Comment</button>
+		</a>
+		</li>
 	<% }) %>
 </ul>
+
+<div>
+	<a href="/photographers/<%= photographer.id %>/comments/new">
+		<button class="btn btn-primary">Add New Comment</button>
+	</a>
+</div>
 
 
 <%- include('../partials/footer') %>

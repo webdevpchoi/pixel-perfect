@@ -29,6 +29,7 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
 
 //get route for new comments
 router.get('/new', middleware.isLoggedIn, (req, res) => {
+	res.locals.isModel = true;
 	Model.findOne({_id: req.params.id}, (err, model) => {
 		if(err) {
 			console.log(err)
@@ -42,6 +43,7 @@ router.get('/new', middleware.isLoggedIn, (req, res) => {
 //edit route for comments
 router.get('/:comment_id/edit', (req, res) => {
 	const campgroundId = req.params.id;
+	res.locals.isModel = true;
 	Comment.findOne({_id: req.params.comment_id}, (err, comment) => {
 		if(err) {
 			res.send('Error editing comment!');
@@ -51,7 +53,7 @@ router.get('/:comment_id/edit', (req, res) => {
 	})
 })
 
-router.post('/:comment_id', (req, res) => {
+router.put('/:comment_id', (req, res) => {
 	Comment.findByIdAndUpdate({_id: req.params.comment_id},  req.body.comment, (err, comment) => {
 		if(err) {
 			res.redirect('back');

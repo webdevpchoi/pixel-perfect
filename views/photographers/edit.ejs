@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<h1>EDIT PHOTOGRAPHER</h1>
+
+<form action="/photographers/<%= photographer.id %>?_method=PUT" method="POST">
+	<label for="name">
+		<input type="text" id="name" name="pg[name]"class="form-control" value="<%= photographer.name %>">
+	</label>
+	<label for="img">
+		<input type="text" id="img" name="pg[img]" class="form-control" value="<%= photographer.img %>">
+	</label>
+	<label for="desc">
+		<textarea name="pg[desc]" id="desc" cols="30" rows="10" class="form-control"><%= photographer.desc %></textarea>
+	</label>
+	<button class="btn btn-primary">Submit</button>
+</form>
+
+<%- include('../partials/footer') %>
