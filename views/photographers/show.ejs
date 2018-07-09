@@ -3,17 +3,23 @@
 
 <img src="<%= photographer.img %>" alt="" class="img-thumbnail">
 
-<a href="/photographers/<%= photographer._id %>/edit">
-	<button class="btn btn-warning">Edit</button>
-</a>
-<form action="/photographers/<%= photographer._id %>?_method=DELETE" method="POST">
-	<button class="btn btn-danger">Delete</button>
-</form>
+<% if (currentUser && photographer.creator.id.equals(currentUser._id)) { %>
+	<a href="/photographers/<%= photographer._id %>/edit">
+		<button class="btn btn-warning">Edit</button>
+	</a>
+	<form action="/photographers/<%= photographer._id %>?_method=DELETE" method="POST">
+		<button class="btn btn-danger">Delete</button>
+	</form>
+<% } %>
+
 
 <ul>
 	<li><%= photographer.name %></li>
 	<li><%= photographer.desc %></li>
 </ul>
+<div class="text-right">
+	<em>Created by: <%= photographer.creator.username %></em>
+</div>
 
 <ul class="comments">
 	<% photographer.comments.forEach((comment) => { %>
@@ -22,11 +28,16 @@
 		<br>
 		<br>
 		<div class="text-right">
-			<em>User</em>
+			<em><%= photographer.creator.username %></em>
 		</div>
-		<a href="/photographers/<%= photographer._id %>/comments/<%=comment._id %>/edit">
-			<button class="btn btn-warning">Edit Comment</button>
-		</a>
+		<% if (currentUser && photographer.creator.id.equals(currentUser._id)) { %>
+			<a href="/photographers/<%= photographer._id %>/comments/<%=comment._id %>/edit">
+				<button class="btn btn-warning">Edit Comment</button>
+			</a>
+			<form action="/photographers/<%= photographer._id %>/comments/<%= comment._id %>?_method=DELETE" method=POST>
+				<button class="btn btn-danger">Delete Comment</button>
+			</form>
+		<% } %>
 		</li>
 	<% }) %>
 </ul>

@@ -10,6 +10,7 @@ const	Photographer = require('./schemas/photographer'),
 		mongoose = require('mongoose'),
 		passport = require('passport'),
 	 	express = require('express'),
+	 	middleware = require('./middleware'),
 		seedDB = require('./seeds');
 
 //modular routes
@@ -37,6 +38,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.locals.isModel = 'THIS IS THE LOCALS';
 app.use(function(req, res, next){
    	res.locals.currentUser = req.user;
    	res.locals.error = req.flash('error');
@@ -71,22 +73,28 @@ app.get('/photographers', (req, res) => {
 	})
 })
 
-app.get('/photographers/new', (req, res) => {
+app.get('/photographers/new', middleware.isLoggedIn, (req, res) => {
 	res.render('photographers/new');
 })
 
-app.post('/photographers', (req, res) => {
+//add photographer
+app.post('/photographers', middleware.isLoggedIn, (req, res) => {
 	const pg = req.body.photographer;
 	const newPhotographer = {
 		name: pg.name,
 		img: pg.img,
 		desc: pg.desc,
+		creator: {
+			username: req.user.username,
+			id: req.user._id
+		}
 	}
 
 	Photographer.create(newPhotographer, (err, photographer) => {
 		if(err) {
 			console.log(err);
 		} else {
+			console.log(`Here's the new photographer: ${photographer}`);
 			res.redirect('/photographers');
 		}
 	})
@@ -99,13 +107,12 @@ app.get('/photographers/:id', (req, res) => {
 		if(err) {
 			console.log(err);
 		} else {
-			console.log(photographer)
 			res.render('photographers/show', {photographer: photographer});
 		}
 	});
 })
 
-app.delete('/photographers/:id', (req, res) => {
+app.delete('/photographers/:id', middleware.checkOwnership, (req, res) => {
 	Photographer.findByIdAndDelete({_id: req.params.id}, (err) => {
 		if(err) {
 			console.log('Something wrong with deleting');
@@ -116,7 +123,7 @@ app.delete('/photographers/:id', (req, res) => {
 })
 
 //edit route
-app.get('/photographers/:id/edit', (req, res) => {
+app.get('/photographers/:id/edit', middleware.checkOwnership, (req, res) => {
 	Photographer.findOne({_id: req.params.id}, (err, photographer) => {
 		if(err) {
 			console.log(err)
@@ -187,6 +194,16 @@ app.put('/photographers/:id/comments/:comment_id', (req, res) => {
 			res.redirect(`/photographers/${req.params.id}/`);
 		}
 	} )
+})
+
+app.delete ('/photographers/:id/comments/:comment_id', (req, res) => {
+	Comment.findByIdAndDelete({_id: req.params.comment_id}, (err) => {
+		if(err) {
+			console.log(err);
+		} else {
+			res.redirect(`/photographers/${req.params.id}`);
+		}
+	})
 })
 
 //listening to port
