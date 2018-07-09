@@ -112,7 +112,7 @@ app.get('/photographers/:id', (req, res) => {
 	});
 })
 
-app.delete('/photographers/:id', middleware.checkOwnership, (req, res) => {
+app.delete('/photographers/:id', middleware.checkPgOwnership, (req, res) => {
 	Photographer.findByIdAndDelete({_id: req.params.id}, (err) => {
 		if(err) {
 			console.log('Something wrong with deleting');

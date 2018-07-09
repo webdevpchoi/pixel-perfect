@@ -12,38 +12,48 @@ middleware.isLoggedIn = function(req, res, next) {
 }
 
 middleware.checkOwnership = function(req, res, next) {
-	console.log(`This is the middleware ${req.app.locals}`);
+	// console.log(`This is the middleware ${req.app.locals}`);
 	//check if user is logged in
 	if(req.isAuthenticated()) {
-		if(isModel) {
 		// find model
-			Model.findOne({_id: req.params.id}, (err, model) => {
-				if(err) {
-					req.flash('error', 'Unable to find model.')
+		Model.findOne({_id: req.params.id}, (err, model) => {
+			if(err) {
+				req.flash('error', 'Unable to find model.')
+			} else {
+	//compare id of user who created model and user who is logged in;
+				if(model.creator.id.equals(req.user._id)) {
+					next();
 				} else {
-		//compare id of user who created model and user who is logged in;
-					if(model.creator.id.equals(req.user._id)) {
-						next();
-					} else {
-						req.flash('error', 'Authorization error');
-						res.redirect('/models');
-					}
+					req.flash('error', 'Authorization error');
+					res.redirect('/models');
 				}
-			})
-		} else {
-			Photographer.findOne({_id: req.params.id}, (req, res) => {
-				if(err) {
-					console.log(err);
-				} else {
-					console.log(`This is the photographer ${photographer}`);
-				}
-			})
-		}
-		
+			}
+		})		
 	} else {
 		req.flash('error', 'You need to be logged in first!')
 		res.redirect('/login');
 	}
 }
 
+middleware.checkPgOwnership = function(req, res, next) {
+	if(req.isAuthenticated()) {
+		// find photographer
+		Photographer.findOne({_id: req.params.id}, (err, photographer) => {
+			if(err) {
+				req.flash('error', 'Unable to find model.')
+			} else {
+	//compare id of user who created photographer and user who is logged in;
+				if(photographer.creator.id.equals(req.user._id)) {
+					next();
+				} else {
+					req.flash('error', 'Authorization error');
+					res.redirect('/photographers');
+				}
+			}
+		})		
+	} else {
+		req.flash('error', 'You need to be logged in first!')
+		res.redirect('/login');
+	}
+}
 module.exports = middleware;
