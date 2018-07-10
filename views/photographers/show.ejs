@@ -28,7 +28,7 @@
 		<br>
 		<br>
 		<div class="text-right">
-			<em><%= photographer.creator.username %></em>
+			<em><%= comment.author.username %></em>
 		</div>
 		<% if (currentUser && photographer.creator.id.equals(currentUser._id)) { %>
 			<a href="/photographers/<%= photographer._id %>/comments/<%=comment._id %>/edit">

@@ -54,7 +54,7 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
 })
 
 //edit model routes
-router.get('/:id/edit', middleware.checkOwnership, (req, res) => {
+router.get('/:id/edit', middleware.checkOwnership('model'), (req, res) => {
 	const userId = req.params.id;
 	Model.findOne({_id: userId}, (err, model) => {
 		if(err) {

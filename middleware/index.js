@@ -11,43 +11,21 @@ middleware.isLoggedIn = function(req, res, next) {
 	}
 }
 
-middleware.checkOwnership = function(req, res, next) {
-	// console.log(`This is the middleware ${req.app.locals}`);
-	//check if user is logged in
-	if(req.isAuthenticated()) {
-		// find model
-		Model.findOne({_id: req.params.id}, (err, model) => {
-			if(err) {
-				req.flash('error', 'Unable to find model.')
-			} else {
-	//compare id of user who created model and user who is logged in;
-				if(model.creator.id.equals(req.user._id)) {
-					next();
-				} else {
-					req.flash('error', 'Authorization error');
-					res.redirect('/models');
-				}
-			}
-		})		
-	} else {
-		req.flash('error', 'You need to be logged in first!')
-		res.redirect('/login');
-	}
-}
-
-// middleware.checkPgOwnership = function(req, res, next) {
+// middleware.checkOwnership = function(req, res, next) {
+// 	// console.log(`This is the middleware ${req.app.locals}`);
+// 	//check if user is logged in
 // 	if(req.isAuthenticated()) {
-// 		// find photographer
-// 		Photographer.findOne({_id: req.params.id}, (err, photographer) => {
+// 		// find model
+// 		Model.findOne({_id: req.params.id}, (err, model) => {
 // 			if(err) {
 // 				req.flash('error', 'Unable to find model.')
 // 			} else {
-// 	//compare id of user who created photographer and user who is logged in;
-// 				if(photographer.creator.id.equals(req.user._id)) {
+// 	//compare id of user who created model and user who is logged in;
+// 				if(model.creator.id.equals(req.user._id)) {
 // 					next();
 // 				} else {
 // 					req.flash('error', 'Authorization error');
-// 					res.redirect('/photographers');
+// 					res.redirect('/models');
 // 				}
 // 			}
 // 		})		
@@ -63,23 +41,35 @@ middleware.checkOwnership = function(type) {
 			if(type === 'photographer') {
 				//run auth for model
 				//find current model and the user id that created it
-				Photographer.findOne({_id: req.params.id}, (err, model) => {
+				Photographer.findOne({_id: req.params.id}, (err, photographer) => {
+					if(err) {
+						console.log(err);
+					} else {
+						if(photographer.creator.id.equals(req.user._id)) {
+							next();
+						} else {
+							console.log('This user is not authorized');
+						}
+					}
+				})
+				//check current user id with user id that created the model
+				//if it matches go next
+			} 
+			else if (type === 'model') {
+				Model.findOne({_id: req.params.id}, (err, model) => {
 					if(err) {
 						console.log(err);
 					} else {
 						if(model.creator.id.equals(req.user._id)) {
 							next();
 						} else {
-							console.log('shit dont match');
+							console.log('This user is not authorized');
 						}
 					}
 				})
-				//check current user id with user id that created the model
-				//if it matches go next
 			} else {
-				//run auth for photographer
-				console.log('this is for the models');
-			}			
+				console.log('Parameter must be model or photographer');
+			}
 		}
 	}
 }

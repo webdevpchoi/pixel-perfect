@@ -123,7 +123,7 @@ app.delete('/photographers/:id', middleware.checkOwnership('photographer'), (req
 })
 
 //edit route
-app.get('/photographers/:id/edit', (req, res) => {
+app.get('/photographers/:id/edit', middleware.checkOwnership('photographer'), (req, res) => {
 	Photographer.findOne({_id: req.params.id}, (err, photographer) => {
 		if(err) {
 			console.log(err)
@@ -133,7 +133,7 @@ app.get('/photographers/:id/edit', (req, res) => {
 	})
 })
 
-app.put('/photographers/:id', (req, res) => {
+app.put('/photographers/:id', middleware.checkOwnership('photographer'), (req, res) => {
 	Photographer.findByIdAndUpdate({_id: req.params.id}, req.body.pg, (err, photographer) => {
 		if(err) {
 			console.log(err);
@@ -146,7 +146,7 @@ app.put('/photographers/:id', (req, res) => {
 //comments route
 app.get('/photographers/:id/comments/new', (req, res) => {
 	res.locals.isModel = false;
-	const id = req. params.id;
+	const id = req.params.id;
 	Photographer.findOne({_id: req.params.id}, (err, photographer) => {
 		if(err) {
 			console.log(err);
@@ -165,6 +165,9 @@ app.post('/photographers/:id/comments', (req, res) => {
 				if(err) {
 					console.log(err);
 				} else {
+					comment.author.id = req.user._id;
+					comment.author.username = req.user.username;
+					comment.save();
 					photographer.comments.push(comment);
 					photographer.save();
 					res.redirect(`/photographers/${req.params.id}`);
