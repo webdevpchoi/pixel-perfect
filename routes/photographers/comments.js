@@ -1,10 +1,11 @@
 const	Comment = require('../../schemas/comment'),
 	 	middleware = require('../../middleware'),
-		Model = require('../../schemas/model'),
+		Photographer = require('../../schemas/photographer'),
 	 	express = require('express'),
 		router = express.Router({mergeParams: true});
 
 router.get('/comments/new', (req, res) => {
+	console.log('this route');
 	res.locals.isModel = false;
 	const id = req.params.id;
 	Photographer.findOne({_id: req.params.id}, (err, photographer) => {
