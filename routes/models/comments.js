@@ -1,6 +1,6 @@
-const	Comment = require('../schemas/comment'),
-	 	middleware = require('../middleware'),
-		Model = require('../schemas/model'),
+const	Comment = require('../../schemas/comment'),
+	 	middleware = require('../../middleware'),
+		Model = require('../../schemas/model'),
 	 	express = require('express'),
 		router = express.Router({mergeParams: true});
 		

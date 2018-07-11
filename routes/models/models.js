@@ -1,6 +1,6 @@
-const	Model = require('../schemas/model'),
+const	Model = require('../../schemas/model'),
 	 	express = require('express'),
-	 	middleware = require('../middleware'),
+	 	middleware = require('../../middleware'),
 		router 	= express.Router();
 
 router.get('/', (req, res) => {

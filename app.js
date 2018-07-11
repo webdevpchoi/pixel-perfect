@@ -14,9 +14,11 @@ const	Photographer = require('./schemas/photographer'),
 		seedDB = require('./seeds');
 
 //modular routes
-const	comments = require('./routes/comments'),
-	 	index = require('./routes/index'),
-		models = require('./routes/models');
+const	comments = require('./routes/models/comments'),
+	 	index = require('./routes/models/index'),
+	 	photographers = require('./routes/photographers/photographers'),
+	 	photographerComments = require('./routes/photographers/comments'),
+		models = require('./routes/models/models');
 
 const app = express();
 const port = 3000;
@@ -62,152 +64,9 @@ seedDB();
 app.use('/', index);
 app.use('/models/', models);
 app.use('/models/:id/comments', comments);
+app.use('/photographers/', photographers);
+app.use('/photographers/:id/comments/', photographerComments);
 
-app.get('/photographers', (req, res) => {
-	Photographer.find({}, (err, photographers) => {
-		if(err) {
-			console.log('error');
-		} else {
-			res.render('photographers/index', {photographers: photographers});
-		}
-	})
-})
-
-app.get('/photographers/new', middleware.isLoggedIn, (req, res) => {
-	res.render('photographers/new');
-})
-
-//add photographer
-app.post('/photographers', middleware.isLoggedIn, (req, res) => {
-	const pg = req.body.photographer;
-	const newPhotographer = {
-		name: pg.name,
-		img: pg.img,
-		desc: pg.desc,
-		creator: {
-			username: req.user.username,
-			id: req.user._id
-		}
-	}
-
-	Photographer.create(newPhotographer, (err, photographer) => {
-		if(err) {
-			console.log(err);
-		} else {
-			console.log(`Here's the new photographer: ${photographer}`);
-			res.redirect('/photographers');
-		}
-	})
-});
-
-//show route
-app.get('/photographers/:id', (req, res) => {
-	const pgId = req.params.id;
-	Photographer.findOne({_id: pgId}).populate('comments').exec((err, photographer) => {
-		if(err) {
-			console.log(err);
-		} else {
-			res.render('photographers/show', {photographer: photographer});
-		}
-	});
-})
-
-app.delete('/photographers/:id', middleware.checkOwnership('photographer'), (req, res) => {
-	Photographer.findByIdAndDelete({_id: req.params.id}, (err) => {
-		if(err) {
-			console.log('Something wrong with deleting');
-		} else {
-			res.redirect('/photographers');
-		}
-	})
-})
-
-//edit route
-app.get('/photographers/:id/edit', middleware.checkOwnership('photographer'), (req, res) => {
-	Photographer.findOne({_id: req.params.id}, (err, photographer) => {
-		if(err) {
-			console.log(err)
-		} else {
-			res.render('photographers/edit', {photographer: photographer});
-		}
-	})
-})
-
-app.put('/photographers/:id', middleware.checkOwnership('photographer'), (req, res) => {
-	Photographer.findByIdAndUpdate({_id: req.params.id}, req.body.pg, (err, photographer) => {
-		if(err) {
-			console.log(err);
-		} else {
-			res.redirect('/photographers/' + req.params.id);
-		}
-	})
-})
-
-//comments route
-app.get('/photographers/:id/comments/new', (req, res) => {
-	res.locals.isModel = false;
-	const id = req.params.id;
-	Photographer.findOne({_id: req.params.id}, (err, photographer) => {
-		if(err) {
-			console.log(err);
-		} else {
-			res.render('comments/new', {photographer: photographer, id: id});
-		}
-	})
-})
-
-app.post('/photographers/:id/comments', (req, res) => {
-	Photographer.findOne({_id: req.params.id}, (err, photographer) => {
-		if(err) {
-			console.log(err);
-		} else {
-			Comment.create(req.body.comment, (err, comment) => {
-				if(err) {
-					console.log(err);
-				} else {
-					comment.author.id = req.user._id;
-					comment.author.username = req.user.username;
-					comment.save();
-					photographer.comments.push(comment);
-					photographer.save();
-					res.redirect(`/photographers/${req.params.id}`);
-				}
-			})
-		}
-	})
-})
-
-app.get('/photographers/:id/comments/:comment_id/edit', (req, res) => {
-	res.locals.isModel = false;
-	const pgId = req.params.id
-	Comment.findOne({_id: req.params.comment_id}, (err, comment) => {
-		if(err) {
-			console.log(err);
-		} else {
-			res.render('comments/edit', {comment: comment, pgId: pgId});
-		}
-	})
-})
-
-app.put('/photographers/:id/comments/:comment_id', (req, res) => {
-	Comment.findByIdAndUpdate({_id: req.params.comment_id}, req.body.comment, (err, comment) => {
-		if(err) {
-			console.log(err);
-		} else {
-			res.redirect(`/photographers/${req.params.id}/`);
-		}
-	} )
-})
-
-app.delete ('/photographers/:id/comments/:comment_id', (req, res) => {
-	Comment.findByIdAndDelete({_id: req.params.comment_id}, (err) => {
-		if(err) {
-			console.log(err);
-		} else {
-			res.redirect(`/photographers/${req.params.id}`);
-		}
-	})
-})
 
 //listening to port
 app.listen(port, () => {

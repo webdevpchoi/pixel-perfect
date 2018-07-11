@@ -30,7 +30,7 @@
 		<div class="text-right">
 			<em><%= comment.author.username %></em>
 		</div>
-		<% if (currentUser && photographer.creator.id.equals(currentUser._id)) { %>
+		<% if (comment.author.id.equals(currentUser.id)) { %>
 			<a href="/photographers/<%= photographer._id %>/comments/<%=comment._id %>/edit">
 				<button class="btn btn-warning">Edit Comment</button>
 			</a>

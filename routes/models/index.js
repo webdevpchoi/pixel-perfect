@@ -1,6 +1,6 @@
 const	passport = require('passport'),
-	 	middleware = require('../middleware'),
-		User = require('../schemas/user'),
+	 	middleware = require('../../middleware'),
+		User = require('../../schemas/user'),
 		express = require('express'),
 		router = express.Router();
 
