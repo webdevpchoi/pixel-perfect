@@ -50,7 +50,7 @@ app.use(function(req, res, next){
 });
 
 //connect to db
-mongoose.connect('mongodb://localhost/tgr');
+mongoose.connect(process.env.DATABASEURL);
 //check if connection to db was successful
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
