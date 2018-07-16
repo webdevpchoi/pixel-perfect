@@ -15,7 +15,7 @@ const	Photographer = require('./schemas/photographer'),
 
 //modular routes
 const	comments = require('./routes/models/comments'),
-	 	index = require('./routes/models/index'),
+	 	index = require('./routes/index'),
 	 	photographers = require('./routes/photographers/photographers'),
 	 	photographerComments = require('./routes/photographers/comments'),
 		models = require('./routes/models/models');
