@@ -32,9 +32,8 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
 
 	Photographer.create(newPhotographer, (err, photographer) => {
 		if(err) {
-			console.log(err);
+			req.flash('error', 'Photographer was unable to be created. Please try again later.')
 		} else {
-			console.log(`Here's the new photographer: ${photographer}`);
 			res.redirect('/photographers');
 		}
 	})
@@ -45,7 +44,7 @@ router.get('/:id', (req, res) => {
 	const pgId = req.params.id;
 	Photographer.findOne({_id: pgId}).populate('comments').exec((err, photographer) => {
 		if(err) {
-			console.log(err);
+			req.flash('error', 'Unable to find any photographers for some reason...please try again later!');
 		} else {
 			res.render('photographers/show', {photographer: photographer});
 		}
@@ -55,7 +54,7 @@ router.get('/:id', (req, res) => {
 router.delete('/:id', middleware.checkOwnership('photographer'), (req, res) => {
 	Photographer.findByIdAndDelete({_id: req.params.id}, (err) => {
 		if(err) {
-			console.log('Something wrong with deleting');
+			req.flash('Could not delete photographer.');
 		} else {
 			res.redirect('/photographers');
 		}
@@ -66,7 +65,7 @@ router.delete('/:id', middleware.checkOwnership('photographer'), (req, res) => {
 router.get('/:id/edit', middleware.checkOwnership('photographer'), (req, res) => {
 	Photographer.findOne({_id: req.params.id}, (err, photographer) => {
 		if(err) {
-			console.log(err)
+			req.flash('error', "Something went wrong with the edit page...please try again later!");
 		} else {
 			res.render('photographers/edit', {photographer: photographer});
 		}
@@ -76,7 +75,7 @@ router.get('/:id/edit', middleware.checkOwnership('photographer'), (req, res) =>
 router.put('/:id', middleware.checkOwnership('photographer'), (req, res) => {
 	Photographer.findByIdAndUpdate({_id: req.params.id}, req.body.pg, (err, photographer) => {
 		if(err) {
-			console.log(err);
+			req.flash('error', 'There was some problem updating this photographer...please try again later.');
 		} else {
 			res.redirect('/photographers/' + req.params.id);
 		}

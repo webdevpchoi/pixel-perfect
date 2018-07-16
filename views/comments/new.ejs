@@ -1,6 +1,4 @@
 <%- include('../partials/header') %>
-<% console.log(model) %>
-<% console.log(photographer) %>
 <form class="form-group add-comment" action=<%= (isModel) ? "/models/" + model._id + "/comments" : "/photographers/" + photographer._id + "/comments" %> method="POST">
 	<h3 class="text-center">Add New Comment</h3>
 	<label for="comment">
