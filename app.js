@@ -58,8 +58,8 @@ db.once('open', function() {
 	console.log('DB succesfully connected!');
 })
 
-//input sample data into DB
-seedDB();
+// //input sample data into DB
+// seedDB();
 
 app.use('/', index);
 app.use('/models/', models);
