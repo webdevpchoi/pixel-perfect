@@ -21,7 +21,8 @@ const	comments = require('./routes/models/comments'),
 		models = require('./routes/models/models');
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
+console.log(port);
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
