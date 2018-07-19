@@ -4,6 +4,13 @@ const modelSchema = new mongoose.Schema({
 	name: String,
 	image: String,
 	desc: String,
+	age: Number,
+	experience: String,
+	height: Number,
+	eyeColor: String,
+	ethnicity: String,
+	tattoo: String,
+	hairColor: String,
 	comments: [
 		{
 			type: mongoose.Schema.Types.ObjectId,

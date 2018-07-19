@@ -31,6 +31,7 @@ router.post('/', (req, res) => {
 					comment.save();
 					photographer.comments.push(comment);
 					photographer.save();
+					req.flash('success', 'Successfully added comment!');
 					res.redirect(`/photographers/${req.params.id}`);
 				}
 			})
@@ -56,6 +57,7 @@ router.put('/:comment_id', (req, res) => {
 		if(err) {
 			req.flash('error', 'There was a problem editing your comment.');
 		} else {
+			req.flash('success', 'Successfully added ')
 			res.redirect(`/photographers/${req.params.id}/`);
 		}
 	} )
@@ -66,6 +68,7 @@ router.delete ('/:comment_id', (req, res) => {
 		if(err) {
 			req.flash('error', 'Comment could not be deleted.');			
 		} else {
+			req.flash('error', 'Successfully deleted comment!');
 			res.redirect(`/photographers/${req.params.id}`);
 		}
 	})

@@ -82,8 +82,8 @@ h1, h3 {
 
 //show page
 
-.desc {
-	margin: 10% 0;
+.traits {
+	padding: 0;
 }
 
 .comments {
@@ -95,6 +95,10 @@ h1, h3 {
 		padding: 10px;
 		margin: 10px;
 	}
+}
+
+.edit-model, .dlt-model {
+	min-width: 114px;
 }
 
 //new commend page

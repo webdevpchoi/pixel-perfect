@@ -47,8 +47,8 @@ h1, h3 {
   .add-model label input, .add-model label textarea {
     width: 100%; }
 
-.desc {
-  margin: 10% 0; }
+.traits {
+  padding: 0; }
 
 .comments {
   padding: 0; }
@@ -57,6 +57,9 @@ h1, h3 {
     background: #FFFFFF;
     padding: 10px;
     margin: 10px; }
+
+.edit-model, .dlt-model {
+  min-width: 114px; }
 
 .add-comment label {
   width: 100%; }

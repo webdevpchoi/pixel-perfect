@@ -1,24 +1,42 @@
 <%- include('../partials/header') %>
-<img class="img-thumbnail" src="<%= model.image %>" alt="Profile picture of model">
-<div>
-	<h6 class="m-2"><em>Model posted by: <%= model.creator.username %></em></h6>
-	<% if (currentUser && model.creator.id.equals(currentUser._id)) { %>
-		<a href="/models/<%= model._id %>/edit">
-			<button class="btn btn-warning">Edit Model</button>
-		</a>
-		<form action="/models/<%= model._id %>?_method=DELETE" method="POST">
-			<a href="/models/<%= model._id %>">
-				<button class="btn btn-danger">Delete Model</button>
-			</a>
-		</form>
-	<% } %>
-</div>
-<h3 class="text-center"><%= model.name %></h3>
-<div class="desc">
-	<h4>About <%= model.name %></h4>
-	<p><%= model.desc %></p>
+<div class="row">
+	<div class="col-sm-12 col-md-6">
+		<img class="img-thumbnail" src="<%= model.image %>" alt="Profile picture of model">
+		<h6 class="m-2"><em>Model posted by: <%= model.creator.username %></em></h6>
+		<% if (currentUser && model.creator.id.equals(currentUser._id)) { %>
+			<div class="d-flex justify-content-around">
+				<a href="/models/<%= model._id %>/edit">
+					<button class="btn btn-warning edit-model">Edit Model</button>
+				</a>
+				<form action="/models/<%= model._id %>?_method=DELETE" method="POST">
+					<a href="/models/<%= model._id %>">
+						<button class="btn btn-danger dlt-model">Delete Model</button>
+					</a>
+				</form>
+			</div>
+		<% } %>
+	</div>
+	<div class="col-sm-12 col-md-6 model-desc">
+		<h3 class="text-center col"><%= model.name %></h3>
+		<ul class="traits">
+			<li>Age: <%= model.age %></li>
+			<li>Eye Color: <%= model.eyeColor %></li>
+			<li>Hair Color: <%= model.hairColor %></li>
+			<li>Height: <%= model.height %></li>
+			<li>Tattoo: <%= model.tattoo %></li>
+			<li>Ethnicity: <%= model.ethnicity %></li>
+		</ul>
+	</div>
+	<div class="col-sm-12 col-md-6">
+		<h4 class="text-center">About Me</h4>
+		<p><em><%= model.desc %></em></p>
+	</div>
+	<div class="col-sm-12 col-md-6 more-img">
+		<img class="img-fluid" src="https://images.pexels.com/photos/458766/pexels-photo-458766.jpeg?cs=srgb&dl=attractive-beautiful-beautiful-girl-458766.jpg&fm=jpg" alt="">
+	</div>
 </div>
 <ul class="comments">
+	<h3 class="text-center">Comments</h3>
 	<% model.comments.forEach((comment) => { %>
 		<li>
 			<%= comment.text %>
@@ -27,7 +45,6 @@
 			<div class="text-right">
 				<em><%= comment.author.username %></em>
 			</div>
-			<% console.log(comment.author.id) %>
 			<% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
 				<a href="/models/<%= model._id %>/comments/<%= comment._id %>/edit">Edit Comment</a>
 				<form action="/models/<%= model._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST"

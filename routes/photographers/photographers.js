@@ -34,6 +34,7 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
 		if(err) {
 			req.flash('error', 'Photographer was unable to be created. Please try again later.')
 		} else {
+			req.flash('success', 'Photographer successfully added!');
 			res.redirect('/photographers');
 		}
 	})
@@ -54,8 +55,9 @@ router.get('/:id', (req, res) => {
 router.delete('/:id', middleware.checkOwnership('photographer'), (req, res) => {
 	Photographer.findByIdAndDelete({_id: req.params.id}, (err) => {
 		if(err) {
-			req.flash('Could not delete photographer.');
+			req.flash('error', 'Could not delete photographer.');
 		} else {
+			req.flash('success', 'Deleted photographer successfully!')
 			res.redirect('/photographers');
 		}
 	})
@@ -77,6 +79,7 @@ router.put('/:id', middleware.checkOwnership('photographer'), (req, res) => {
 		if(err) {
 			req.flash('error', 'There was some problem updating this photographer...please try again later.');
 		} else {
+			req.success('success', 'Successfully edited photographer.');
 			res.redirect('/photographers/' + req.params.id);
 		}
 	})
