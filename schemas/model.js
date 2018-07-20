@@ -23,7 +23,8 @@ const modelSchema = new mongoose.Schema({
 			ref: "User"
 		},
 		username: String
-	}
+	},
+	more: []
 })
 
 module.exports = mongoose.model('Model', modelSchema);
