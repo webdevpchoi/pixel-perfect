@@ -5,9 +5,19 @@
 	<label for="name">
 		<input class="form-control" type="text" id="name" placeholder="Name" name="model[name]" required>
 	</label>
-	<label for="image">
-		<input class="form-control" type="text" id="image" placeholder="Image URL" name="model[image]" required>
+	<label for="category">
+		<select class="form-control" name="model[category]" id="category">
+			<option value="street">Street</option>
+			<option value="cosplay">Cosplay</option>
+			<option value="nature">Nature</option>
+			<option value="boudoir">Boudoir</option>
+		</select>
 	</label>
+	<ul class="all-images">
+		<li class="list-group-item">
+			<input class="form-control" type="text" id="image" placeholder="Image URL" name="model[image][0]" required>
+		</li>
+	</ul>
 	<label for="age">
 		<input type="number" id="age" placeholder="Age" class="form-control" name="model[age]">
 	</label>
@@ -36,12 +46,6 @@
 	<label for="desc">
 		<textarea class="form-control" placeholder="Tell the world a little bit about yourself!" name="model[desc]" id="desc" cols="30" rows="10"></textarea>
 	</label>
-	<ul class="list-group">
-		<h6 class="text-center">Add More Photos</h6>
-		<li class="list-group-item">
-			<input type="text" placeholder="Image URL" name="model[link1]" class="form-control">
-		</li>
-	</ul>
 	<button class="btn btn-success" type="submit">Submit</button>
 </form>
 

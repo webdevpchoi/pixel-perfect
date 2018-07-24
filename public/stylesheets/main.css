@@ -47,6 +47,14 @@ h1, h3 {
   .add-model label input, .add-model label textarea {
     width: 100%; }
 
+.all-images {
+  padding: 0;
+  margin-bottom: .5rem; }
+  .all-images li {
+    padding: 0;
+    border: none;
+    margin-bottom: .5rem; }
+
 .traits {
   padding: 0; }
 

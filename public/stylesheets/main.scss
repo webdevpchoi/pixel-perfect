@@ -80,8 +80,18 @@ h1, h3 {
 	}
 }
 
-//show page
+.all-images {
+	padding: 0;
+	margin-bottom: .5rem;
+	li {
+		padding: 0;
+		border: none;
+		margin-bottom: .5rem;
+	}
 
+}
+
+//show page
 .traits {
 	padding: 0;
 }
