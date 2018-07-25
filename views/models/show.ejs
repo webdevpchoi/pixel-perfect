@@ -2,7 +2,7 @@
 <div class="row">
 	<div class="col-sm-12 col-md-6 py-2">
 		<h3 class="text-center col"><%= model.name %></h3>
-		<img class="img-thumbnail" src="<%= model.image %>" alt="Profile picture of model">
+		<img class="img-thumbnail" src="<%= model.images[0] %>" alt="Profile picture of model">
 		<h6 class="m-2"><em>Posted by: <%= model.creator.username %></em></h6>
 		<% if (currentUser && model.creator.id.equals(currentUser._id)) { %>
 			<div class="d-flex justify-content-around">
@@ -32,7 +32,9 @@
 	</div>
 	<div class="col-sm-12 col-md-12 more-img py-2">
 		<h4 class="text-center mb-3">See More</h4>
-		<img class="img-fluid" src="https://images.pexels.com/photos/458766/pexels-photo-458766.jpeg?cs=srgb&dl=attractive-beautiful-beautiful-girl-458766.jpg&fm=jpg" alt="">
+		<% model.images.slice(1).forEach((image) => { %>
+			<img src="<%= image %>" alt="" class="img-fluid">
+		<% }) %>
 	</div>
 </div>
 <ul class="comments py-2">

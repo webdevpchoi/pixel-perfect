@@ -25,7 +25,7 @@ const modelSchema = new mongoose.Schema({
 		},
 		username: String
 	},
-	more: []
+	images: []
 })
 
 module.exports = mongoose.model('Model', modelSchema);
