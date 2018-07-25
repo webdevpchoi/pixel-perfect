@@ -1,8 +1,9 @@
 <%- include('../partials/header') %>
 <div class="row">
-	<div class="col-sm-12 col-md-6">
+	<div class="col-sm-12 col-md-6 py-2">
+		<h3 class="text-center col"><%= model.name %></h3>
 		<img class="img-thumbnail" src="<%= model.image %>" alt="Profile picture of model">
-		<h6 class="m-2"><em>Model posted by: <%= model.creator.username %></em></h6>
+		<h6 class="m-2"><em>Posted by: <%= model.creator.username %></em></h6>
 		<% if (currentUser && model.creator.id.equals(currentUser._id)) { %>
 			<div class="d-flex justify-content-around">
 				<a href="/models/<%= model._id %>/edit">
@@ -17,29 +18,28 @@
 		<% } %>
 	</div>
 	<div class="col-sm-12 col-md-6 model-desc">
-		<h3 class="text-center col"><%= model.name %></h3>
+		<h4 class="text-center mb-3">About Me</h4>
 		<ul class="traits">
 			<li>Age: <%= model.age %></li>
+			<li>Type: <%= model.category %></li>
 			<li>Eye Color: <%= model.eyeColor %></li>
 			<li>Hair Color: <%= model.hairColor %></li>
 			<li>Height: <%= model.height %></li>
 			<li>Tattoo: <%= model.tattoo %></li>
 			<li>Ethnicity: <%= model.ethnicity %></li>
 		</ul>
-	</div>
-	<div class="col-sm-12 col-md-6">
-		<h4 class="text-center">About Me</h4>
 		<p><em><%= model.desc %></em></p>
 	</div>
-	<div class="col-sm-12 col-md-6 more-img">
-		<h4 class="text-center">
-			Additional Work
-		</h4>
+	<div class="col-sm-12 col-md-12 more-img py-2">
+		<h4 class="text-center mb-3">See More</h4>
 		<img class="img-fluid" src="https://images.pexels.com/photos/458766/pexels-photo-458766.jpeg?cs=srgb&dl=attractive-beautiful-beautiful-girl-458766.jpg&fm=jpg" alt="">
 	</div>
 </div>
-<ul class="comments">
-	<h3 class="text-center">Comments</h3>
+<ul class="comments py-2">
+	<h4 class="text-center mb-3">Comments</h4>
+	<a href="/models/<%= model._id %>/comments/new">
+		<button class="btn btn-primary">Add New Comment</button>
+	</a>
 	<% model.comments.forEach((comment) => { %>
 		<li>
 			<%= comment.text %>
@@ -58,8 +58,5 @@
 	<% }) %>
 </ul>
 
-<a href="/models/<%= model._id %>/comments/new">
-	<button class="btn btn-primary">Add New Comment</button>
-</a>
 
 <%- include('../partials/footer') %>
