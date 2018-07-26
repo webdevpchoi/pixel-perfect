@@ -2,10 +2,10 @@
 <div class="row">
 	<div class="col-sm-12 col-md-6 py-2">
 		<h3 class="text-center col"><%= model.name %></h3>
-		<img class="img-thumbnail" src="<%= model.images[0] %>" alt="Profile picture of model">
+		<img class="img-thumbnail profile-img d-flex justify-content-center" src="<%= model.images[0] %>" alt="Profile picture of model">
 		<h6 class="m-2"><em>Posted by: <%= model.creator.username %></em></h6>
 		<% if (currentUser && model.creator.id.equals(currentUser._id)) { %>
-			<div class="d-flex justify-content-around">
+			<div class="my-2 p-2 d-flex justify-content-around">
 				<a href="/models/<%= model._id %>/edit">
 					<button class="btn btn-warning edit-model">Edit Model</button>
 				</a>
@@ -17,8 +17,8 @@
 			</div>
 		<% } %>
 	</div>
-	<div class="col-sm-12 col-md-6 model-desc">
-		<h4 class="text-center mb-3">About Me</h4>
+	<div class="col-sm-12 col-md-6 model-desc py-2">
+		<h3 class="text-center mb-3">About Me</h3>
 		<ul class="traits">
 			<li>Age: <%= model.age %></li>
 			<li>Type: <%= model.category %></li>
@@ -30,11 +30,13 @@
 		</ul>
 		<p><em><%= model.desc %></em></p>
 	</div>
-	<div class="col-sm-12 col-md-12 more-img py-2">
+	<div class="col-sm-12 col-md-12 py-2">
 		<h4 class="text-center mb-3">See More</h4>
-		<% model.images.slice(1).forEach((image) => { %>
-			<img src="<%= image %>" alt="" class="img-fluid">
-		<% }) %>
+		<div class="more-img">
+			<% model.images.slice(1).forEach((image) => { %>
+				<img src="<%= image %>" alt="">
+			<% }) %>
+		</div>
 	</div>
 </div>
 <ul class="comments py-2">

@@ -55,6 +55,9 @@ h1, h3 {
     border: none;
     margin-bottom: .5rem; }
 
+.profile-img {
+  margin: 0 auto; }
+
 .traits {
   padding: 0; }
 
