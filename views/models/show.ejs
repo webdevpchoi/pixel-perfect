@@ -2,14 +2,14 @@
 <div class="row">
 	<div class="col-sm-12 col-md-6 py-2">
 		<h3 class="text-center col"><%= model.name %></h3>
-		<img class="img-thumbnail profile-img d-flex justify-content-center" src="<%= model.images[0] %>" alt="Profile picture of model">
+		<img class="img-thumbnail profile-img d-flex justify-content-center" src="<%= model.profileImg %>" alt="Profile picture of model">
 		<h6 class="m-2"><em>Posted by: <%= model.creator.username %></em></h6>
 		<% if (currentUser && model.creator.id.equals(currentUser._id)) { %>
-			<div class="my-2 p-2 d-flex justify-content-around">
-				<a href="/models/<%= model._id %>/edit">
+			<div class="my-2 p-2 d-flex justify-content-around btn-container">
+				<a class="mx-2" href="/models/<%= model._id %>/edit">
 					<button class="btn btn-warning edit-model">Edit Model</button>
 				</a>
-				<form action="/models/<%= model._id %>?_method=DELETE" method="POST">
+				<form class="mx-2" action="/models/<%= model._id %>?_method=DELETE" method="POST">
 					<a href="/models/<%= model._id %>">
 						<button class="btn btn-danger dlt-model">Delete Model</button>
 					</a>
@@ -49,15 +49,19 @@
 			<%= comment.text %>
 			<br>
 			<br>
-			<div class="text-right">
+			<div class="text-right my-3">
 				<em><%= comment.author.username %></em>
 			</div>
-			<% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
-				<a href="/models/<%= model._id %>/comments/<%= comment._id %>/edit">Edit Comment</a>
-				<form action="/models/<%= model._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST"
-					<a href=""><button>DELETE</button></a>
-				</form>
-			<% } %>			
+			<div class="d-flex justify-content-center">
+				<% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+					<a class="mx-2" href="/models/<%= model._id %>/comments/<%= comment._id %>/edit">
+						<button class="btn btn-warning cmt-btn">Edit</button>
+					</a>
+					<form class="mx-2" action="/models/<%= model._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+						<button class="btn btn-danger cmt-btn">Delete</button>
+					</form>
+				<% } %>			
+			</div>
 		</li>
 	<% }) %>
 </ul>

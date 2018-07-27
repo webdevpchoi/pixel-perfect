@@ -1,20 +1,43 @@
 <%- include('../partials/header') %>
 
-<h1>Add New Photographer</h1>
-
-<form action="/photographers" method="POST" class="form-group">
-	<div class="form-group">
-		<label for="name">
-			<input type="text" id="name" placeholder="name" name="photographer[name]" class="form-control">
-		</label>
-		<label for="img">
-			<input type="text" placeholder="Image URL" name="photographer[img]" class="form-control">
-		</label>
-		<label for="desc">
-			<textarea name="photographer[desc]" placeholder="Describe yourself!" id="" cols="30" rows="10" class="form-control"></textarea>
-		</label>
-		<button>Submit</button>
-	</div>
+<h3 class="text-center">Add Photographer</h3>
+<form action="/photographers" method="POST" class="form-group add-model">
+	<label for="name">
+		<input class="form-control" type="text" id="name" placeholder="Name" name="photographer[name]" required>
+	</label>
+	<label for="category">
+		<select class="form-control" name="photographer[category]" id="category">
+			<option value="" selected disabled>Category</option>
+			<option value="Street">Street</option>
+			<option value="Cosplay">Cosplay</option>
+			<option value="Nature">Nature</option>
+			<option value="Boudoir">Boudoir</option>
+		</select>
+	</label>
+	<ul class="all-images">
+		<li class="list-group-item">
+			<input class="form-control" type="text" id="image" placeholder="Profile Picture" name="photographer[profileImg]" required>
+		</li>
+		<li class="list-group-item">
+			<input class="form-control" type="text" id="image" placeholder="Image URL" name="photographer[images][0]" required>
+		</li>
+		<li class="list-group-item">
+			<input class="form-control" type="text" id="image" placeholder="Image URL" name="photographer[images][1]" required>
+		</li>
+			<li class="list-group-item">
+			<input class="form-control" type="text" id="image" placeholder="Image URL" name="photographer[images][2]" required>
+		</li>
+	</ul>
+	<label for="age">
+		<input type="number" id="age" placeholder="Age" class="form-control" name="photographer[age]">
+	</label>
+	<label for="experience">
+		<input type="number" class="form-control" id="experience" placeholder="Years of experience" name="photographer[experience]">
+	</label>
+	<label for="desc">
+		<textarea class="form-control" placeholder="Tell the world a little bit about yourself!" name="photographer[desc]" id="desc" cols="30" rows="10"></textarea>
+	</label>
+	<button class="btn btn-success" type="submit">Submit</button>
 </form>
 
 <%- include('../partials/footer') %>

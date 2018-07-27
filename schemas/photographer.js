@@ -3,8 +3,13 @@ const mongoose = require('mongoose');
 const photographerSchema = new mongoose.Schema({
 	name: String,
 	desc: String,
-	img: String,
+	profileImg: String,
+	images: [
+		String
+	],
 	specialty: String,
+	experience: Number,
+	category: String,
 	comments: [
 		{
 			type: mongoose.Schema.Types.ObjectId,

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const modelSchema = new mongoose.Schema({
 	name: String,
+	profileImg: String,
 	category: String,
 	image: String,
 	desc: String,

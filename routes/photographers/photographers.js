@@ -19,18 +19,12 @@ router.get('/new', middleware.isLoggedIn, (req, res) => {
 
 //add photographer
 router.post('/', middleware.isLoggedIn, (req, res) => {
-	const pg = req.body.photographer;
-	const newPhotographer = {
-		name: pg.name,
-		img: pg.img,
-		desc: pg.desc,
-		creator: {
-			username: req.user.username,
-			id: req.user._id
-		}
+	req.body.photographer.creator = {
+		username: req.user.username,
+		id: req.user._id
 	}
 
-	Photographer.create(newPhotographer, (err, photographer) => {
+	Photographer.create(req.body.photographer, (err, photographer) => {
 		if(err) {
 			req.flash('error', 'Photographer was unable to be created. Please try again later.')
 		} else {

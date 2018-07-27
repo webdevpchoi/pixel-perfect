@@ -55,6 +55,9 @@ h1, h3 {
     border: none;
     margin-bottom: .5rem; }
 
+.cmt-btn {
+  min-width: 88px; }
+
 .profile-img {
   margin: 0 auto; }
 

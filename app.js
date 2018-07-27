@@ -22,7 +22,7 @@ const	comments = require('./routes/models/comments'),
 
 const app = express();
 const port = process.env.PORT || 3000;
-console.log(port);
+
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));

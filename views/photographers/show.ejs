@@ -1,53 +1,65 @@
 <%- include('../partials/header') %>
-<h1>SHOW TEMPLATE</h1>
-
-<img src="<%= photographer.img %>" alt="" class="img-thumbnail">
-
-<% if (currentUser && photographer.creator.id.equals(currentUser._id)) { %>
-	<a href="/photographers/<%= photographer._id %>/edit">
-		<button class="btn btn-warning">Edit</button>
-	</a>
-	<form action="/photographers/<%= photographer._id %>?_method=DELETE" method="POST">
-		<button class="btn btn-danger">Delete</button>
-	</form>
-<% } %>
-
-
-<ul>
-	<li><%= photographer.name %></li>
-	<li><%= photographer.desc %></li>
-</ul>
-<div class="text-right">
-	<em>Created by: <%= photographer.creator.username %></em>
+<div class="row">
+	<div class="col-sm-12 col-md-6 py-2">
+		<h3 class="text-center col"><%= photographer.name %></h3>
+		<img class="img-thumbnail profile-img d-flex justify-content-center" src="<%= photographer.profileImg %>" alt="Profile picture of model">
+		<h6 class="m-2"><em>Posted by: <%= photographer.creator.username %></em></h6>
+		<% if (currentUser && photographer.creator.id.equals(currentUser._id)) { %>
+			<div class="my-2 p-2 d-flex justify-content-around btn-container">
+				<a class="mx-2" href="/photographers/<%= photographer._id %>/edit">
+					<button class="btn btn-warning edit-model">Edit</button>
+				</a>
+				<form class="mx-2" action="/photographers/<%= photographer._id %>?_method=DELETE" method="POST">
+					<a href="/models/<%= photographer._id %>">
+						<button class="btn btn-danger dlt-model">Delete</button>
+					</a>
+				</form>
+			</div>
+		<% } %>
+	</div>
+	<div class="col-sm-12 col-md-6 model-desc py-2">
+		<h3 class="text-center mb-3">About Me</h3>
+		<ul class="traits">
+			<li>Age: <%= photographer.age %></li>
+			<li>Type: <%= photographer.category %></li>
+		</ul>
+		<p><em><%= photographer.desc %></em></p>
+	</div>
+	<div class="col-sm-12 col-md-12 py-2">
+		<h4 class="text-center mb-3">See More</h4>
+		<div class="more-img">
+			<% photographer.images.slice(1).forEach((image) => { %>
+				<img src="<%= image %>" alt="">
+			<% }) %>
+		</div>
+	</div>
 </div>
-
-<ul class="comments">
+<ul class="comments py-2">
+	<h4 class="text-center mb-3">Comments</h4>
+	<a href="/photographers/<%= photographer._id %>/comments/new">
+		<button class="btn btn-primary">Add New Comment</button>
+	</a>
 	<% photographer.comments.forEach((comment) => { %>
 		<li>
 			<%= comment.text %>
-		<br>
-		<br>
-		<div class="text-right">
-			<em><%= comment.author.username %></em>
-		</div>
-		<% console.log(comment) %>
-		<% if (comment.author.id.equals(currentUser.id)) { %>
-			<a href="/photographers/<%= photographer._id %>/comments/<%=comment._id %>/edit">
-				<button class="btn btn-warning">Edit Comment</button>
-			</a>
-			<form action="/photographers/<%= photographer._id %>/comments/<%= comment._id %>?_method=DELETE" method=POST>
-				<button class="btn btn-danger">Delete Comment</button>
-			</form>
-		<% } %>
+			<br>
+			<br>
+			<div class="text-right my-3">
+				<em><%= comment.author.username %></em>
+			</div>
+			<div class="d-flex justify-content-center">
+				<% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+					<a class="mx-2" href="/photographers/<%= photographer._id %>/comments/<%= comment._id %>/edit">
+						<button class="btn btn-warning cmt-btn">Edit</button>
+					</a>
+					<form class="mx-2" action="/photographers/<%= photographer._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+						<button class="btn btn-danger cmt-btn">Delete</button>
+					</form>
+				<% } %>			
+			</div>
 		</li>
 	<% }) %>
 </ul>
-
-<div>
-	<a href="/photographers/<%= photographer.id %>/comments/new">
-		<button class="btn btn-primary">Add New Comment</button>
-	</a>
-</div>
 
 
 <%- include('../partials/footer') %>
