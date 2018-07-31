@@ -42,9 +42,9 @@ h1, h3 {
 .btn {
   width: 100%; }
 
-.add-model label {
+.add-model label, .add-photographer label {
   width: 100%; }
-  .add-model label input, .add-model label textarea {
+  .add-model label input, .add-model label textarea, .add-photographer label input, .add-photographer label textarea {
     width: 100%; }
 
 .all-images {

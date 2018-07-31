@@ -4,6 +4,7 @@ const photographerSchema = new mongoose.Schema({
 	name: String,
 	desc: String,
 	profileImg: String,
+	age: Number,
 	images: [
 		String
 	],

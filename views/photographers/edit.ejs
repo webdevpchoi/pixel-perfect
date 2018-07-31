@@ -2,17 +2,43 @@
 
 <h1>EDIT PHOTOGRAPHER</h1>
 
-<form action="/photographers/<%= photographer.id %>?_method=PUT" method="POST">
+<form action="/photographers/<%= photographer.id %>?_method=PUT" method="POST" class="add-photographer">
 	<label for="name">
-		<input type="text" id="name" name="pg[name]"class="form-control" value="<%= photographer.name %>">
+		<input class="form-control" type="text" id="name" placeholder="Name" value="<%= photographer.name %>" required>
 	</label>
-	<label for="img">
-		<input type="text" id="img" name="pg[img]" class="form-control" value="<%= photographer.img %>">
+	<label for="category">
+		<select class="form-control" name="photographer[category]" id="category">
+			<option value="" selected disabled>Category</option>
+			<option value="Street">Street</option>
+			<option value="Cosplay">Cosplay</option>
+			<option value="Nature">Nature</option>
+			<option value="Boudoir">Boudoir</option>
+		</select>
+	</label>
+	<ul class="all-images">
+		<li class="list-group-item">
+			<input class="form-control" type="text" id="image" placeholder="Profile Picture" value="<%= photographer.profileImg %>" required>
+		</li>
+		<li class="list-group-item">
+			<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= photographer.images[0] %>" required>
+		</li>
+		<li class="list-group-item">
+			<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= photographer.images[1] %>" required>
+		</li>
+			<li class="list-group-item">
+			<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= photographer.images[2] %>" required>
+		</li>
+	</ul>
+	<label for="age">
+		<input type="number" id="age" placeholder="Age" class="form-control" value="<%= photographer.age %>">
+	</label>
+	<label for="experience">
+		<input type="number" class="form-control" id="experience" placeholder="Years of experience" value="<%= photographer.experience %>">
 	</label>
 	<label for="desc">
-		<textarea name="pg[desc]" id="desc" cols="30" rows="10" class="form-control"><%= photographer.desc %></textarea>
+		<textarea class="form-control" placeholder="Tell the world a little bit about yourself!" id="desc" cols="30" rows="10"><%= photographer.desc %></textarea>
 	</label>
-	<button class="btn btn-primary">Submit</button>
+	<button class="btn btn-success" type="submit">Submit</button>
 </form>
 
 <%- include('../partials/footer') %>
