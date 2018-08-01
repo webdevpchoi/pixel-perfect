@@ -1,3 +1,11 @@
+/* Hide HTML5 Up and Down arrows. */
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+input[type="number"] {
+  -moz-appearance: textfield; }
+
 body, html {
   background: #f8f8f8;
   font-family: 'IBM Plex Sans', sans-serif; }
@@ -54,6 +62,13 @@ h1, h3 {
     padding: 0;
     border: none;
     margin-bottom: .5rem; }
+
+.height {
+  flex-flow: nowrap; }
+  .height label[for="feet"], .height label[for="inches"] {
+    max-width: 120px; }
+    .height label[for="feet"] input, .height label[for="inches"] input {
+      width: 100%; }
 
 .cmt-btn {
   min-width: 88px; }

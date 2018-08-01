@@ -8,7 +8,10 @@ const modelSchema = new mongoose.Schema({
 	desc: String,
 	age: Number,
 	experience: String,
-	height: Number,
+	height: {
+		feet: Number,
+		inches: Number
+	},
 	eyeColor: String,
 	ethnicity: String,
 	tattoo: String,

@@ -2,60 +2,81 @@
 
 <h3 class="text-center">Edit Model</h3>
 <form action="/models/<%= model._id %>?_method=PUT" method="POST" class="form-group add-model">
-	<label for="name">
-		<input class="form-control" type="text" id="name" placeholder="Name" value="<%= model.name %>" required>
-	</label>
-	<label for="category">
+	<div class="form-group">
+		<label for="name">Name</label>
+		<input class="form-control" type="text" id="name" placeholder="Name" value="<%= model.name %>" required>		
+	</div>
+	<div class="form-group">
+		<label for="category">Type of Model</label>
 		<select class="form-control" name="model[category]" id="category">
 			<option value="" selected disabled>Category</option>
 			<option value="Street">Street</option>
 			<option value="Cosplay">Cosplay</option>
 			<option value="Nature">Nature</option>
 			<option value="Boudoir">Boudoir</option>
-		</select>
-	</label>
-	<ul class="all-images">
-		<li class="list-group-item">
-			<input class="form-control" type="text" id="image" placeholder="Profile Picture" value="<%= model.profileImg %>" required>
-		</li>
-		<li class="list-group-item">
-			<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= model.images[0] %>" required>
-		</li>
-		<li class="list-group-item">
-			<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= model.images[1] %>" required>
-		</li>
+		</select>		
+	</div>
+	<div class="form-group">
+		<label for="profileImg">Profile Picture</label>
+		<input type="text" class="form-control" id="profileImg" value="<%= model.profileImg %>" required>
+	</div>
+	<div class="form-group">
+		<label for="all-images">Additional Photos</label>
+		<ul class="all-images" id="all-images">
 			<li class="list-group-item">
-			<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= model.images[2] %>" required>
-		</li>
-	</ul>
-	<label for="age">
+				<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= model.images[0] %>" required>
+			</li>
+			<li class="list-group-item">
+				<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= model.images[1] %>" required>
+			</li>
+				<li class="list-group-item">
+				<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= model.images[2] %>" required>
+			</li>
+		</ul>		
+	</div>
+	<div class="form-group">		
+		<label for="age">Age</label>
 		<input type="number" id="age" placeholder="Age" class="form-control" value="<%= model.age %>">
-	</label>
-	<label for="hair-color">
+	</div>
+	<div class="form-group">
+		<label for="hair-color">Hair Color</label>
 		<input type="text" id="hair-color" placeholder="Hair color" class="form-control" value="<%= model.hairColor %>">
-	</label>
-	<label for="ethnicity">
-		<input type="text" id="ethnicity" placeholder="Ethnicity" class="form-control" value="<%= model.ethnicity %>">
-	</label>
-	<label for="eye-color">
+	</div>
+	<div class="form-group">
+		<label for="ethnicity">Ethnicity</label>
+		<input type="text" id="ethnicity" placeholder="Ethnicity" class="form-control" value="<%= model.ethnicity %>">		
+	</div>
+	<div class="form-group">
+		<label for="eye-color">Eye Color</label>
 		<input type="text" id="eye-color" placeholder="Eye color" class="form-control" value="<%= model.eyeColor %>">
-	</label>
-	<label for="height">
-		<input type="number" id="height" placeholder="Height" class="form-control" value="<%= model.height %>">
-	</label>
-	<label for="experience">
-		<input type="number" class="form-control" id="experience" placeholder="Years of experience" value="<%= model.experience %>">
-	</label>
-	<label for="tattoos">
+	</div>
+	<div class="form-group">
+		<label for="height">Height</label>
+		<div class="form-inline height" id="height">
+			<label for="feet" class="mr-3">
+				<input type="number" id="height" placeholder="Feet" class="form-control feet" id="feet" value="<%= model.height %>">
+			</label>
+			<label for="inches">
+				<input type="text" class="form-control inches" value="" id="inches" placeholder="Inches">
+			</label>
+		</div>		
+	</div>
+	<div class="form-group">
+		<label for="experience">Years of Experience</label>
+		<input type="number" class="form-control" id="experience" placeholder="Years of experience" value="<%= model.experience %>">		
+	</div>
+	<div class="form-group">
+		<label for="tattoos">Tattoos</label>
 	    <select name="model[tattoo]" class="form-control" id="tattoos">
 			<option value="" selected disabled>Tattoos?</option>
 	     	<option value="yes">Yes</option>
 	      	<option value="no">No</option>
-	    </select>
-	</label>
-	<label for="desc">
-		<textarea class="form-control" placeholder="Tell the world a little bit about yourself!" name="model[desc]" id="desc" cols="30" rows="10"></textarea>
-	</label>
+	    </select>		
+	</div>
+	<div class="form-group">
+		<label for="desc">Description</label>
+		<textarea class="form-control" placeholder="Tell the world a little bit about yourself!" name="model[desc]" id="desc" cols="30" rows="10"></textarea>		
+	</div>
 	<button class="btn btn-success" type="submit">Submit</button>
 </form>
 
