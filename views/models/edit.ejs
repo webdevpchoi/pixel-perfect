@@ -2,9 +2,14 @@
 
 <h3 class="text-center">Edit Model</h3>
 <form action="/models/<%= model._id %>?_method=PUT" method="POST" class="form-group add-model">
-	<div class="form-group">
-		<label for="name">Name</label>
-		<input class="form-control" type="text" id="name" placeholder="Name" value="<%= model.name %>" required>		
+	<label for="name">Name</label>
+	<div class="form-group" id="name">
+		<label for="name">
+			<input class="form-control" type="text" id="name" placeholder="Name" name="model[name][first]" value="<%= model.name.first %>" required>			
+		</label>
+		<label for="last-name">
+			<input class="form-control" placeholder="Last Name" name="model[name][last]" value="<%= model.name.last %>"></input>
+		</label>	
 	</div>
 	<div class="form-group">
 		<label for="category">Type of Model</label>
@@ -18,52 +23,52 @@
 	</div>
 	<div class="form-group">
 		<label for="profileImg">Profile Picture</label>
-		<input type="text" class="form-control" id="profileImg" value="<%= model.profileImg %>" required>
+		<input type="text" class="form-control" id="profileImg" name="model[profileImg]" value="<%= model.profileImg %>" required>
 	</div>
 	<div class="form-group">
 		<label for="all-images">Additional Photos</label>
 		<ul class="all-images" id="all-images">
 			<li class="list-group-item">
-				<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= model.images[0] %>" required>
+				<input class="form-control" type="text" id="image" name="model[images][0]" placeholder="Image URL" value="<%= model.images[0] %>">
 			</li>
 			<li class="list-group-item">
-				<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= model.images[1] %>" required>
+				<input class="form-control" type="text" id="image" name="model[images][1]" placeholder="Image URL" value="<%= model.images[1] %>">
 			</li>
 				<li class="list-group-item">
-				<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= model.images[2] %>" required>
+				<input class="form-control" type="text" id="image" name="model[images][2]" placeholder="Image URL" value="<%= model.images[2] %>">
 			</li>
 		</ul>		
 	</div>
 	<div class="form-group">		
 		<label for="age">Age</label>
-		<input type="number" id="age" placeholder="Age" class="form-control" value="<%= model.age %>">
+		<input type="number" id="age" placeholder="Age" name="model[age]" class="form-control" value="<%= model.age %>">
 	</div>
 	<div class="form-group">
 		<label for="hair-color">Hair Color</label>
-		<input type="text" id="hair-color" placeholder="Hair color" class="form-control" value="<%= model.hairColor %>">
+		<input type="text" id="hair-color" placeholder="Hair color" name="model[hairColor]" class="form-control" value="<%= model.hairColor %>">
 	</div>
 	<div class="form-group">
 		<label for="ethnicity">Ethnicity</label>
-		<input type="text" id="ethnicity" placeholder="Ethnicity" class="form-control" value="<%= model.ethnicity %>">		
+		<input type="text" id="ethnicity" placeholder="Ethnicity" class="form-control" name="model[ethnicity]" value="<%= model.ethnicity %>">		
 	</div>
 	<div class="form-group">
 		<label for="eye-color">Eye Color</label>
-		<input type="text" id="eye-color" placeholder="Eye color" class="form-control" value="<%= model.eyeColor %>">
+		<input type="text" id="eye-color" placeholder="Eye color" class="form-control" name="model[eyeColor]" value="<%= model.eyeColor %>">
 	</div>
 	<div class="form-group">
 		<label for="height">Height</label>
 		<div class="form-inline height" id="height">
 			<label for="feet" class="mr-3">
-				<input type="number" id="height" placeholder="Feet" class="form-control feet" id="feet" value="<%= model.height %>">
+				<input type="number" id="height" placeholder="Feet" name="model[height][feet] class="form-control feet" id="feet" value="<%= model.height.feet %>">
 			</label>
 			<label for="inches">
-				<input type="text" class="form-control inches" value="" id="inches" placeholder="Inches">
+				<input type="text" class="form-control inches" name="model[height][inches] id="inches" value="<%= model.height.inches %>" placeholder="Inches">
 			</label>
 		</div>		
 	</div>
 	<div class="form-group">
 		<label for="experience">Years of Experience</label>
-		<input type="number" class="form-control" id="experience" placeholder="Years of experience" value="<%= model.experience %>">		
+		<input type="number" class="form-control" id="experience" name="model[experience]" placeholder="Years of experience" value="<%= model.experience %>">		
 	</div>
 	<div class="form-group">
 		<label for="tattoos">Tattoos</label>
@@ -75,7 +80,7 @@
 	</div>
 	<div class="form-group">
 		<label for="desc">Description</label>
-		<textarea class="form-control" placeholder="Tell the world a little bit about yourself!" name="model[desc]" id="desc" cols="30" rows="10"></textarea>		
+		<textarea class="form-control" placeholder="Tell the world a little bit about yourself!" name="model[desc]" id="desc" cols="30" rows="10"><%= model.desc %></textarea>		
 	</div>
 	<button class="btn btn-success" type="submit">Submit</button>
 </form>

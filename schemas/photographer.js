@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const photographerSchema = new mongoose.Schema({
-	name: String,
+	name: {
+		first: String,
+		last: String
+	},
 	desc: String,
 	profileImg: String,
 	age: Number,

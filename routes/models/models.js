@@ -59,13 +59,7 @@ router.get('/:id/edit', middleware.checkOwnership('model'), (req, res) => {
 
 router.put('/:id', (req, res) => {
 	const userId = req.params.id;
-	const updated = {
-		name: req.body.name,
-		image: req.body.image,
-		desc: req.body.desc,
-	}
-
-	Model.findByIdAndUpdate(userId, updated, (err, updatedModel) => {
+	Model.findByIdAndUpdate(userId, req.body.model, (err, updatedModel) => {
 		if(err) {
 			console.log(err);
 		} else {

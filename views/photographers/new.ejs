@@ -2,10 +2,17 @@
 
 <h3 class="text-center">Add Photographer</h3>
 <form action="/photographers" method="POST" class="form-group add-model">
-	<label for="name">
-		<input class="form-control" type="text" id="name" placeholder="Name" name="photographer[name]" required>
-	</label>
-	<label for="category">
+	<label for="name">Name</label>
+	<div class="form-group" id="name">
+		<label for="name">
+			<input class="form-control" type="text" id="name" placeholder="Name" name="photographer[name][first]" required>
+		</label>
+		<label for="last-name">
+			<input type="text" placeholder="Last Name" name="photographer[name][last]" class="form-control" required>
+		</label>		
+	</div>
+	<div class="form-group">
+		<label for="category">Type of Photographer</label>
 		<select class="form-control" name="photographer[category]" id="category">
 			<option value="" selected disabled>Category</option>
 			<option value="Street">Street</option>
@@ -13,30 +20,37 @@
 			<option value="Nature">Nature</option>
 			<option value="Boudoir">Boudoir</option>
 		</select>
-	</label>
-	<ul class="all-images">
-		<li class="list-group-item">
-			<input class="form-control" type="text" id="image" placeholder="Profile Picture" name="photographer[profileImg]" required>
-		</li>
-		<li class="list-group-item">
-			<input class="form-control" type="text" id="image" placeholder="Image URL" name="photographer[images][0]" required>
-		</li>
-		<li class="list-group-item">
-			<input class="form-control" type="text" id="image" placeholder="Image URL" name="photographer[images][1]" required>
-		</li>
+	</div>
+	<div class="form-group">
+		<label for="profile-pic">Profile Photo</label>
+		<input class="form-control" type="text" id="profile-pic" placeholder="Profile Picture" name="photographer[profileImg]" required>	
+	</div>
+	<div class="form-group">
+		<label for="add-work">Additonal Work</label>
+		<ul class="all-images" id="add-work">
 			<li class="list-group-item">
-			<input class="form-control" type="text" id="image" placeholder="Image URL" name="photographer[images][2]" required>
-		</li>
-	</ul>
-	<label for="age">
+				<input class="form-control" type="text" id="image" placeholder="Image URL" name="photographer[images][0]">
+			</li>
+			<li class="list-group-item">
+				<input class="form-control" type="text" id="image" placeholder="Image URL" name="photographer[images][1]">
+			</li>
+				<li class="list-group-item">
+				<input class="form-control" type="text" id="image" placeholder="Image URL" name="photographer[images][2]">
+			</li>
+		</ul>
+	</div>
+	<div class="form-group">
+		<label for="age">Age</label>		
 		<input type="number" id="age" placeholder="Age" class="form-control" name="photographer[age]">
-	</label>
-	<label for="experience">
-		<input type="number" class="form-control" id="experience" placeholder="Years of experience" name="photographer[experience]">
-	</label>
-	<label for="desc">
+	</div>
+	<div class="form-group">
+		<label for="experience">Years of Experience</label>
+		<input type="number" class="form-control" id="experience" placeholder="Years of experience" name="photographer[experience]">		
+	</div>
+	<div class="form-group">
+		<label for="desc">Description</label>		
 		<textarea class="form-control" placeholder="Tell the world a little bit about yourself!" name="photographer[desc]" id="desc" cols="30" rows="10"></textarea>
-	</label>
+	</div>
 	<button class="btn btn-success" type="submit">Submit</button>
 </form>
 

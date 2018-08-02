@@ -3,10 +3,17 @@
 <h1>EDIT PHOTOGRAPHER</h1>
 
 <form action="/photographers/<%= photographer.id %>?_method=PUT" method="POST" class="add-photographer">
-	<label for="name">
-		<input class="form-control" type="text" id="name" placeholder="Name" value="<%= photographer.name %>" required>
-	</label>
-	<label for="category">
+	<label for="name">Name</label>
+	<div class="form-group" id="name">
+		<label for="first-name">
+			<input class="form-control" type="text" id="name" placeholder="First Name" value="<%= photographer.name.first %>" required>		
+		</label>
+		<label for="last-name">
+			<input class="form-control" type="text" id="name" placeholder="Last Name" value="<%= photographer.name.last %>" required>	
+		</label>
+	</div>
+	<div class="form-group">
+		<label for="category">Type of Photographer</label>
 		<select class="form-control" name="photographer[category]" id="category">
 			<option value="" selected disabled>Category</option>
 			<option value="Street">Street</option>
@@ -14,30 +21,37 @@
 			<option value="Nature">Nature</option>
 			<option value="Boudoir">Boudoir</option>
 		</select>
-	</label>
-	<ul class="all-images">
-		<li class="list-group-item">
-			<input class="form-control" type="text" id="image" placeholder="Profile Picture" value="<%= photographer.profileImg %>" required>
-		</li>
-		<li class="list-group-item">
-			<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= photographer.images[0] %>" required>
-		</li>
-		<li class="list-group-item">
-			<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= photographer.images[1] %>" required>
-		</li>
+	</div>
+	<div class="form-group">
+		<label for="profile-picture">Profile Picture</label>
+		<input class="form-control" type="text" id="image" placeholder="Profile Picture" value="<%= photographer.profileImg %>" required>
+	</div>
+	<div class="form-group">
+		<label for="add-work">Additional Work</label>
+		<ul class="all-images">
 			<li class="list-group-item">
-			<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= photographer.images[2] %>" required>
-		</li>
-	</ul>
-	<label for="age">
-		<input type="number" id="age" placeholder="Age" class="form-control" value="<%= photographer.age %>">
-	</label>
-	<label for="experience">
-		<input type="number" class="form-control" id="experience" placeholder="Years of experience" value="<%= photographer.experience %>">
-	</label>
-	<label for="desc">
+				<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= photographer.images[0] %>">
+			</li>
+			<li class="list-group-item">
+				<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= photographer.images[1] %>">
+			</li>
+				<li class="list-group-item">
+				<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= photographer.images[2] %>">
+			</li>
+		</ul>
+	</div>
+	<div class="form-group">
+		<label for="age">Age</label>
+		<input type="number" id="age" placeholder="Age" class="form-control" value="<%= photographer.age %>">	
+	</div>
+	<div class="form-group">
+		<label for="experience">Years of Experience</label>
+		<input type="number" class="form-control" id="experience" placeholder="Years of experience" value="<%= photographer.experience %>">	
+	</div>
+	<div class="form-group">
+		<label for="desc">Description</label>		
 		<textarea class="form-control" placeholder="Tell the world a little bit about yourself!" id="desc" cols="30" rows="10"><%= photographer.desc %></textarea>
-	</label>
+	</div>
 	<button class="btn btn-success" type="submit">Submit</button>
 </form>
 

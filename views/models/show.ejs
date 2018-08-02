@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <div class="row">
 	<div class="col-sm-12 col-md-6 py-2">
-		<h3 class="text-center col"><%= model.name %></h3>
+		<h3 class="text-center col"><%= model.name.first %> <%= model.name.last %></h3>
 		<img class="img-thumbnail profile-img d-flex justify-content-center" src="<%= model.profileImg %>" alt="Profile picture of model">
 		<h6 class="m-2"><em>Posted by: <%= model.creator.username %></em></h6>
 		<% if (currentUser && model.creator.id.equals(currentUser._id)) { %>
@@ -24,7 +24,7 @@
 			<li>Type: <%= model.category %></li>
 			<li>Eye Color: <%= model.eyeColor %></li>
 			<li>Hair Color: <%= model.hairColor %></li>
-			<li>Height: <%= model.height %></li>
+			<li>Height: <%= model.height.feet %>'<%= model.height.inches %>''</li>
 			<li>Tattoo: <%= model.tattoo %></li>
 			<li>Ethnicity: <%= model.ethnicity %></li>
 		</ul>
@@ -33,7 +33,7 @@
 	<div class="col-sm-12 col-md-12 py-2">
 		<h4 class="text-center mb-3">See More</h4>
 		<div class="more-img">
-			<% model.images.slice(1).forEach((image) => { %>
+			<% model.images.forEach((image) => { %>
 				<img src="<%= image %>" alt="">
 			<% }) %>
 		</div>

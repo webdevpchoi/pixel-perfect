@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const modelSchema = new mongoose.Schema({
-	name: String,
+	name: {
+		first: String,
+		last: String
+	},
 	profileImg: String,
 	category: String,
 	image: String,
