@@ -28,12 +28,13 @@
 	<div class="col-sm-12 col-md-12 py-2">
 		<h4 class="text-center mb-3">See More</h4>
 		<div class="more-img">
-			<% photographer.images.slice(1).forEach((image) => { %>
-				<img src="<%= image %>" alt="">
+			<% photographer.images.forEach((image) => { %>
+				<img src="<%= image %>">
 			<% }) %>
 		</div>
 	</div>
 </div>
+
 <ul class="comments py-2">
 	<h4 class="text-center mb-3">Comments</h4>
 	<a href="/photographers/<%= photographer._id %>/comments/new">
