@@ -71,7 +71,13 @@ h1, h3 {
 
 	img {
 		box-shadow: 0 0 8px rgba(0,0,0,.2);
+		transition: transform .15s ease-out;
 	}
+}
+
+.models:hover img, .photographers:hover img {
+	box-shadow: 0 14px 32px 0 rgba(0,0,0,.2);
+	transform: translateY(-5px);
 }
 
 .btn {
