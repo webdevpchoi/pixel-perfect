@@ -6,10 +6,10 @@
 	<label for="name">Name</label>
 	<div class="form-group" id="name">
 		<label for="first-name">
-			<input class="form-control" type="text" id="name" placeholder="First Name" value="<%= photographer.name.first %>" required>		
+			<input class="form-control" type="text" id="name" placeholder="First Name" name="photographer[name][first]" value="<%= photographer.name.first %>" required>		
 		</label>
 		<label for="last-name">
-			<input class="form-control" type="text" id="name" placeholder="Last Name" value="<%= photographer.name.last %>" required>	
+			<input class="form-control" type="text" id="name" placeholder="Last Name" name="photographer[name][last]" value="<%= photographer.name.last %>" required>	
 		</label>
 	</div>
 	<div class="form-group">
@@ -24,33 +24,33 @@
 	</div>
 	<div class="form-group">
 		<label for="profile-picture">Profile Picture</label>
-		<input class="form-control" type="text" id="image" placeholder="Profile Picture" value="<%= photographer.profileImg %>" required>
+		<input class="form-control" type="text" id="image" placeholder="Profile Picture" name="photographer[profileImg]" value="<%= photographer.profileImg %>" required>
 	</div>
 	<div class="form-group">
 		<label for="add-work">Additional Work</label>
 		<ul class="all-images">
 			<li class="list-group-item">
-				<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= photographer.images[0] %>">
+				<input class="form-control" type="text" id="image" placeholder="Image URL" name="photographer[images][0]" value="<%= photographer.images[0] %>">
 			</li>
 			<li class="list-group-item">
-				<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= photographer.images[1] %>">
+				<input class="form-control" type="text" id="image" placeholder="Image URL" name="photographer[images][1]" value="<%= photographer.images[1] %>">
 			</li>
 				<li class="list-group-item">
-				<input class="form-control" type="text" id="image" placeholder="Image URL" value="<%= photographer.images[2] %>">
+				<input class="form-control" type="text" id="image" placeholder="Image URL" name="photographer[images][2]" value="<%= photographer.images[2] %>">
 			</li>
 		</ul>
 	</div>
 	<div class="form-group">
 		<label for="age">Age</label>
-		<input type="number" id="age" placeholder="Age" class="form-control" value="<%= photographer.age %>">	
+		<input type="number" id="age" placeholder="Age" name="photographer[age]" class="form-control" value="<%= photographer.age %>">	
 	</div>
 	<div class="form-group">
 		<label for="experience">Years of Experience</label>
-		<input type="number" class="form-control" id="experience" placeholder="Years of experience" value="<%= photographer.experience %>">	
+		<input type="number" class="form-control" id="experience" name="photographer[experience] placeholder="Years of experience" value="<%= photographer.experience %>">	
 	</div>
 	<div class="form-group">
 		<label for="desc">Description</label>		
-		<textarea class="form-control" placeholder="Tell the world a little bit about yourself!" id="desc" cols="30" rows="10"><%= photographer.desc %></textarea>
+		<textarea class="form-control" placeholder="Tell the world a little bit about yourself!" name="photographer[desc] id="desc" cols="30" rows="10"><%= photographer.desc %></textarea>
 	</div>
 	<button class="btn btn-success" type="submit">Submit</button>
 </form>

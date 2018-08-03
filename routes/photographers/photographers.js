@@ -69,11 +69,11 @@ router.get('/:id/edit', middleware.checkOwnership('photographer'), (req, res) =>
 })
 
 router.put('/:id', middleware.checkOwnership('photographer'), (req, res) => {
-	Photographer.findByIdAndUpdate({_id: req.params.id}, req.body.pg, (err, photographer) => {
+	Photographer.findByIdAndUpdate({_id: req.params.id}, req.body.photographer, (err, photographer) => {
 		if(err) {
 			req.flash('error', 'There was some problem updating this photographer...please try again later.');
 		} else {
-			req.success('success', 'Successfully edited photographer.');
+			req.flash('success', 'Successfully edited photographer.');
 			res.redirect('/photographers/' + req.params.id);
 		}
 	})
