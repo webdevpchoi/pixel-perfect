@@ -6,11 +6,17 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 input[type="number"] {
   -moz-appearance: textfield; }
 
+html {
+  height: 100%;
+  width: 100%; }
+
+body {
+  height: 100%;
+  width: 100%; }
+
 body, html {
   background: no-repeat center/cover url("https://images.pexels.com/photos/571169/pexels-photo-571169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  font-family: 'IBM Plex Sans', sans-serif;
-  height: 100vh;
-  width: 100vw; }
+  font-family: 'IBM Plex Sans', sans-serif; }
 
 ul {
   list-style-type: none; }
@@ -18,40 +24,45 @@ ul {
 h1, h3 {
   margin: 1rem 0; }
 
-.navbar .user {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px; }
-.navbar #navbar-form {
-  justify-content: center;
-  align-items: center;
-  max-width: 340px; }
-  .navbar #navbar-form label[for='username'], .navbar #navbar-form label[for='password'] {
-    width: 100%; }
-  .navbar #navbar-form a, .navbar #navbar-form button {
-    width: 100%; }
-.navbar .logout {
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-  .navbar .logout a {
-    max-width: 340px;
-    width: 100%; }
+.navbar {
+  background: #FFFFFF; }
+  .navbar .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px; }
+  .navbar #navbar-form {
+    justify-content: center;
+    align-items: center;
+    max-width: 340px; }
+    .navbar #navbar-form label[for='username'], .navbar #navbar-form label[for='password'] {
+      width: 100%; }
+    .navbar #navbar-form a, .navbar #navbar-form button {
+      width: 100%; }
+  .navbar .logout {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .navbar .logout a {
+      max-width: 340px;
+      width: 100%; }
 
 .jumbotron {
   margin-top: 2rem; }
 
-.models, .photographers {
+.landing-modal {
   margin: 5% 0;
   text-align: center;
   position: relative; }
-  .models img, .photographers img {
+  .landing-modal img {
+    background: transparent;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     transition: transform .15s ease-out;
-    border-radius: 8px; }
+    border-radius: 8px;
+    height: 80%;
+    width: 80%; }
 
-.models:hover img, .photographers:hover img {
+.landing-modal:hover img {
   box-shadow: 0 14px 32px 0 rgba(0, 0, 0, 0.2);
   transform: translateY(-5px); }
 
