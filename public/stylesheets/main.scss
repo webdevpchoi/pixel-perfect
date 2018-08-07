@@ -9,19 +9,11 @@ input[type="number"] {
 }
 
 //global styles 
-html {
-	height: 100%;
-	width: 100%;
-}
-
-body {
-	height: 100%;
-	width: 100%;
-}
 
 body, html {
 	background: no-repeat center/cover url("https://images.pexels.com/photos/571169/pexels-photo-571169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 	font-family: 'IBM Plex Sans', sans-serif;
+
 }
 
 ul {
@@ -73,6 +65,12 @@ h1, h3 {
 
 .jumbotron {
 	margin-top: 2rem;
+	background-color: #FFFFFF;
+}
+
+.card {
+	box-shadow: 0 0 8px rgba(0,0,0,.2);
+	transition: transform .15s ease-out;
 }
 
 .landing-modal {	
@@ -81,16 +79,12 @@ h1, h3 {
 	position: relative;
 
 	img {
-		background: transparent;
-		box-shadow: 0 0 8px rgba(0,0,0,.2);
-		transition: transform .15s ease-out;
-		border-radius: 8px;
 		height: 80%;
 		width: 80%;
 	}
 }
 
-.landing-modal:hover img {
+.card:hover {
 	box-shadow: 0 14px 32px 0 rgba(0,0,0,.2);
 	transform: translateY(-5px);
 }
