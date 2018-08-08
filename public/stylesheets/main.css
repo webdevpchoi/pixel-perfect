@@ -52,7 +52,7 @@ h1, h3 {
 
 .jumbotron {
   margin-top: 2rem;
-  background-color: #FFFFFF; }
+  background-color: rgba(255, 255, 255, 0.9); }
   .jumbotron .title img {
     width: 50px;
     height: 50px; }
