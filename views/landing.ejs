@@ -1,29 +1,30 @@
 <%- include('./partials/header') %>
 <section>
 	<div class="jumbotron">
-		<h1 class="text-center">Pixel Perfect</h1>
-		<p class="lead">It's never been easier to find a model or photographer.</p>
+		<div class="title d-flex justify-content-center">
+			<img src="/assets/icons/photo-camera.svg" alt="">
+			<h2 class="text-center mb-0 mx-2 d-flex align-items-center">Pixel Perfect</h2>			
+		</div>
+		<p class="lead my-2">It's never been easier to find a model or photographer.</p>
 	</div>
-	<h3>Looking for a...</h3>
+	<h3 class="text-center">Looking for a...</h3>
 	<div class="row">
-		<div class="landing-modal col-md-6 d-flex justify-content-center">
-			<div class="card align-items-center p-3">
-				<h3 class="text-center">Photographer</h3>
-				<img src="assets/icons/camera.svg" alt="" class="img-fluid">				
+		<a href="/photographers" class="col-md-6">
+			<div class="landing-modal d-flex justify-content-center">
+				<div class="card align-items-center p-3">
+					<h3 class="text-center">Photographer</h3>
+					<img src="assets/icons/camera.svg" alt="" class="img-fluid">				
+				</div>			
 			</div>
-<!-- 			<a href="/models" class="to-model">
-				<button class="btn btn-primary">Model</button>
-			</a>	 -->		
-		</div>
-		<div class="landing-modal col-md-6 d-flex justify-content-center">
-			<div class="card align-items-center p-3">
-				<h3 class="text-center">Model</h3>			
-				<img src="assets/icons/selfie.svg" alt="" class="img-fluid">				
-			</div>
-<!-- 			<a href="/photographers" class="to-photographer">
-				<button class="btn btn-primary">Photographer</button>
-			</a>		 -->
-		</div>
+		</a>
+		<a href="/models" class="col-md-6">
+			<div class="landing-modal d-flex justify-content-center">
+				<div class="card align-items-center p-3">
+					<h3 class="text-center">Model</h3>			
+					<img src="assets/icons/selfie.svg" alt="" class="img-fluid">				
+				</div>
+			</div>			
+		</a>
 	</div>
 <section>
 	
