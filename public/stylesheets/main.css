@@ -126,7 +126,9 @@ a[class="col-md-6"] {
 .comments {
   padding: 0; }
   .comments .add-cmt {
-    width: 220px; }
+    display: flex;
+    justify-content: center;
+    align-items: center; }
   .comments li {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     background: #FFFFFF;

@@ -9,6 +9,6 @@ of this web app.
 Feel free to add a photographer/model of your own to test out the application!
 
 
-### **Note: The database is currently set up on a timer to wipe out all user-defined model/photographers every 24 hours. **
+### Note: The database is currently set up on a timer to wipe out all user-defined model/photographers every 24 hours.
 
 

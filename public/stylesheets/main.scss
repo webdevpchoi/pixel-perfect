@@ -191,7 +191,9 @@ a[class="col-md-6"] {
 	padding: 0;
 
 	.add-cmt {
-		width: 220px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	li {
