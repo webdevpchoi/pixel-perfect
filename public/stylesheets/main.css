@@ -124,7 +124,8 @@ a[class="col-md-6"] {
   background: rgba(255, 255, 255, 0.9); }
 
 .comments {
-  padding: 0; }
+  padding: 0;
+  background: rgba(255, 255, 255, 0.9); }
   .comments .add-cmt {
     display: flex;
     justify-content: center;
