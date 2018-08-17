@@ -61,7 +61,7 @@ db.once('open', function() {
 })
 
 // //input sample data into DB
-// seedDB();
+seedDB();
 
 app.use('/', index);
 app.use('/models/', models);

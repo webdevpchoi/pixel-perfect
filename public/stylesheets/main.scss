@@ -146,7 +146,6 @@ a[class="col-md-6"] {
 }
 
 //edit model 
-
 .height {
 	flex-flow: nowrap;
 
@@ -159,21 +158,41 @@ a[class="col-md-6"] {
 	}
 }
 
-//show page
+//model show page
+.model-intro {
+	padding: 0;
+
+	.profile-img {
+		margin: 0 auto;
+	}
+}
+
+.row {
+	margin: 0;
+}
+
 .cmt-btn {
 	min-width: 88px;
 }
 
-.profile-img {
-	margin: 0 auto;
+.model-desc {
+	background: rgba(255, 255, 255, .9);
+
+	.traits {
+		padding: 0;
+	}
 }
 
-.traits {
-	padding: 0;
+.portfolio {
+	background: rgba(255, 255, 255, .9);
 }
 
 .comments {
 	padding: 0;
+
+	.add-cmt {
+		width: 220px;
+	}
 
 	li {
 		box-shadow: 0 0 8px rgba(0,0,0,.2);

@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
+<% console.log(model) %>
 <div class="row">
-	<div class="col-sm-12 col-md-6 py-2">
+	<div class="col-sm-12 col-md-6 model-intro">
 		<h3 class="text-center col"><%= model.name.first %> <%= model.name.last %></h3>
 		<img class="img-thumbnail profile-img d-flex justify-content-center" src="<%= model.profileImg %>" alt="Profile picture of model">
 		<h6 class="m-2"><em>Posted by: <%= model.creator.username %></em></h6>
@@ -30,20 +31,22 @@
 		</ul>
 		<p><em><%= model.desc %></em></p>
 	</div>
-	<div class="col-sm-12 col-md-12 py-2">
-		<h4 class="text-center mb-3">See More</h4>
+	<div class="col-sm-12 col-md-12 py-2 portfolio mt-2">
+		<h4 class="text-center my-3">Portfolio</h4>
 		<div class="more-img">
 			<% model.images.forEach((image) => { %>
-				<img src="<%= image %>">
+				<img src="<%= image %>" class="img-thumbnail">
 			<% }) %>
 		</div>
 	</div>
 </div>
 <ul class="comments py-2">
 	<h4 class="text-center mb-3">Comments</h4>
-	<a href="/models/<%= model._id %>/comments/new">
-		<button class="btn btn-primary">Add New Comment</button>
-	</a>
+	<div class="add-cmt d-flex justify-content-center align-items-center flex-column">
+		<a href="/models/<%= model._id %>/comments/new">
+			<button class="btn btn-primary add-cmt">Add New Comment</button>
+		</a>		
+	</div>
 	<% model.comments.forEach((comment) => { %>
 		<li>
 			<%= comment.text %>

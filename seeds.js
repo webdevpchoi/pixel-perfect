@@ -7,55 +7,133 @@ const 	mongoose = require('mongoose'),
 
 
 
-const data = [
+const sampleModels = [
 	{
-		name: "Melissa",
-		image: "https://images.pexels.com/photos/573299/pexels-photo-573299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+		name: {
+			first: "Melissa",
+			last: "Johnson"
+		},
+		profileImg: "https://images.pexels.com/photos/247322/pexels-photo-247322.jpeg?cs=srgb&dl=beautiful-female-girl-247322.jpg&fm=jpg",
 		desc: "Modeling for only 2 years, Melissa has mastered it all within a short time period.",
+		category: "Street",
 		creator:{},
+		height: {
+			feet: 4,
+			inches: 5
+		},
+		eyeColor: "Blue",
+		ethnicity: "African-American",
+		hairColor: "Black",
+		experience: 5,
+		age: 20,
+		tattoo: "Yes",
+		images: ["https://images.pexels.com/photos/247295/pexels-photo-247295.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/289225/pexels-photo-289225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/37649/glamour-style-hat-woman-37649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/165522/pexels-photo-165522.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"]
 	},
 	{
-		name: "John Smith",
-		image: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&h=350",
-		desc: "Despite his unoriginal name, John makes a mark on modeling history with his signature dead-eyed-mackeral facial expressions",
+		name: {
+			first: "Crazy",
+			last: "Al"
+		},
+		profileImg: "https://images.pexels.com/photos/573299/pexels-photo-573299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+		desc: "Modeling for only 2 years, Melissa has mastered it all within a short time period.",
+		category: "Street",
 		creator:{},
+		height: {
+			feet: 4,
+			inches: 5
+		},
+		eyeColor: "Blue",
+		ethnicity: "African-American",
+		hairColor: "Black",
+		experience: 5,
+		age: 20,
+		tattoo: "Yes",
+		images: ["https://images.pexels.com/photos/247295/pexels-photo-247295.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/289225/pexels-photo-289225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/37649/glamour-style-hat-woman-37649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/165522/pexels-photo-165522.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"]
 	},
 	{
-		name: "John Park",
-		image: "https://images.pexels.com/photos/450214/pexels-photo-450214.jpeg?auto=compress&cs=tinysrgb&h=350",
-		desc: "A sea of Asians could surround this particular model, and he'd STILL stand out. That's how good he is!",
+		name: {
+			first: "Scarlett",
+			last: "Johanson"
+		},
+		profileImg: "https://images.pexels.com/photos/39653/girls-woman-female-beautiful-39653.jpeg?cs=srgb&dl=beautiful-caucasian-female-39653.jpg&fm=jpg",
+		desc: "Modeling for only 2 years, Melissa has mastered it all within a short time period.",
+		category: "Street",
 		creator:{},
+		height: {
+			feet: 4,
+			inches: 5
+		},
+		eyeColor: "Blue",
+		ethnicity: "African-American",
+		hairColor: "Black",
+		experience: 5,
+		age: 20,
+		tattoo: "Yes",
+		images: ["https://images.pexels.com/photos/247295/pexels-photo-247295.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/289225/pexels-photo-289225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/37649/glamour-style-hat-woman-37649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/165522/pexels-photo-165522.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"]
 	},
 	{
-		name: "Ashley Sins",
-		image: "https://images.pexels.com/photos/301298/pexels-photo-301298.jpeg?auto=compress&cs=tinysrgb&h=350",
-		desc: "She might only have 10/10 vision, but Ashley's singature bangs gives her a signature BANG.",
+		name: {
+			first: "Robert",
+			last: "Downey"
+		},
+		profileImg: "https://images.pexels.com/photos/160628/girls-lavender-two-dresses-160628.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+		desc: "Modeling for only 2 years, Melissa has mastered it all within a short time period.",
+		category: "Street",
 		creator:{},
+		height: {
+			feet: 4,
+			inches: 5
+		},
+		eyeColor: "Blue",
+		ethnicity: "African-American",
+		hairColor: "Black",
+		experience: 5,
+		age: 20,
+		tattoo: "Yes",
+		images: ["https://images.pexels.com/photos/247295/pexels-photo-247295.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/289225/pexels-photo-289225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/37649/glamour-style-hat-woman-37649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/165522/pexels-photo-165522.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"]
 	}
 ]
 
 const samplePhotographers = [
 	{
-		name: "Craig",
+		name: {
+			first: "Chris",
+			last: "Evans"
+		},
 		desc: "I take photos of stuff",
-		img: "https://images.pexels.com/photos/108148/pexels-photo-108148.jpeg?auto=compress&cs=tinysrgb&h=350",
+		profileImg: "https://images.pexels.com/photos/108148/pexels-photo-108148.jpeg?auto=compress&cs=tinysrgb&h=350",
 		specialty: "Street Photography",
 		creator: {},
+		age: 34,
+		category: "Nature",
+		experience: 23,
 	},
 
 	{
-		name: "Jennifer",
-		desc: "I enjoy the fresh air, and nature's beauty.",
-		img: "https://images.pexels.com/photos/610293/pexels-photo-610293.jpeg?auto=compress&cs=tinysrgb&h=350",
-		specialty: "Outdoor Photography",
+		name: {
+			first: "Jaques",
+			last: "Crescent"
+		},
+		desc: "I take photos of stuff",
+		profileImg: "https://images.pexels.com/photos/108148/pexels-photo-108148.jpeg?auto=compress&cs=tinysrgb&h=350",
+		specialty: "Street Photography",
 		creator: {},
+		age: 34,
+		category: "Nature",
+		experience: 23,
 	},
 	{
-		name: "Jane",
-		desc: "Buildings are the the building blocks of civilization.",
-		img: "https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&h=350",
-		specialty: "Outdoor Photography",
+		name: {
+			first: "Titan",
+			last: "Gi-ant"
+		},
+		desc: "I take photos of stuff",
+		profileImg: "https://images.pexels.com/photos/108148/pexels-photo-108148.jpeg?auto=compress&cs=tinysrgb&h=350",
+		specialty: "Street Photography",
 		creator: {},
+		age: 34,
+		category: "Nature",
+		experience: 23,
 	},
 ]
 
@@ -93,9 +171,11 @@ function seedDB() {
 										if(err) {
 											console.log(err);
 										} else {
-												data.forEach((modelData) => {
+											console.log(found);
+												sampleModels.forEach((modelData) => {
 													//assign a reference from each model to default user
 													modelData.creator.id = found._id;
+													modelData.creator.username = found.username;
 													//create new models
 													Model.create(modelData, (err, model) => {
 														if(err) {
