@@ -159,6 +159,17 @@ a[class="col-md-6"] {
 }
 
 //model show page
+
+$section-bg-color: rgba(184, 201, 187, .7);
+
+.section-header {
+	color: #FFFFFF;
+	background: #8EAE94;
+	margin: 0 0 1.5rem 0;
+	padding: 1rem;
+	letter-spacing: 2px;
+}
+
 .model-intro {
 	padding: 0;
 
@@ -176,20 +187,23 @@ a[class="col-md-6"] {
 }
 
 .model-desc {
-	background: rgba(255, 255, 255, .9);
+	background: $section-bg-color;
+	.desc-content {
+		padding: 1rem;
 
-	.traits {
-		padding: 0;
+		p {
+			margin: 0;
+		}		
 	}
 }
 
 .portfolio {
-	background: rgba(255, 255, 255, .9);
+	background: $section-bg-color;
 }
 
 .comments {
 	padding: 0;
-	background: rgba(255, 255, 255, .9);
+	background: $section-bg-color;
 
 	.add-cmt {
 		display: flex;

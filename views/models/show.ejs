@@ -1,47 +1,49 @@
 <%- include('../partials/header') %>
 <% console.log(model) %>
 <div class="row">
-	<div class="col-sm-12 col-md-6 model-intro">
-		<h3 class="text-center col"><%= model.name.first %> <%= model.name.last %></h3>
-		<img class="img-thumbnail profile-img d-flex justify-content-center" src="<%= model.profileImg %>" alt="Profile picture of model">
-		<h6 class="m-2"><em>Posted by: <%= model.creator.username %></em></h6>
-		<% if (currentUser && model.creator.id.equals(currentUser._id)) { %>
-			<div class="my-2 p-2 d-flex justify-content-around btn-container">
-				<a class="mx-2" href="/models/<%= model._id %>/edit">
-					<button class="btn btn-warning edit-model">Edit Model</button>
-				</a>
-				<form class="mx-2" action="/models/<%= model._id %>?_method=DELETE" method="POST">
-					<a href="/models/<%= model._id %>">
-						<button class="btn btn-danger dlt-model">Delete Model</button>
+	<div class="col-sm-12 model-desc mt-4 p-0">
+		<h3 class="text-center section-header">About Me</h3>
+		<div class="model-intro px-2">
+			<img class="img-thumbnail profile-img d-flex justify-content-center" src="<%= model.profileImg %>" alt="Profile picture of model">
+			<h6 class="m-2"><em>Posted by: <%= model.creator.username %></em></h6>
+			<% if (currentUser && model.creator.id.equals(currentUser._id)) { %>
+				<div class="my-2 p-2 d-flex justify-content-around btn-container">
+					<a class="mx-2" href="/models/<%= model._id %>/edit">
+						<button class="btn btn-warning edit-model">Edit Model</button>
 					</a>
-				</form>
-			</div>
-		<% } %>
+					<form class="mx-2" action="/models/<%= model._id %>?_method=DELETE" method="POST">
+						<a href="/models/<%= model._id %>">
+							<button class="btn btn-danger dlt-model">Delete Model</button>
+						</a>
+					</form>
+				</div>
+			<% } %>
+		</div>
+		<div class="desc-content">
+			<ul class="traits p-0">
+				<li>Name: <%= model.name.first %> <%= model.name.last %></li>
+				<li>Age: <%= model.age %></li>
+				<li>Type: <%= model.category %></li>
+				<li>Eye Color: <%= model.eyeColor %></li>
+				<li>Hair Color: <%= model.hairColor %></li>
+				<li>Height: <%= model.height.feet %>'<%= model.height.inches %>''</li>
+				<li>Tattoo: <%= model.tattoo %></li>
+				<li>Ethnicity: <%= model.ethnicity %></li>
+			</ul>
+			<p><em><%= model.desc %></em></p>			
+		</div>
 	</div>
-	<div class="col-sm-12 col-md-6 model-desc py-2">
-		<h3 class="text-center mb-3">About Me</h3>
-		<ul class="traits">
-			<li>Age: <%= model.age %></li>
-			<li>Type: <%= model.category %></li>
-			<li>Eye Color: <%= model.eyeColor %></li>
-			<li>Hair Color: <%= model.hairColor %></li>
-			<li>Height: <%= model.height.feet %>'<%= model.height.inches %>''</li>
-			<li>Tattoo: <%= model.tattoo %></li>
-			<li>Ethnicity: <%= model.ethnicity %></li>
-		</ul>
-		<p><em><%= model.desc %></em></p>
-	</div>
-	<div class="col-sm-12 col-md-12 py-2 portfolio mt-2">
-		<h3 class="text-center my-3">Portfolio</h3>
-		<div class="more-img">
+	<div class="col-sm-12 col-md-12 mt-4 portfolio p-0">
+		<h3 class="text-center section-header">Portfolio</h3>
+		<div class="more-img px-2">
 			<% model.images.forEach((image) => { %>
 				<img src="<%= image %>" class="img-thumbnail">
 			<% }) %>
 		</div>
 	</div>
 </div>
-<ul class="comments py-2 mt-2">
-	<h3 class="text-center mb-3">Comments</h3>
+<ul class="comments pb-2 mt-4">
+	<h3 class="text-center mb-3 section-header">Comments</h3>
 	<div class="add-cmt mb-3">
 		<a href="/models/<%= model._id %>/comments/new">
 			<button class="btn btn-primary add-cmt">Add New Comment</button>

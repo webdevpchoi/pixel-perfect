@@ -104,6 +104,13 @@ a[class="col-md-6"] {
     .height label[for="feet"] input, .height label[for="inches"] input {
       width: 100%; }
 
+.section-header {
+  color: #FFFFFF;
+  background: #8EAE94;
+  margin: 0 0 1.5rem 0;
+  padding: 1rem;
+  letter-spacing: 2px; }
+
 .model-intro {
   padding: 0; }
   .model-intro .profile-img {
@@ -116,16 +123,18 @@ a[class="col-md-6"] {
   min-width: 88px; }
 
 .model-desc {
-  background: rgba(255, 255, 255, 0.9); }
-  .model-desc .traits {
-    padding: 0; }
+  background: rgba(184, 201, 187, 0.7); }
+  .model-desc .desc-content {
+    padding: 1rem; }
+    .model-desc .desc-content p {
+      margin: 0; }
 
 .portfolio {
-  background: rgba(255, 255, 255, 0.9); }
+  background: rgba(184, 201, 187, 0.7); }
 
 .comments {
   padding: 0;
-  background: rgba(255, 255, 255, 0.9); }
+  background: rgba(184, 201, 187, 0.7); }
   .comments .add-cmt {
     display: flex;
     justify-content: center;
