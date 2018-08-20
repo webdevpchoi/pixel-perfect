@@ -7,8 +7,6 @@ input[type="number"] {
   -moz-appearance: textfield; }
 
 body, html {
-  background: no-repeat center/cover url("https://images.pexels.com/photos/571169/pexels-photo-571169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  font-family: 'IBM Plex Sans', sans-serif;
   height: 100vh;
   width: 100vw;
   overflow-x: hidden; }
@@ -19,40 +17,56 @@ ul {
 h1, h3 {
   margin: 1rem 0; }
 
-.navbar {
-  background: #FFFFFF; }
-  .navbar .navbar-brand {
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .navbar .navbar-brand img {
-      height: 25px;
-      width: 25px;
-      margin-right: 8px; }
-  .navbar .user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px; }
-  .navbar #navbar-form {
-    justify-content: center;
-    align-items: center;
-    max-width: 340px; }
-    .navbar #navbar-form label[for='username'], .navbar #navbar-form label[for='password'] {
-      width: 100%; }
-    .navbar #navbar-form a, .navbar #navbar-form button {
-      width: 100%; }
-  .navbar .logout {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-    .navbar .logout a {
-      max-width: 340px;
-      width: 100%; }
+.navbar .navbar-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eef5f7; }
+  .navbar .navbar-brand img {
+    height: 25px;
+    width: 25px;
+    margin-right: 8px; }
+.navbar .navbar-toggler {
+  border-color: #eef5f7; }
+.navbar .user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px; }
+.navbar #navbar-form {
+  justify-content: center;
+  align-items: center;
+  max-width: 340px; }
+  .navbar #navbar-form label[for='username'], .navbar #navbar-form label[for='password'] {
+    width: 100%; }
+  .navbar #navbar-form a, .navbar #navbar-form button {
+    width: 100%; }
+.navbar .logout {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .navbar .logout a {
+    max-width: 340px;
+    width: 100%; }
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .landing header {
+    text-transform: uppercase;
+    font-family: 'Oxygen', sans-serif; }
+    .landing header h1 {
+      text-align: center;
+      letter-spacing: 5px; }
+      .landing header h1 strong {
+        color: #86DA59; }
 
 .jumbotron {
   margin-top: 2rem;
-  background-color: rgba(255, 255, 255, 0.9); }
+  background-color: #95B9C1;
+  color: #EEF5F7;
+  max-width: 510px; }
   .jumbotron .title img {
     width: 50px;
     height: 50px; }
@@ -60,7 +74,8 @@ h1, h3 {
 .card {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   transition: transform .15s ease-out;
-  background: rgba(255, 255, 255, 0.9);
+  background: #638f9c;
+  color: #EEF5F7;
   max-width: 290px;
   height: 100%;
   width: 100%; }
@@ -97,6 +112,9 @@ a[class="col-md-6"] {
     border: none;
     margin-bottom: .5rem; }
 
+.model-index a {
+  padding: 0 -15px !important; }
+
 .height {
   flex-flow: nowrap; }
   .height label[for="feet"], .height label[for="inches"] {
@@ -106,7 +124,7 @@ a[class="col-md-6"] {
 
 .section-header {
   color: #FFFFFF;
-  background: #8EAE94;
+  background: #3F7483;
   margin: 0 0 1.5rem 0;
   padding: 1rem;
   letter-spacing: 2px; }
@@ -123,18 +141,18 @@ a[class="col-md-6"] {
   min-width: 88px; }
 
 .model-desc {
-  background: rgba(184, 201, 187, 0.7); }
+  background: #638f9c; }
   .model-desc .desc-content {
     padding: 1rem; }
     .model-desc .desc-content p {
       margin: 0; }
 
 .portfolio {
-  background: rgba(184, 201, 187, 0.7); }
+  background: #638f9c; }
 
 .comments {
   padding: 0;
-  background: rgba(184, 201, 187, 0.7); }
+  background: #638f9c; }
   .comments .add-cmt {
     display: flex;
     justify-content: center;
@@ -163,6 +181,9 @@ a[class="col-md-6"] {
     width: 100%; }
     #navbar-form .form-inline .form-control button {
       max-width: 340px; } }
+@media (min-width: 768px) {
+  .landing header h1 {
+    font-size: 4rem; } }
 @media (min-width: 992px) {
   #navbar-form {
     flex-wrap: nowrap;
