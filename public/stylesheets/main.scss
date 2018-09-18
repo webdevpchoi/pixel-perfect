@@ -18,7 +18,7 @@ body, html {
 	// font-family: 'IBM Plex Sans', sans-serif;
 	height: 100vh;
 	width: 100vw;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 ul {
@@ -86,9 +86,9 @@ h1, h3 {
 //landing page
 
 .landing {
-	// background: url("/images/camera-solo.jpg") 100px 102%/100% no-repeat;
+	
 	height: 100vh;
-	width: 100vw;
+	padding: 0 15px;
 
 	header {
 		text-transform: uppercase;
@@ -97,6 +97,7 @@ h1, h3 {
 		h1 {
 			text-align: center;
 			letter-spacing: 5px;
+			font-size: 2rem;
 
 			strong {
 				color: #86DA59;
@@ -104,12 +105,13 @@ h1, h3 {
 		}
 	}
 
-	.bg-camera {
-		height: auto;
-		width: 100%;
-		position: absolute;
-		z-index: 500;
-		transform: translate(30%, 100px);
+	.intro {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 0 1rem;
+		margin-top: 3rem;
 	}
 }
 
