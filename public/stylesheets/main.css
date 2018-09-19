@@ -9,7 +9,7 @@ input[type="number"] {
 body, html {
   height: 100vh;
   width: 100vw;
-  overflow: hidden; }
+  overflow-x: hidden; }
 
 ul {
   list-style-type: none; }
@@ -17,40 +17,41 @@ ul {
 h1, h3 {
   margin: 1rem 0; }
 
-.navbar .navbar-brand {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #eef5f7; }
-  .navbar .navbar-brand img {
-    height: 25px;
-    width: 25px;
-    margin-right: 8px; }
-.navbar .navbar-toggler {
-  border-color: #eef5f7; }
-.navbar .user {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px; }
-.navbar #navbar-form {
-  justify-content: center;
-  align-items: center;
-  max-width: 340px; }
-  .navbar #navbar-form label[for='username'], .navbar #navbar-form label[for='password'] {
-    width: 100%; }
-  .navbar #navbar-form a, .navbar #navbar-form button {
-    width: 100%; }
-.navbar .logout {
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-  .navbar .logout a {
-    max-width: 340px;
-    width: 100%; }
+.navbar {
+  background: #638F9C; }
+  .navbar .navbar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #eef5f7; }
+    .navbar .navbar-brand img {
+      height: 25px;
+      width: 25px;
+      margin-right: 8px; }
+  .navbar .navbar-toggler {
+    border-color: #eef5f7; }
+  .navbar .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px; }
+  .navbar #navbar-form {
+    justify-content: center;
+    align-items: center;
+    max-width: 340px; }
+    .navbar #navbar-form label[for='username'], .navbar #navbar-form label[for='password'] {
+      width: 100%; }
+    .navbar #navbar-form a, .navbar #navbar-form button {
+      width: 100%; }
+  .navbar .logout {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .navbar .logout a {
+      max-width: 340px;
+      width: 100%; }
 
 .landing {
-  height: 100vh;
   padding: 0 15px; }
   .landing header {
     text-transform: uppercase;
@@ -58,44 +59,44 @@ h1, h3 {
     .landing header h1 {
       text-align: center;
       letter-spacing: 5px;
-      font-size: 2rem; }
-      .landing header h1 strong {
-        color: #86DA59; }
+      font-size: 2rem;
+      margin: 3rem 0; }
   .landing .intro {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 0 1rem;
-    margin-top: 3rem; }
+    margin-top: 1.5rem;
+    min-height: 400px; }
 
-.card {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-  transition: transform .15s ease-out;
-  background: #638f9c;
-  color: #EEF5F7;
-  max-width: 290px;
-  height: 100%;
-  width: 100%; }
-
-a[class="col-md-6"] {
-  text-decoration: none;
-  color: black; }
-
-.landing-modal {
-  margin: 5% 0;
-  text-align: center;
-  position: relative; }
-  .landing-modal img {
-    height: 130px;
-    width: 130px; }
-
-.card:hover {
-  box-shadow: 0 14px 32px 0 rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px); }
-
-.btn {
-  width: 100%; }
+.modals {
+  padding: 0 15px;
+  background: #F3F3F3; }
+  .modals header {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 2rem 0; }
+  .modals .row a {
+    text-decoration: none;
+    color: black; }
+    .modals .row a .landing-modal {
+      margin: 5% 0;
+      text-align: center;
+      position: relative; }
+      .modals .row a .landing-modal img {
+        height: 130px;
+        width: 130px; }
+      .modals .row a .landing-modal .card {
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        transition: transform .15s ease-out;
+        background: #638f9c;
+        color: #EEF5F7;
+        max-width: 290px;
+        height: 100%;
+        width: 100%; }
+  .modals .card:hover {
+    box-shadow: 0 14px 32px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); }
 
 .add-model label, .add-photographer label {
   width: 100%; }
