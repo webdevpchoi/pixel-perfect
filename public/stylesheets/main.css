@@ -18,18 +18,18 @@ h1, h3 {
   margin: 1rem 0; }
 
 .navbar {
-  background: #638F9C; }
+  background: #000000; }
   .navbar .navbar-brand {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #eef5f7; }
+    color: #FFFFFF; }
     .navbar .navbar-brand img {
       height: 25px;
       width: 25px;
-      margin-right: 8px; }
+      margin-right: 5px; }
   .navbar .navbar-toggler {
-    border-color: #eef5f7; }
+    border: none; }
   .navbar .user {
     display: flex;
     justify-content: center;
@@ -52,7 +52,8 @@ h1, h3 {
       width: 100%; }
 
 .landing {
-  padding: 0 15px; }
+  padding: 0 15px;
+  margin-top: 6rem; }
   .landing header {
     text-transform: uppercase;
     font-family: 'Oxygen', sans-serif; }
@@ -71,7 +72,7 @@ h1, h3 {
 
 .modals {
   padding: 0 15px;
-  background: #F3F3F3; }
+  background: #F8F8F8; }
   .modals header {
     text-align: center;
     font-size: 1.5rem;
@@ -89,8 +90,8 @@ h1, h3 {
       .modals .row a .landing-modal .card {
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
         transition: transform .15s ease-out;
-        background: #638f9c;
-        color: #EEF5F7;
+        background: white;
+        color: #000000;
         max-width: 290px;
         height: 100%;
         width: 100%; }
