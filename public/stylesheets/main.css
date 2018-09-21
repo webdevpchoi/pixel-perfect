@@ -30,6 +30,14 @@ h1, h3 {
       margin-right: 5px; }
   .navbar .navbar-toggler {
     border: none; }
+    .navbar .navbar-toggler .icon-bar {
+      display: block;
+      border-radius: 1px;
+      height: 2px;
+      width: 22px;
+      background-color: #FFF; }
+    .navbar .navbar-toggler .icon-bar + .icon-bar {
+      margin-top: 4px; }
   .navbar .user {
     display: flex;
     justify-content: center;

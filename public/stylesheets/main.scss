@@ -46,6 +46,18 @@ h1, h3 {
 
 	.navbar-toggler {
 		border: none;
+
+		.icon-bar {
+			display: block;
+			border-radius: 1px;
+			height: 2px;
+			width: 22px;
+			background-color: #FFF;
+		}
+
+		.icon-bar + .icon-bar {
+			margin-top: 4px;
+		}
 	}
 
 	.user {
