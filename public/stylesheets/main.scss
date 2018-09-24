@@ -60,6 +60,27 @@ h1, h3 {
 		}
 	}
 
+	.navbar-collapse {
+
+		.navbar-nav {
+			font-family: 'Oxygen', sans-serif;
+
+			.nav-link {
+				color: white;
+				font-size: 2rem;
+				font-weight: 900;
+				letter-spacing: 2px;
+			}
+
+			.divider {
+				height: 2px;
+				width: 20px;
+				background-color: #FFF;
+				margin: 32px 0;
+			}			
+		}
+	}
+
 	.user {
 		display: flex;
 		justify-content: center;
