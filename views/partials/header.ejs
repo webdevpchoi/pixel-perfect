@@ -44,22 +44,18 @@
 	        </div>
 	      </li>
 	      <li class="divider"></li>
-	    </ul>
-	    <ul class="navbar-nav">
 		    <% if (!currentUser) { %>
-		    <li class="d-flex justify-content-center">
-			    <form class="form-inline my-2 my-lg-0" id="navbar-form" action="/login" method="POST">
-			    	<label for="username">
-			    		<input class="form-control" type="text" id="username" name="username" placeholder="Username">
-			    	</label>
-			    	<label for="password">
-			    		<input class="form-control" type="password" id="password" name="password" placeholder="Password">
-			    	</label>
+		    <li>
+		    	<a href="/login">Log In</a>
+		    </li>
+		    <li>
+				<a href="/signup">Sign Up</a>
+			    <!-- <form class="form-inline my-2 my-lg-0" id="navbar-form" action="/login" method="POST">
 			    	<button class="btn btn-outline-success" type="submit">Log In</button>
 				    <a class="nav-link" href="/signup">
 				    	<button type="button" class="btn btn-outline-warning">Sign Up</button>
 				    </a>	    
-			    </form>
+			    </form> -->
 		    </li>
 		    <% } else { %>
 		    <div class="logout" id="logout">
