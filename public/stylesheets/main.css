@@ -19,15 +19,24 @@ h1, h3 {
 
 .navbar {
   background: #000000; }
-  .navbar .navbar-brand {
+  .navbar .brand {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FFFFFF; }
-    .navbar .navbar-brand img {
+    color: #FFFFFF;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap; }
+    .navbar .brand img {
       height: 25px;
       width: 25px;
       margin-right: 5px; }
+  .navbar .brand:hover {
+    cursor: pointer;
+    text-decoration: none; }
   .navbar .navbar-toggler {
     border: none; }
     .navbar .navbar-toggler .icon-bar {
@@ -41,7 +50,7 @@ h1, h3 {
   .navbar .navbar-collapse .navbar-nav {
     font-family: 'Oxygen', sans-serif; }
     .navbar .navbar-collapse .navbar-nav .nav-link {
-      color: white;
+      color: #FFFFFF;
       font-size: 2rem;
       font-weight: 900;
       letter-spacing: 2px; }
@@ -50,6 +59,10 @@ h1, h3 {
       width: 20px;
       background-color: #FFF;
       margin: 32px 0; }
+    .navbar .navbar-collapse .navbar-nav .small-item {
+      font-weight: 400; }
+    .navbar .navbar-collapse .navbar-nav li:hover a {
+      color: red; }
   .navbar .user {
     display: flex;
     justify-content: center;

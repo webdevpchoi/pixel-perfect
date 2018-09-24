@@ -31,17 +31,28 @@ h1, h3 {
 .navbar {
 	background: #000000;
 
-	.navbar-brand {
+	.brand {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		color: #FFFFFF;
+	    padding-top: .3125rem;
+	    padding-bottom: .3125rem;
+	    margin-right: 1rem;
+	    font-size: 1.25rem;
+	    line-height: inherit;
+	    white-space: nowrap;
 
 		img {
 			height: 25px;
 			width: 25px;
 			margin-right: 5px;
 		}		
+	}
+
+	.brand:hover {
+		cursor: pointer;
+		text-decoration: none;
 	}
 
 	.navbar-toggler {
@@ -66,7 +77,7 @@ h1, h3 {
 			font-family: 'Oxygen', sans-serif;
 
 			.nav-link {
-				color: white;
+				color: #FFFFFF;
 				font-size: 2rem;
 				font-weight: 900;
 				letter-spacing: 2px;
@@ -77,7 +88,15 @@ h1, h3 {
 				width: 20px;
 				background-color: #FFF;
 				margin: 32px 0;
-			}			
+			}
+
+			.small-item {
+				font-weight: 400;
+			}
+
+			li:hover a {
+				color: red;
+			}
 		}
 	}
 
