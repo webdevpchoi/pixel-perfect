@@ -62,7 +62,7 @@ h1, h3 {
     .navbar .navbar-collapse .navbar-nav .small-item {
       font-weight: 400; }
     .navbar .navbar-collapse .navbar-nav li:hover a {
-      color: red; }
+      color: #2c5e92; }
   .navbar .user {
     display: flex;
     justify-content: center;
@@ -86,7 +86,7 @@ h1, h3 {
 
 .landing {
   padding: 0 15px;
-  margin-top: 6rem; }
+  padding-top: 2rem; }
   .landing header {
     text-transform: uppercase;
     font-family: 'Oxygen', sans-serif; }
@@ -94,22 +94,23 @@ h1, h3 {
       text-align: center;
       letter-spacing: 5px;
       font-size: 2rem;
-      margin: 3rem 0; }
+      margin: 5rem 0 3rem 0; }
   .landing .intro {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0 1rem;
     margin-top: 1.5rem;
-    min-height: 400px; }
+    min-height: 350px; }
 
 .modals {
   padding: 0 15px;
-  background: #F8F8F8; }
+  background-image: linear-gradient(#2c5e92 0%, #552f6d 80%); }
   .modals header {
     text-align: center;
     font-size: 1.5rem;
-    margin: 2rem 0; }
+    margin: 2rem 0;
+    color: #FFFFFF; }
   .modals .row a {
     text-decoration: none;
     color: black; }
@@ -127,7 +128,19 @@ h1, h3 {
         color: #000000;
         max-width: 290px;
         height: 100%;
-        width: 100%; }
+        width: 100%;
+        border: none; }
+        .modals .row a .landing-modal .card img {
+          width: 100%;
+          height: auto; }
+        .modals .row a .landing-modal .card .card-info li {
+          list-style: none; }
+        .modals .row a .landing-modal .card .card-info li::before {
+          content: '';
+          display: inline-block;
+          height: 25px;
+          width: 25px;
+          background-color: red; }
   .modals .card:hover {
     box-shadow: 0 14px 32px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-5px); }
