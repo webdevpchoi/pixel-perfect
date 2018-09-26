@@ -117,9 +117,6 @@ h1, h3 {
       margin: 5% 0;
       text-align: center;
       position: relative; }
-      .modals .row a .landing-modal img {
-        height: 130px;
-        width: 130px; }
       .modals .row a .landing-modal .card {
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
         transition: transform .15s ease-out;
@@ -128,10 +125,15 @@ h1, h3 {
         max-width: 350px;
         height: 100%;
         width: 100%;
-        border: none; }
+        border: none;
+        border-radius: 8px; }
         .modals .row a .landing-modal .card img {
           width: 100%;
-          height: auto; }
+          height: auto;
+          border: none;
+          border-radius: 8px 8px 0 0;
+          position: relative;
+          top: -1px; }
         .modals .row a .landing-modal .card .card-info {
           list-style-image: url("https://www.scdn.co/i/home/plan-checklist.svg");
           margin: 0;

@@ -183,11 +183,6 @@ h1, h3 {
 				text-align: center;
 				position: relative;
 
-				img {
-					height: 130px;
-					width: 130px;
-				}
-
 				.card {
 					box-shadow: 0 0 8px rgba(0,0,0,.2);
 					transition: transform .15s ease-out;
@@ -197,10 +192,16 @@ h1, h3 {
 					height: 100%;
 					width: 100%;
 					border: none;
+					border-radius: 8px;
+
 
 					img {
 						width: 100%;
 						height: auto;
+						border: none;
+						border-radius: 8px 8px 0 0;
+						position: relative;
+						top: -1px;
 					}
 
 					.card-info {
