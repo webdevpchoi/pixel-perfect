@@ -138,11 +138,20 @@ h1, h3 {
           padding: 2rem 0;
           border: 0 solid #D9DADC;
           border-top-width: 1px;
-          border-bottom-width: 1px; }
+          border-bottom-width: 1px;
+          line-height: 2; }
           .modals .row a .landing-modal .card .card-info li {
             text-align: left; }
         .modals .row a .landing-modal .card button {
-          margin: 1.5rem 0; }
+          margin: 1.5rem 0;
+          text-transform: uppercase;
+          border-radius: 500px;
+          padding: 16px 48px 18px;
+          white-space: normal;
+          letter-spacing: 2px;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 1; }
   .modals .card:hover {
     box-shadow: 0 14px 32px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-5px); }

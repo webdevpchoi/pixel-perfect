@@ -210,6 +210,7 @@ h1, h3 {
 						border: 0 solid #D9DADC;
 					    border-top-width: 1px;
 						border-bottom-width: 1px;
+						line-height: 2;
 
 						li {
 							text-align: left;
@@ -218,6 +219,14 @@ h1, h3 {
 
 					button {
 						margin: 1.5rem 0;
+						text-transform: uppercase;
+						border-radius: 500px;
+						padding: 16px 48px 18px;
+						white-space: normal;
+						letter-spacing: 2px;
+						font-weight: 700;
+						font-size: 14px;
+						line-height: 1;
 					}						
 				}
 			}
