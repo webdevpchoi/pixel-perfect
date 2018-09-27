@@ -158,6 +158,23 @@ h1, h3 {
     box-shadow: 0 14px 32px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-5px); }
 
+footer {
+  background: #000000;
+  padding: 2rem 15px 1rem;
+  font-family: 'Oxygen', sans-serif;
+  color: #ffffff; }
+  footer .note h4 {
+    letter-spacing: 2px;
+    border-color: #ffffff;
+    display: inline-block;
+    border: 0 solid white;
+    border-bottom-width: 1px; }
+  footer .note p {
+    font-size: 17px;
+    line-height: 1.2; }
+  footer .credit {
+    font-size: 13px; }
+
 .add-model label, .add-photographer label {
   width: 100%; }
   .add-model label input, .add-model label textarea, .add-photographer label input, .add-photographer label textarea {
