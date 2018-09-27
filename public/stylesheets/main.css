@@ -109,7 +109,9 @@ h1, h3 {
     text-align: center;
     font-size: 1.5rem;
     margin: 2rem 0;
-    color: #FFFFFF; }
+    color: #FFFFFF;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 600; }
   .modals .row a {
     text-decoration: none;
     color: black; }
