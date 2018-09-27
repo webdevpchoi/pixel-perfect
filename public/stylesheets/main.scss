@@ -141,12 +141,12 @@ h1, h3 {
 
 	header {
 		text-transform: uppercase;
-		font-family: 'Oxygen', sans-serif;		
+		font-family: 'Oxygen', sans-serif;
 
 		h1 {
 			text-align: center;
-			letter-spacing: 5px;
-			font-size: 2rem;
+			letter-spacing: 3px;
+			font-size: 1.9rem;
 			margin: 5rem 0 3rem 0;
 		}
 	}
@@ -173,6 +173,7 @@ h1, h3 {
 		color: #FFFFFF;
 		font-family: 'Oxygen', sans-serif;
 		font-weight: 600;
+		letter-spacing: .5px;
 	}
 
 	.row {
@@ -314,7 +315,6 @@ footer {
 }
 
 //model show page
-
 $section-bg-color: #638F9C;
 
 .section-header {
@@ -379,13 +379,22 @@ $section-bg-color: #638F9C;
 }
 
 //new comment page
-
 .add-comment {
 	label {
 		width: 100%;
 
 		input, textarea {
 			width: 100%;
+		}
+	}
+}
+
+@media (min-width: 375px) {
+	.landing {
+		header {
+			h1 {
+				font-size: 2.5rem;
+			}
 		}
 	}
 }

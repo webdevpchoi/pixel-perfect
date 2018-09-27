@@ -92,8 +92,8 @@ h1, h3 {
     font-family: 'Oxygen', sans-serif; }
     .landing header h1 {
       text-align: center;
-      letter-spacing: 5px;
-      font-size: 2rem;
+      letter-spacing: 3px;
+      font-size: 1.9rem;
       margin: 5rem 0 3rem 0; }
   .landing .intro {
     display: flex;
@@ -111,7 +111,8 @@ h1, h3 {
     margin: 2rem 0;
     color: #FFFFFF;
     font-family: 'Oxygen', sans-serif;
-    font-weight: 600; }
+    font-weight: 600;
+    letter-spacing: .5px; }
   .modals .row a {
     text-decoration: none;
     color: black; }
@@ -249,6 +250,9 @@ footer {
   .add-comment label input, .add-comment label textarea {
     width: 100%; }
 
+@media (min-width: 375px) {
+  .landing header h1 {
+    font-size: 2.5rem; } }
 @media (min-width: 576px) {
   #navbar-form label {
     margin-bottom: .5rem; }
