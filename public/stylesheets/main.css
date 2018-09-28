@@ -130,6 +130,8 @@ h1, h3 {
         width: 100%;
         border: none;
         border-radius: 8px; }
+        .modals .row a .landing-modal .card h3 {
+          font-family: 'Oxygen', sans-serif; }
         .modals .row a .landing-modal .card img {
           height: 150px;
           width: 150px;
