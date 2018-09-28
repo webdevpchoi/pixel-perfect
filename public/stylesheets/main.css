@@ -31,8 +31,8 @@ h1, h3 {
     line-height: inherit;
     white-space: nowrap; }
     .navbar .brand img {
-      height: 25px;
-      width: 25px;
+      height: 33px;
+      width: 33px;
       margin-right: 5px; }
   .navbar .brand:hover {
     cursor: pointer;
@@ -131,12 +131,13 @@ h1, h3 {
         border: none;
         border-radius: 8px; }
         .modals .row a .landing-modal .card img {
-          width: 100%;
-          height: auto;
-          border: none;
-          border-radius: 8px 8px 0 0;
-          position: relative;
-          top: -1px; }
+          height: 150px;
+          width: 150px;
+          margin-top: 2.5rem;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+          border-radius: 19px; }
+        .modals .row a .landing-modal .card img[src="/assets/icons/mm-red.svg"] {
+          background: #EA4949; }
         .modals .row a .landing-modal .card .card-info {
           list-style-image: url("https://www.scdn.co/i/home/plan-checklist.svg");
           margin: 0;
