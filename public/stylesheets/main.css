@@ -9,7 +9,8 @@ input[type="number"] {
 body, html {
   height: 100vh;
   width: 100vw;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  font-family: 'Oxygen', sans-serif; }
 
 ul {
   list-style-type: none; }
@@ -19,7 +20,7 @@ h1, h3 {
 
 .navbar {
   background: #000000; }
-  .navbar .brand {
+  .navbar .navbar-brand {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +31,7 @@ h1, h3 {
     font-size: 1.25rem;
     line-height: inherit;
     white-space: nowrap; }
-    .navbar .brand img {
+    .navbar .navbar-brand img {
       height: 33px;
       width: 33px;
       margin-right: 5px; }
@@ -47,22 +48,20 @@ h1, h3 {
       background-color: #FFF; }
     .navbar .navbar-toggler .icon-bar + .icon-bar {
       margin-top: 4px; }
-  .navbar .navbar-collapse .navbar-nav {
-    font-family: 'Oxygen', sans-serif; }
-    .navbar .navbar-collapse .navbar-nav .nav-link {
-      color: #FFFFFF;
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: 2px; }
-    .navbar .navbar-collapse .navbar-nav .divider {
-      height: 2px;
-      width: 20px;
-      background-color: #FFF;
-      margin: 32px 0; }
-    .navbar .navbar-collapse .navbar-nav .small-item {
-      font-weight: 400; }
-    .navbar .navbar-collapse .navbar-nav li:hover a {
-      color: #2c5e92; }
+  .navbar .navbar-collapse .navbar-nav .nav-link {
+    color: #FFFFFF;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 2px; }
+  .navbar .navbar-collapse .navbar-nav .divider {
+    height: 2px;
+    width: 20px;
+    background-color: #FFF;
+    margin: 32px 0; }
+  .navbar .navbar-collapse .navbar-nav .small-item {
+    font-weight: 400; }
+  .navbar .navbar-collapse .navbar-nav li:hover a {
+    color: #2c5e92; }
   .navbar .user {
     display: flex;
     justify-content: center;
@@ -88,8 +87,7 @@ h1, h3 {
   padding: 0 15px;
   padding-top: 2rem; }
   .landing header {
-    text-transform: uppercase;
-    font-family: 'Oxygen', sans-serif; }
+    text-transform: uppercase; }
     .landing header h1 {
       text-align: center;
       letter-spacing: 3px;
@@ -110,7 +108,6 @@ h1, h3 {
     font-size: 1.5rem;
     margin: 2rem 0;
     color: #FFFFFF;
-    font-family: 'Oxygen', sans-serif;
     font-weight: 600;
     letter-spacing: .5px; }
   .modals .row a {
@@ -130,8 +127,6 @@ h1, h3 {
         width: 100%;
         border: none;
         border-radius: 8px; }
-        .modals .row a .landing-modal .card h3 {
-          font-family: 'Oxygen', sans-serif; }
         .modals .row a .landing-modal .card img {
           height: 150px;
           width: 150px;
@@ -167,7 +162,6 @@ h1, h3 {
 footer {
   background: #000000;
   padding: 2rem 15px 1rem;
-  font-family: 'Oxygen', sans-serif;
   color: #ffffff; }
   footer .note h4 {
     letter-spacing: 2px;
@@ -266,23 +260,19 @@ footer {
     width: 100%; }
     #navbar-form .form-inline .form-control button {
       max-width: 340px; } }
-@media (min-width: 768px) {
-  .landing header h1 {
-    font-size: 4rem; } }
 @media (min-width: 992px) {
-  #navbar-form {
-    flex-wrap: nowrap;
-    width: auto;
-    max-width: 600px !important; }
-    #navbar-form a {
-      padding: 0;
-      width: auto !important; }
-    #navbar-form label {
-      margin: 0 5px;
-      width: auto; }
-    #navbar-form button {
-      width: auto !important;
-      margin: 0 5px; }
-
-  .logout {
-    flex-direction: row !important; } }
+  .navbar .navbar-brand .pt-1 {
+    font-size: 1.7rem;
+    letter-spacing: 1px; }
+  .navbar .navbar-collapse .navbar-nav {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+    align-items: center; }
+    .navbar .navbar-collapse .navbar-nav .divider {
+      width: 2px;
+      height: 30px;
+      margin: 0 10px; }
+    .navbar .navbar-collapse .navbar-nav .nav-link {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 3px; } }

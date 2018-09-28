@@ -16,7 +16,7 @@ body, html {
 	height: 100vh;
 	width: 100vw;
 	overflow-x: hidden;
-	// font-family: 'Oxygen', sans-serif;
+	font-family: 'Oxygen', sans-serif;
 }
 
 ul {
@@ -31,7 +31,7 @@ h1, h3 {
 .navbar {
 	background: #000000;
 
-	.brand {
+	.navbar-brand {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -74,7 +74,6 @@ h1, h3 {
 	.navbar-collapse {
 
 		.navbar-nav {
-			font-family: 'Oxygen', sans-serif;
 
 			.nav-link {
 				color: #FFFFFF;
@@ -141,7 +140,6 @@ h1, h3 {
 
 	header {
 		text-transform: uppercase;
-		font-family: 'Oxygen', sans-serif;
 
 		h1 {
 			text-align: center;
@@ -171,7 +169,6 @@ h1, h3 {
 		font-size: 1.5rem;
 		margin: 2rem 0;
 		color: #FFFFFF;
-		font-family: 'Oxygen', sans-serif;
 		font-weight: 600;
 		letter-spacing: .5px;
 	}
@@ -196,12 +193,6 @@ h1, h3 {
 					width: 100%;
 					border: none;
 					border-radius: 8px;
-
-					h3 {
-						font-family: 'Oxygen', sans-serif;
-						
-					}
-
 
 					img {
 						height: 150px;
@@ -254,7 +245,6 @@ h1, h3 {
 footer {
 	background: #000000;
 	padding: 2rem 15px 1rem;
-	font-family: 'Oxygen', sans-serif;
 	color: #ffffff;
 
 	.note {
@@ -428,42 +418,65 @@ $section-bg-color: #638F9C;
 	}
 }
 
-@media (min-width: 768px) {
-	//landing
+@media (min-width: 992px) {
+	//navbar
 
-	.landing {
-		header {
-			h1 {
-				font-size: 4rem;
+	.navbar {
+
+		.navbar-brand {
+			.pt-1 {
+				font-size: 1.7rem;
+				letter-spacing: 1px;
+			}
+		}
+
+		.navbar-collapse {
+
+			.navbar-nav {
+				margin-right: 0 !important;
+				margin-left: auto !important;
+				align-items: center;
+
+				.divider {
+					width: 2px;
+					height: 30px;
+					margin: 0 10px;
+				}
+
+				.nav-link {
+					font-size: 1.3rem;
+					font-weight: 600;
+					letter-spacing: 3px;
+				}
 			}
 		}
 	}
 }
 
-@media (min-width: 992px) {
+// @media (min-width: 992px) {
 
-	#navbar-form {
-		flex-wrap: nowrap;
-		width: auto;
-		max-width: 600px !important;
+// 	#navbar-form {
+// 		flex-wrap: nowrap;
+// 		width: auto;
+// 		max-width: 600px !important;
 
-		a {
-			padding: 0;
-			width: auto !important;
-		}
+// 		a {
+// 			padding: 0;
+// 			width: auto !important;
+// 		}
 
-		label {
-			margin: 0 5px;
-			width: auto;
-		}
+// 		label {
+// 			margin: 0 5px;
+// 			width: auto;
+// 		}
 
-		button {
-			width: auto !important;
-			margin: 0 5px;
-		}
-	}
+// 		button {
+// 			width: auto !important;
+// 			margin: 0 5px;
+// 		}
+// 	}
 
-	.logout {
-		flex-direction: row !important;
-	}
-}
+// 	.logout {
+// 		flex-direction: row !important;
+// 	}
+// }
