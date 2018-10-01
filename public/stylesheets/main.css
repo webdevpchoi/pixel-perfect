@@ -102,6 +102,7 @@ h1, h3 {
     min-height: 350px; }
 
 .modals {
+  padding: 2rem 0 3rem 0;
   background-image: linear-gradient(#2c5e92 0%, #552f6d 80%); }
   .modals header {
     text-align: center;
@@ -110,51 +111,48 @@ h1, h3 {
     color: #FFFFFF;
     font-weight: 600;
     letter-spacing: .5px; }
-  .modals .row a {
-    text-decoration: none;
-    color: black; }
-    .modals .row a .landing-modal {
-      margin: 5% 0;
-      text-align: center;
-      position: relative; }
-      .modals .row a .landing-modal .card {
+  .modals .row .landing-modal {
+    margin: 5% 0;
+    text-align: center;
+    position: relative; }
+    .modals .row .landing-modal .card {
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      transition: transform .15s ease-out;
+      background: white;
+      color: #000000;
+      max-width: 350px;
+      height: 100%;
+      width: 100%;
+      border: none;
+      border-radius: 8px; }
+      .modals .row .landing-modal .card img {
+        height: 150px;
+        width: 150px;
+        margin-top: 2.5rem;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-        transition: transform .15s ease-out;
-        background: white;
-        color: #000000;
-        max-width: 350px;
-        height: 100%;
-        width: 100%;
-        border: none;
-        border-radius: 8px; }
-        .modals .row a .landing-modal .card img {
-          height: 150px;
-          width: 150px;
-          margin-top: 2.5rem;
-          box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-          border-radius: 19px; }
-        .modals .row a .landing-modal .card img[src="/assets/icons/mm-red.svg"] {
-          background: #EA4949; }
-        .modals .row a .landing-modal .card .card-info {
-          list-style-image: url("https://www.scdn.co/i/home/plan-checklist.svg");
-          margin: 0;
-          padding: 2rem 0;
-          border: 0 solid #D9DADC;
-          border-top-width: 1px;
-          border-bottom-width: 1px;
-          line-height: 2; }
-          .modals .row a .landing-modal .card .card-info li {
-            text-align: left; }
-        .modals .row a .landing-modal .card button {
-          margin: 1.5rem 0;
-          text-transform: uppercase;
-          border-radius: 500px;
-          padding: 16px 48px 18px;
-          white-space: normal;
-          letter-spacing: 2px;
-          font-weight: 700;
-          font-size: 14px;
-          line-height: 1; }
+        border-radius: 19px; }
+      .modals .row .landing-modal .card img[src="/assets/icons/mm-red.svg"] {
+        background: #EA4949; }
+      .modals .row .landing-modal .card .card-info {
+        list-style-image: url("https://www.scdn.co/i/home/plan-checklist.svg");
+        margin: 0;
+        padding: 2rem 0;
+        border: 0 solid #D9DADC;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        line-height: 2; }
+        .modals .row .landing-modal .card .card-info li {
+          text-align: left; }
+      .modals .row .landing-modal .card button {
+        margin: 1.5rem 0;
+        text-transform: uppercase;
+        border-radius: 500px;
+        padding: 16px 48px 18px;
+        white-space: normal;
+        letter-spacing: 2px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1; }
   .modals .card:hover {
     box-shadow: 0 14px 32px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-5px); }
@@ -249,7 +247,10 @@ footer {
 
 @media (min-width: 375px) {
   .landing header h1 {
-    font-size: 2.5rem; } }
+    font-size: 2.5rem; }
+
+  .modals header {
+    letter-spacing: 2px; } }
 @media (min-width: 576px) {
   #navbar-form label {
     margin-bottom: .5rem; }
@@ -275,4 +276,15 @@ footer {
     .navbar .navbar-collapse .navbar-nav .nav-link {
       font-size: 1.3rem;
       font-weight: 600;
-      letter-spacing: 3px; } }
+      letter-spacing: 3px; }
+
+  .modals .row {
+    justify-content: center; }
+    .modals .row .col-md-6 {
+      flex: 0 0 49%; }
+    .modals .row .divider {
+      flex: 0 0 1px;
+      background: #ffffff; } }
+@media (min-width: 1440px) {
+  .modals .row .col-md-6 {
+    flex: 0 0 691.88px; } }
