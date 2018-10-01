@@ -100,6 +100,17 @@ h1, h3 {
     padding: 0 1rem;
     margin-top: 1.5rem;
     min-height: 350px; }
+    .landing .intro .intro-p {
+      max-width: 598px; }
+    .landing .intro .start-content {
+      margin: 2rem 0; }
+      .landing .intro .start-content .start-container {
+        margin: 1rem 0; }
+        .landing .intro .start-content .start-container .start-icon {
+          height: 100px;
+          width: 100px;
+          display: block;
+          margin: auto; }
 
 .modals {
   padding: 2rem 0 3rem 0;
@@ -108,8 +119,8 @@ h1, h3 {
     text-align: center;
     font-size: 1.5rem;
     margin: 2rem 0;
+    padding: 0 1rem;
     color: #FFFFFF;
-    font-weight: 600;
     letter-spacing: .5px; }
   .modals .row .landing-modal {
     margin: 5% 0;
@@ -278,8 +289,11 @@ footer {
       font-weight: 600;
       letter-spacing: 3px; }
 
+  .modals h3 {
+    font-size: 40px; }
   .modals .row {
-    justify-content: center; }
+    justify-content: center;
+    margin-top: 4rem; }
     .modals .row .col-md-6 {
       flex: 0 0 49%; }
     .modals .row .divider {
