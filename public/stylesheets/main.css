@@ -51,7 +51,6 @@ h1, h3 {
   .navbar .navbar-collapse .navbar-nav .nav-link {
     color: #FFFFFF;
     font-size: 2rem;
-    font-weight: 900;
     letter-spacing: 2px; }
   .navbar .navbar-collapse .navbar-nav .divider {
     height: 2px;
@@ -272,6 +271,9 @@ footer {
     width: 100%; }
     #navbar-form .form-inline .form-control button {
       max-width: 340px; } }
+@media (min-width: 768px) {
+  .landing .intro .start-content {
+    margin: 5rem 0; } }
 @media (min-width: 992px) {
   .navbar .navbar-brand .pt-1 {
     font-size: 1.7rem;
@@ -286,7 +288,6 @@ footer {
       margin: 0 10px; }
     .navbar .navbar-collapse .navbar-nav .nav-link {
       font-size: 1.3rem;
-      font-weight: 600;
       letter-spacing: 3px; }
 
   .modals h3 {

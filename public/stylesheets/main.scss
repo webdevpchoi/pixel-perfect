@@ -78,7 +78,6 @@ h1, h3 {
 			.nav-link {
 				color: #FFFFFF;
 				font-size: 2rem;
-				font-weight: 900;
 				letter-spacing: 2px;
 			}
 
@@ -416,15 +415,6 @@ $section-bg-color: #638F9C;
 	}
 }
 
-// @media (min-width: 400px) {
-// 	.start-content {
-// 		justify-content: center;
-// 		.start-container {
-// 			flex: 0 0 325.6px;
-// 		}
-// 	}
-// }
-
 @media (min-width: 576px) {
 	#navbar-form {
 
@@ -443,6 +433,16 @@ $section-bg-color: #638F9C;
 				max-width: 340px;
 			}
 		}	
+	}
+}
+
+@media (min-width: 768px) {
+	.landing {
+		.intro {
+			.start-content {
+				margin: 5rem 0;
+			}
+		}		
 	}
 }
 
@@ -472,7 +472,6 @@ $section-bg-color: #638F9C;
 
 				.nav-link {
 					font-size: 1.3rem;
-					font-weight: 600;
 					letter-spacing: 3px;
 				}
 			}
