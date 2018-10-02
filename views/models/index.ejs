@@ -1,17 +1,20 @@
 <%- include('../partials/header') %>
+<div class="index">
+	<h2 class="text-center">All Models</h2>
+	<div class="new-btn-container text-center">
+		<a href="/models/new" class="add-new">
+			<img src="./assets/icons/plus.svg" alt="">
+		</a>
+	</div>
 
-<h1 class="text-center">All Models</h1>
-<a href="/models/new">
-	<button class="btn btn-primary">Add Model</button>
-</a>
-
-<div>
-	<div class="row mt-4 model-index">
-		<% models.forEach((model) => { %>
-			<a class="col-md-3 col-md-6 col-lg-3 my-2" href="/models/<%= model._id %>">
-				<img src="<%= model.profileImg %>" alt="Model" class="img-thumbnail">		
-			</a>
-		<% }) %>
+	<div>
+		<div class="row no-gutters index">
+			<% models.forEach((model) => { %>
+				<a class="col-md-3 col-md-6 col-lg-3" href="/models/<%= model._id %>">
+					<img src="<%= model.profileImg %>" alt="Model" class="index-thumbnail">		
+				</a>
+			<% }) %>
+		</div>
 	</div>
 </div>
 

@@ -196,8 +196,18 @@ footer {
     border: none;
     margin-bottom: .5rem; }
 
-.model-index a {
-  padding: 0 -15px !important; }
+.index .add-new {
+  border-radius: 50%;
+  border-width: 2px;
+  margin: 0 auto; }
+  .index .add-new img {
+    width: 50px;
+    height: 50px; }
+.index .index-thumbnail {
+  height: auto;
+  max-width: 100%;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem; }
 
 .height {
   flex-flow: nowrap; }
