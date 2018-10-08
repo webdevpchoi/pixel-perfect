@@ -308,9 +308,8 @@ footer {
 //index 
 .index {
 	.add-new {
-		border-radius: 50%;
-		border-width: 2px;
 		margin: 0 auto;
+		display: block;
 
 		img {
 			width: 50px;
@@ -318,11 +317,18 @@ footer {
 		}
 	}
 
-	.index-thumbnail {
-		height: auto;
-		max-width: 100%;
-		border:1px solid #dee2e6;
-		border-radius:.25rem;
+	.grid {
+		.grid-sizer, .grid-item {
+			width: 100%
+		}
+
+		.grid-item {
+			a {
+				img {
+					width: 100%;
+				}
+			}
+		}
 	}
 }
 
@@ -452,12 +458,23 @@ $section-bg-color: #638F9C;
 }
 
 @media (min-width: 768px) {
+	//landing page
 	.landing {
 		.intro {
 			.start-content {
 				margin: 5rem 0;
 			}
 		}		
+	}
+
+	//index page 
+
+	.index {
+		.grid {
+			.grid-sizer, .grid-item {
+				width: 50%;
+			}
+		}
 	}
 }
 
@@ -493,6 +510,7 @@ $section-bg-color: #638F9C;
 		}
 	}
 
+	//landing page
 	.modals {
 
 		h3 {
@@ -510,6 +528,25 @@ $section-bg-color: #638F9C;
 			.divider {
 				flex: 0 0 1px;
 				background: #ffffff;
+			}
+		}
+	}
+
+	//index page 
+	.index {
+		.grid {
+			.grid-sizer, .grid-item {
+				width: 33.33%;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.index {
+		.grid {
+			.grid-sizer, .grid-item {
+				width: 20%;
 			}
 		}
 	}

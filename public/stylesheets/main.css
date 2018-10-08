@@ -197,17 +197,15 @@ footer {
     margin-bottom: .5rem; }
 
 .index .add-new {
-  border-radius: 50%;
-  border-width: 2px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: block; }
   .index .add-new img {
     width: 50px;
     height: 50px; }
-.index .index-thumbnail {
-  height: auto;
-  max-width: 100%;
-  border: 1px solid #dee2e6;
-  border-radius: .25rem; }
+.index .grid .grid-sizer, .index .grid .grid-item {
+  width: 100%; }
+.index .grid .grid-item a img {
+  width: 100%; }
 
 .height {
   flex-flow: nowrap; }
@@ -283,7 +281,10 @@ footer {
       max-width: 340px; } }
 @media (min-width: 768px) {
   .landing .intro .start-content {
-    margin: 5rem 0; } }
+    margin: 5rem 0; }
+
+  .index .grid .grid-sizer, .index .grid .grid-item {
+    width: 50%; } }
 @media (min-width: 992px) {
   .navbar .navbar-brand .pt-1 {
     font-size: 1.7rem;
@@ -309,7 +310,13 @@ footer {
       flex: 0 0 49%; }
     .modals .row .divider {
       flex: 0 0 1px;
-      background: #ffffff; } }
+      background: #ffffff; }
+
+  .index .grid .grid-sizer, .index .grid .grid-item {
+    width: 33.33%; } }
+@media (min-width: 1200px) {
+  .index .grid .grid-sizer, .index .grid .grid-item {
+    width: 20%; } }
 @media (min-width: 1440px) {
   .modals .row .col-md-6 {
     flex: 0 0 691.88px; } }

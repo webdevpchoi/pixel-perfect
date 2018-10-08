@@ -101,7 +101,7 @@ const samplePhotographers = [
 			last: "Evans"
 		},
 		desc: "I take photos of stuff",
-		profileImg: "https://images.pexels.com/photos/108148/pexels-photo-108148.jpeg?auto=compress&cs=tinysrgb&h=350",
+		profileImg: "https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 		specialty: "Street Photography",
 		creator: {},
 		age: 34,
@@ -128,7 +128,56 @@ const samplePhotographers = [
 			last: "Gi-ant"
 		},
 		desc: "I take photos of stuff",
+		profileImg: "https://images.pexels.com/photos/1156540/pexels-photo-1156540.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+		specialty: "Street Photography",
+		creator: {},
+		age: 34,
+		category: "Nature",
+		experience: 23,
+	},
+	{
+		name: {
+			first: "Titan",
+			last: "Gi-ant"
+		},
+		desc: "I take photos of stuff",
 		profileImg: "https://images.pexels.com/photos/108148/pexels-photo-108148.jpeg?auto=compress&cs=tinysrgb&h=350",
+		specialty: "Street Photography",
+		creator: {},
+		age: 34,
+		category: "Nature",
+		experience: 23,
+	},{
+		name: {
+			first: "Titan",
+			last: "Gi-ant"
+		},
+		desc: "I take photos of stuff",
+		profileImg: "https://images.pexels.com/photos/898766/pexels-photo-898766.jpeg?cs=srgb&dl=camera-daylight-daytime-898766.jpg&fm=jpg",
+		specialty: "Street Photography",
+		creator: {},
+		age: 34,
+		category: "Nature",
+		experience: 23,
+	},{
+		name: {
+			first: "Titan",
+			last: "Gi-ant"
+		},
+		desc: "I take photos of stuff",
+		profileImg: "https://images.pexels.com/photos/238343/pexels-photo-238343.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+		specialty: "Street Photography",
+		creator: {},
+		age: 34,
+		category: "Nature",
+		experience: 23,
+	},{
+		name: {
+			first: "Titan",
+			last: "Gi-ant"
+		},
+		desc: "I take photos of stuff",
+		profileImg: "https://images.pexels.com/photos/546160/pexels-photo-546160.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 		specialty: "Street Photography",
 		creator: {},
 		age: 34,
