@@ -196,16 +196,24 @@ footer {
     border: none;
     margin-bottom: .5rem; }
 
-.index .add-new {
-  margin: 0 auto;
-  display: block; }
-  .index .add-new img {
-    width: 50px;
-    height: 50px; }
-.index .grid .grid-sizer, .index .grid .grid-item {
-  width: 100%; }
-.index .grid .grid-item a img {
-  width: 100%; }
+.index {
+  margin-top: 60px; }
+  .index h2 {
+    margin: 0;
+    padding: 1rem; }
+  .index .add-new {
+    display: block;
+    border-radius: 50%;
+    z-index: 2;
+    position: fixed;
+    bottom: 25px;
+    right: 35px;
+    width: 55px;
+    height: 55px; }
+  .index .grid .grid-sizer, .index .grid .grid-item {
+    width: 100%; }
+  .index .grid .grid-item a img {
+    width: 100%; }
 
 .height {
   flex-flow: nowrap; }

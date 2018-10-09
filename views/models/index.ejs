@@ -1,7 +1,13 @@
 <%- include('../partials/header') %>
 <div class="index">
 	<h2 class="text-center">All Models</h2>
-	<button class="btn btn-primary add-new">Add New</button>
+	<a href="/models/new">
+		<button class="btn btn-primary add-new">
+			<span>
+				<i class="fas fa-plus fa-lg"></i>
+			</span>
+		</button>		
+	</a>
 
 	<div class="grid">
 		<% models.forEach((model) => { %>
