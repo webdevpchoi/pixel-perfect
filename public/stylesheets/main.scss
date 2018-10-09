@@ -16,7 +16,7 @@ body, html {
 	height: 100vh;
 	width: 100vw;
 	overflow-x: hidden;
-	font-family: 'Oxygen', sans-serif;
+	font-family: 'Raleway', sans-serif;
 }
 
 ul {
@@ -186,7 +186,6 @@ h1, h3 {
 		margin: 2rem 0;
 		padding: 0 1rem;
 		color: #FFFFFF;
-		letter-spacing: .5px;
 	}
 
 	.row {
@@ -297,6 +296,7 @@ footer {
 .all-images {
 	padding: 0;
 	margin-bottom: .5rem;
+
 	li {
 		padding: 0;
 		border: none;
@@ -312,6 +312,8 @@ footer {
 	h2 {
 		margin: 0;
 		padding: 1rem;
+		letter-spacing: 1px;
+		background-image: linear-gradient(#C074B2, #8AB5E8);
 	}
 
 	.add-new {
@@ -434,12 +436,6 @@ $section-bg-color: #638F9C;
 			h1 {
 				font-size: 2.5rem;
 			}
-		}
-	}
-
-	.modals {
-		header {
-			letter-spacing: 2px;
 		}
 	}
 }
