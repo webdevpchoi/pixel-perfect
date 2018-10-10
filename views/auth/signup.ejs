@@ -1,16 +1,17 @@
 <%- include('../partials/header') %>
-
-<h3 class="text-center">Register</h3>
-<form action="/signup" method="POST" class="form-group">
-	<label for="username" class="d-block">
-		<em>Create a New Username</em>
-		<input class="form-control" type="text" placeholder="Username" name="username" id="username">
-	</label>
-	<label for="password" class="d-block">
-		<em>Create a New Password</em>
-		<input class="form-control" type="password" name="password" id="password" placeholder="Password">
-	</label>
-	<button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class="auth">
+	<h3 class="text-center register-h3">Register</h3>
+	<form action="/signup" method="POST" class="form-group auth-form">
+		<label for="username" class="d-block">
+			<em>Create a New Username</em>
+			<input class="form-control" type="text" placeholder="Username" name="username" id="username">
+		</label>
+		<label for="password" class="d-block">
+			<em>Create a New Password</em>
+			<input class="form-control" type="password" name="password" id="password" placeholder="Password">
+		</label>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>	
+</div>
 
 <%- include('../partials/footer') %>

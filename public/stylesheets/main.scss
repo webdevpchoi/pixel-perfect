@@ -27,6 +27,16 @@ h1, h3 {
 	margin: 1rem 0;
 }
 
+//alert 
+.alert {
+	margin-top: 60px;
+}
+
+.alert + .auth {
+	margin-top: 0;
+	padding: 0 15px;
+}
+
 //navbar 
 .navbar {
 	background: #000000;
@@ -277,12 +287,28 @@ footer {
 	.credit {
 		font-size: 13px;
 	}
-
 }
 
+//login & register page
+.auth {
+	padding: 25px 15px;
+	margin-top: 60px;
+
+	.auth-form {	
+		label {
+			max-width: 395px;
+			margin: 1rem auto;
+		}
+
+		.btn {
+			width: 150px;
+			margin: 0 auto;
+			display: block;
+		}
+	}
+}
 
 //add new model
-
 .add-model, .add-photographer {
 	label {
 		width: 100%;
@@ -307,14 +333,24 @@ footer {
 
 //index 
 .index {
+	height: 100vh;
 	margin-top: 60px;
+	background: #f09433;
+	background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
 
 	h2 {
 		margin: 0;
 		padding: 1rem;
 		letter-spacing: 1px;
-		background-image: linear-gradient(#C074B2, #8AB5E8);
-	}
+		font-weight: 700;
+		color: #ffffff;
+		background: #f09433;
+		background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+		position: relative;
+		z-index: 2;
+	}		
+
+
 
 	.add-new {
 		display: block;
@@ -442,7 +478,6 @@ $section-bg-color: #638F9C;
 
 @media (min-width: 576px) {
 	#navbar-form {
-
 	   label {
 	    	margin-bottom: .5rem;
 		    input {
