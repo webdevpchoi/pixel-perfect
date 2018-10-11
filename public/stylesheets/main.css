@@ -12,6 +12,9 @@ body, html {
   overflow-x: hidden;
   font-family: 'Raleway', sans-serif; }
 
+.site {
+  height: 100%; }
+
 ul {
   list-style-type: none; }
 
@@ -127,11 +130,11 @@ h1, h3 {
     margin: 2rem 0;
     padding: 0 1rem;
     color: #FFFFFF; }
-  .modals .row .landing-modal {
+  .modals .modal-row .landing-modal {
     margin: 5% 0;
     text-align: center;
     position: relative; }
-    .modals .row .landing-modal .card {
+    .modals .modal-row .landing-modal .card {
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
       transition: transform .15s ease-out;
       background: white;
@@ -141,15 +144,15 @@ h1, h3 {
       width: 100%;
       border: none;
       border-radius: 8px; }
-      .modals .row .landing-modal .card img {
+      .modals .modal-row .landing-modal .card img {
         height: 150px;
         width: 150px;
         margin-top: 2.5rem;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
         border-radius: 19px; }
-      .modals .row .landing-modal .card img[src="/assets/icons/mm-red.svg"] {
+      .modals .modal-row .landing-modal .card img[src="/assets/icons/mm-red.svg"] {
         background: #EA4949; }
-      .modals .row .landing-modal .card .card-info {
+      .modals .modal-row .landing-modal .card .card-info {
         list-style-image: url("https://www.scdn.co/i/home/plan-checklist.svg");
         margin: 0;
         padding: 2rem 0;
@@ -157,9 +160,9 @@ h1, h3 {
         border-top-width: 1px;
         border-bottom-width: 1px;
         line-height: 2; }
-        .modals .row .landing-modal .card .card-info li {
+        .modals .modal-row .landing-modal .card .card-info li {
           text-align: left; }
-      .modals .row .landing-modal .card button {
+      .modals .modal-row .landing-modal .card button {
         margin: 1.5rem 0;
         text-transform: uppercase;
         border-radius: 500px;
@@ -249,37 +252,35 @@ footer {
     .height label[for="feet"] input, .height label[for="inches"] input {
       width: 100%; }
 
-.section-header {
-  color: #FFFFFF;
-  background: #3F7483;
-  margin: 0 0 1.5rem 0;
-  padding: 1rem;
-  letter-spacing: 2px; }
-
-.model-intro {
-  padding: 0; }
-  .model-intro .profile-img {
-    margin: 0 auto; }
-
-.row {
-  margin: 0; }
-
-.cmt-btn {
-  min-width: 88px; }
-
-.model-desc {
-  background: #638f9c; }
-  .model-desc .desc-content {
-    padding: 1rem; }
-    .model-desc .desc-content p {
-      margin: 0; }
-
-.portfolio {
-  background: #638f9c; }
+.show-intro {
+  margin-top: 60px;
+  height: 100vh;
+  background: #1E3264;
+  background-image: linear-gradient(#2c5e92 0%, #552f6d 80%);
+  color: white;
+  padding: 0 15px; }
+  .show-intro .show-header {
+    font-weight: 700;
+    text-transform: lowercase; }
+  .show-intro .profile-img {
+    width: 100%;
+    position: relative; }
+    .show-intro .profile-img .profile-bg {
+      width: 88%;
+      height: 90%;
+      background: #fff;
+      opacity: .05;
+      position: absolute;
+      bottom: -30px;
+      left: 6%; }
+    .show-intro .profile-img img {
+      width: 80%;
+      margin-bottom: 1rem;
+      display: block;
+      margin: 0 auto; }
 
 .comments {
-  padding: 0;
-  background: #638f9c; }
+  padding: 0; }
   .comments .add-cmt {
     display: flex;
     justify-content: center;

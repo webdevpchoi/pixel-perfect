@@ -1,68 +1,71 @@
 <%- include('../partials/header') %>
-<div class="row">
-	<div class="col-sm-12 col-md-6 model-desc p-0 mt-4">
-		<h3 class="text-center mb-3 section-header">About Me</h3>
-		<div class="px-2">
-			<img class="img-thumbnail profile-img d-flex justify-content-center" src="<%= photographer.profileImg %>" alt="Profile picture of model">
-			<h6 class="m-2"><em>Posted by: <%= photographer.creator.username %></em></h6>
-			<% if (currentUser && photographer.creator.id.equals(currentUser._id)) { %>
-				<div class="my-2 p-2 d-flex justify-content-around btn-container">
-					<a class="mx-2" href="/photographers/<%= photographer._id %>/edit">
-						<button class="btn btn-warning edit-model">Edit</button>
-					</a>
-					<form class="mx-2" action="/photographers/<%= photographer._id %>?_method=DELETE" method="POST">
-						<a href="/models/<%= photographer._id %>">
-							<button class="btn btn-danger dlt-model">Delete</button>
+<div class="show-intro">
+	<div class="row about">
+		<div class="col-sm-12 col-md-6 model-desc">
+			<h3 class="text-center show-header">About Me</h3>
+			<div class="profile-img">
+				<div class="profile-bg"></div>
+				<img src="<%= photographer.profileImg %>" alt="Profile picture of model">
+				<h6><em>Posted by: <%= photographer.creator.username %></em></h6>
+				<% if (currentUser && photographer.creator.id.equals(currentUser._id)) { %>
+					<div class="my-2 p-2 d-flex justify-content-around btn-container">
+						<a class="mx-2" href="/photographers/<%= photographer._id %>/edit">
+							<button class="btn btn-warning edit-model">Edit</button>
 						</a>
-					</form>
-				</div>
-			<% } %>
+						<form class="mx-2" action="/photographers/<%= photographer._id %>?_method=DELETE" method="POST">
+							<a href="/models/<%= photographer._id %>">
+								<button class="btn btn-danger dlt-model">Delete</button>
+							</a>
+						</form>
+					</div>
+				<% } %>
+			</div>
+			<div class="content">
+				<ul class="traits">
+					<li>Name: <%= photographer.name.first %> <%= photographer.name.last %></li>			
+					<li>Age: <%= photographer.age %></li>
+					<li>Type: <%= photographer.category %></li>
+				</ul>			
+				<p><em><%= photographer.desc %></em></p>
+			</div>
 		</div>
-		<div class="desc-content">
-			<ul class="traits p-0">
-				<li>Name: <%= photographer.name.first %> <%= photographer.name.last %></li>			
-				<li>Age: <%= photographer.age %></li>
-				<li>Type: <%= photographer.category %></li>
-			</ul>			
-			<p><em><%= photographer.desc %></em></p>
+		<div class="col-sm-12 col-md-12 mt-4 portfolio p-0">
+			<h3 class="text-center section-header">Portfolio</h3>
+			<div class="more-img">
+				<% photographer.images.forEach((image) => { %>
+					<img src="<%= image %>">
+				<% }) %>
+			</div>
 		</div>
 	</div>
-	<div class="col-sm-12 col-md-12 mt-4 portfolio p-0">
-		<h3 class="text-center mb-3 section-header">Portfolio</h3>
-		<div class="more-img">
-			<% photographer.images.forEach((image) => { %>
-				<img src="<%= image %>">
-			<% }) %>
-		</div>
-	</div>
-</div>
 
-<ul class="comments pb-2 mt-4">
-	<h3 class="text-center mb-3 section-header">Comments</h3>
-	<a href="/photographers/<%= photographer._id %>/comments/new">
-		<button class="btn btn-primary">Add New Comment</button>
-	</a>
-	<% photographer.comments.forEach((comment) => { %>
-		<li>
-			<%= comment.text %>
-			<br>
-			<br>
-			<div class="text-right my-3">
-				<em><%= comment.author.username %></em>
-			</div>
-			<div class="d-flex justify-content-center">
-				<% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
-					<a class="mx-2" href="/photographers/<%= photographer._id %>/comments/<%= comment._id %>/edit">
-						<button class="btn btn-warning cmt-btn">Edit</button>
-					</a>
-					<form class="mx-2" action="/photographers/<%= photographer._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-						<button class="btn btn-danger cmt-btn">Delete</button>
-					</form>
-				<% } %>			
-			</div>
-		</li>
-	<% }) %>
-</ul>
+	<ul class="comments pb-2 mt-4">
+		<h3 class="text-center section-header">Comments</h3>
+		<a href="/photographers/<%= photographer._id %>/comments/new">
+			<button class="btn btn-primary">Add New Comment</button>
+		</a>
+		<% photographer.comments.forEach((comment) => { %>
+			<li>
+				<%= comment.text %>
+				<br>
+				<br>
+				<div class="text-right">
+					<em><%= comment.author.username %></em>
+				</div>
+				<div class="d-flex justify-content-center">
+					<% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+						<a href="/photographers/<%= photographer._id %>/comments/<%= comment._id %>/edit">
+							<button class="btn btn-warning cmt-btn">Edit</button>
+						</a>
+						<form action="/photographers/<%= photographer._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+							<button class="btn btn-danger cmt-btn">Delete</button>
+						</form>
+					<% } %>			
+				</div>
+			</li>
+		<% }) %>
+	</ul>	
+</div>
 
 
 <%- include('../partials/footer') %>
