@@ -189,6 +189,7 @@ h1, h3 {
 		}
 	}
 }
+
 //modals
 .modals {
 	padding: 2rem 0 3rem 0;
@@ -203,6 +204,7 @@ h1, h3 {
 	}
 
 	.modal-row {
+		padding: 0 15px;
 		
 		.landing-modal {	
 			margin: 5% 0;
@@ -398,41 +400,57 @@ footer {
 //show page
 .show-intro {
 	margin-top: 60px;
-	height: 100vh;
+	height: auto;
 	background: #1E3264;
 	background-image: linear-gradient(#2C5E92 0%, #552F6D 80%);
 	color: white;
-	padding: 0 15px;
+	padding: 0 15px 15px;
 
-	.show-header {
+	h3 {
 		font-weight: 700;
-		text-transform: lowercase;		
+		text-transform: lowercase;	
 	}
 
-	.profile-img {
+	.profile-container {
 	    width: 100%;
 	    position: relative;
 
-	    .profile-bg {
-    	    width: 88%;
-		    height: 90%;
-		    background: #fff;
-		    opacity: .05;
-		    position: absolute;
-		    bottom: -30px;
-		    left: 6%;
-	    }
+	    .profile-img {
+	    	position: relative;
+	    	z-index: 1;
 
-	    img {
-	    	width: 80%;
-	    	margin-bottom: 1rem;
-	    	display: block;
-	    	margin: 0 auto;
-	    }
-	}
+		    img {
+		    	width: 80%;
+		    	margin-bottom: 1rem;
+		    	display: block;
+		    	margin: 0 auto;
+		    }	 
 
-	.content {
+		    .name-banner {
+	    		background: #1E3264;
+	    		margin: 0 0 .5rem;
+	    		padding: 10px;
+	    		text-align: center;
+    		}   
+    	}
 
+    	.content {
+    		background: rgba(255, 255, 255, .05);
+    		padding-top: 5rem;
+    		position: relative;
+  		    bottom: 77px;
+		    width: 90%;
+		    margin: 0 auto;
+		    z-index: 0;
+
+		    .traits {
+		    	padding-bottom: 1rem;
+		    }
+    	}
+
+    	.desc {
+    		margin-top: -80px;
+    	}
 	}
 }
 

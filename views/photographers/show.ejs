@@ -2,11 +2,32 @@
 <div class="show-intro">
 	<div class="row about">
 		<div class="col-sm-12 col-md-6 model-desc">
-			<h3 class="text-center show-header">About Me</h3>
-			<div class="profile-img">
-				<div class="profile-bg"></div>
-				<img src="<%= photographer.profileImg %>" alt="Profile picture of model">
-				<h6><em>Posted by: <%= photographer.creator.username %></em></h6>
+			<h3 class="text-center">About Me</h3>
+			<div class="profile-container">
+				<div class="profile-img">
+					<img src="<%= photographer.profileImg %>" alt="Profile picture of model">
+					<h3 class="name-banner"><%= photographer.name.first %> <%= photographer.name.last %></h3>
+				</div>		
+				<div class="content">
+					<ul class="traits">			
+						<li>Age: <%= photographer.age %></li>
+						<li>Type: <%= photographer.category %></li>	
+						<li>Age: <%= photographer.age %></li>
+						<li>Type: <%= photographer.category %></li>	
+						<li>Age: <%= photographer.age %></li>
+						<li>Type: <%= photographer.category %></li>	
+						<li>Age: <%= photographer.age %></li>
+						<li>Type: <%= photographer.category %></li>
+						<li>Type: <%= photographer.category %></li>	
+						<li>Age: <%= photographer.age %></li>
+						<li>Type: <%= photographer.category %></li>		
+						<li>Type: <%= photographer.category %></li>	
+						<li>Age: <%= photographer.age %></li>
+						<li>Type: <%= photographer.category %></li>	
+					</ul>			
+				</div>
+				<p class="desc"><em><%= photographer.desc %></em></p>
+				<!-- <h6><em>Posted by: <%= photographer.creator.username %></em></h6> -->
 				<% if (currentUser && photographer.creator.id.equals(currentUser._id)) { %>
 					<div class="my-2 p-2 d-flex justify-content-around btn-container">
 						<a class="mx-2" href="/photographers/<%= photographer._id %>/edit">
@@ -20,16 +41,8 @@
 					</div>
 				<% } %>
 			</div>
-			<div class="content">
-				<ul class="traits">
-					<li>Name: <%= photographer.name.first %> <%= photographer.name.last %></li>			
-					<li>Age: <%= photographer.age %></li>
-					<li>Type: <%= photographer.category %></li>
-				</ul>			
-				<p><em><%= photographer.desc %></em></p>
-			</div>
 		</div>
-		<div class="col-sm-12 col-md-12 mt-4 portfolio p-0">
+		<div class="col-sm-12 col-md-12 portfolio">
 			<h3 class="text-center section-header">Portfolio</h3>
 			<div class="more-img">
 				<% photographer.images.forEach((image) => { %>
@@ -39,7 +52,7 @@
 		</div>
 	</div>
 
-	<ul class="comments pb-2 mt-4">
+	<ul class="comments">
 		<h3 class="text-center section-header">Comments</h3>
 		<a href="/photographers/<%= photographer._id %>/comments/new">
 			<button class="btn btn-primary">Add New Comment</button>

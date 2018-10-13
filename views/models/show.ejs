@@ -1,75 +1,79 @@
 <%- include('../partials/header') %>
-<% console.log(model) %>
-<div class="row">
-	<div class="col-sm-12 model-desc mt-4 p-0">
-		<h3 class="text-center section-header">About Me</h3>
-		<div class="model-intro px-2">
-			<img class="img-thumbnail profile-img d-flex justify-content-center" src="<%= model.profileImg %>" alt="Profile picture of model">
-			<h6 class="m-2"><em>Posted by: <%= model.creator.username %></em></h6>
-			<% if (currentUser && model.creator.id.equals(currentUser._id)) { %>
-				<div class="my-2 p-2 d-flex justify-content-around btn-container">
-					<a class="mx-2" href="/models/<%= model._id %>/edit">
-						<button class="btn btn-warning edit-model">Edit Model</button>
-					</a>
-					<form class="mx-2" action="/models/<%= model._id %>?_method=DELETE" method="POST">
-						<a href="/models/<%= model._id %>">
-							<button class="btn btn-danger dlt-model">Delete Model</button>
-						</a>
-					</form>
+<div class="show-intro">
+	<div class="row about">
+		<div class="col-sm-12 col-md-6 model-desc">
+			<h3 class="text-center">About Me</h3>
+			<div class="profile-container">
+				<div class="profile-img">
+					<img src="<%= model.profileImg %>" alt="Profile picture of model">
+					<h3 class="name-banner"><%= model.name.first %> <%= model.name.last %></h3>					
 				</div>
-			<% } %>
+				<div class="content">
+					<ul class="traits">
+						<li>Name: <%= model.name.first %> <%= model.name.last %></li>
+						<li>Age: <%= model.age %></li>
+						<li>Type: <%= model.category %></li>
+						<li>Eye Color: <%= model.eyeColor %></li>
+						<li>Hair Color: <%= model.hairColor %></li>
+						<li>Height: <%= model.height.feet %>'<%= model.height.inches %>''</li>
+						<li>Tattoo: <%= model.tattoo %></li>
+						<li>Ethnicity: <%= model.ethnicity %></li>
+					</ul>
+				</div>
+				<p class="desc"><em><%= model.desc %></em></p>
+				<!-- <h6 class="m-2"><em>Posted by: <%= model.creator.username %></em></h6> -->			
+				<% if (currentUser && model.creator.id.equals(currentUser._id)) { %>
+					<div class="my-2 p-2 d-flex justify-content-around btn-container">
+						<a class="mx-2" href="/models/<%= model._id %>/edit">
+							<button class="btn btn-warning edit-model">Edit Model</button>
+						</a>
+						<form class="mx-2" action="/models/<%= model._id %>?_method=DELETE" method="POST">
+							<a href="/models/<%= model._id %>">
+								<button class="btn btn-danger dlt-model">Delete Model</button>
+							</a>
+						</form>
+					</div>
+				<% } %>
+			</div>
 		</div>
-		<div class="desc-content">
-			<ul class="traits p-0">
-				<li>Name: <%= model.name.first %> <%= model.name.last %></li>
-				<li>Age: <%= model.age %></li>
-				<li>Type: <%= model.category %></li>
-				<li>Eye Color: <%= model.eyeColor %></li>
-				<li>Hair Color: <%= model.hairColor %></li>
-				<li>Height: <%= model.height.feet %>'<%= model.height.inches %>''</li>
-				<li>Tattoo: <%= model.tattoo %></li>
-				<li>Ethnicity: <%= model.ethnicity %></li>
-			</ul>
-			<p><em><%= model.desc %></em></p>			
+		<div class="col-sm-12 col-md-12 mt-4 portfolio p-0">
+			<h3 class="text-center section-header">Portfolio</h3>
+			<div class="more-img px-2">
+				<% model.images.forEach((image) => { %>
+					<img src="<%= image %>" class="img-thumbnail">
+				<% }) %>
+			</div>
 		</div>
-	</div>
-	<div class="col-sm-12 col-md-12 mt-4 portfolio p-0">
-		<h3 class="text-center section-header">Portfolio</h3>
-		<div class="more-img px-2">
-			<% model.images.forEach((image) => { %>
-				<img src="<%= image %>" class="img-thumbnail">
-			<% }) %>
+	</div>	
+	<ul class="comments">
+		<h3 class="text-center mb-3 section-header">Comments</h3>
+		<div class="add-cmt mb-3">
+			<a href="/models/<%= model._id %>/comments/new">
+				<button class="btn btn-primary add-cmt">Add New Comment</button>
+			</a>		
 		</div>
-	</div>
+		<% model.comments.forEach((comment) => { %>
+			<li>
+				<%= comment.text %>
+				<br>
+				<br>
+				<div class="text-right mt-3">
+					<em><%= comment.author.username %></em>
+				</div>
+				<div class="d-flex justify-content-center">
+					<% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+						<a class="mx-2" href="/models/<%= model._id %>/comments/<%= comment._id %>/edit">
+							<button class="btn btn-warning cmt-btn">Edit</button>
+						</a>
+						<form class="mx-2" action="/models/<%= model._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+							<button class="btn btn-danger cmt-btn">Delete</button>
+						</form>
+					<% } %>			
+				</div>
+			</li>
+		<% }) %>
+	</ul>
 </div>
-<ul class="comments pb-2 mt-4">
-	<h3 class="text-center mb-3 section-header">Comments</h3>
-	<div class="add-cmt mb-3">
-		<a href="/models/<%= model._id %>/comments/new">
-			<button class="btn btn-primary add-cmt">Add New Comment</button>
-		</a>		
-	</div>
-	<% model.comments.forEach((comment) => { %>
-		<li>
-			<%= comment.text %>
-			<br>
-			<br>
-			<div class="text-right mt-3">
-				<em><%= comment.author.username %></em>
-			</div>
-			<div class="d-flex justify-content-center">
-				<% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
-					<a class="mx-2" href="/models/<%= model._id %>/comments/<%= comment._id %>/edit">
-						<button class="btn btn-warning cmt-btn">Edit</button>
-					</a>
-					<form class="mx-2" action="/models/<%= model._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-						<button class="btn btn-danger cmt-btn">Delete</button>
-					</form>
-				<% } %>			
-			</div>
-		</li>
-	<% }) %>
-</ul>
 
 
 <%- include('../partials/footer') %>

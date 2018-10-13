@@ -130,48 +130,50 @@ h1, h3 {
     margin: 2rem 0;
     padding: 0 1rem;
     color: #FFFFFF; }
-  .modals .modal-row .landing-modal {
-    margin: 5% 0;
-    text-align: center;
-    position: relative; }
-    .modals .modal-row .landing-modal .card {
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-      transition: transform .15s ease-out;
-      background: white;
-      color: #000000;
-      max-width: 350px;
-      height: 100%;
-      width: 100%;
-      border: none;
-      border-radius: 8px; }
-      .modals .modal-row .landing-modal .card img {
-        height: 150px;
-        width: 150px;
-        margin-top: 2.5rem;
+  .modals .modal-row {
+    padding: 0 15px; }
+    .modals .modal-row .landing-modal {
+      margin: 5% 0;
+      text-align: center;
+      position: relative; }
+      .modals .modal-row .landing-modal .card {
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-        border-radius: 19px; }
-      .modals .modal-row .landing-modal .card img[src="/assets/icons/mm-red.svg"] {
-        background: #EA4949; }
-      .modals .modal-row .landing-modal .card .card-info {
-        list-style-image: url("https://www.scdn.co/i/home/plan-checklist.svg");
-        margin: 0;
-        padding: 2rem 0;
-        border: 0 solid #D9DADC;
-        border-top-width: 1px;
-        border-bottom-width: 1px;
-        line-height: 2; }
-        .modals .modal-row .landing-modal .card .card-info li {
-          text-align: left; }
-      .modals .modal-row .landing-modal .card button {
-        margin: 1.5rem 0;
-        text-transform: uppercase;
-        border-radius: 500px;
-        padding: 16px 48px 18px;
-        white-space: normal;
-        letter-spacing: 2px;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 1; }
+        transition: transform .15s ease-out;
+        background: white;
+        color: #000000;
+        max-width: 350px;
+        height: 100%;
+        width: 100%;
+        border: none;
+        border-radius: 8px; }
+        .modals .modal-row .landing-modal .card img {
+          height: 150px;
+          width: 150px;
+          margin-top: 2.5rem;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+          border-radius: 19px; }
+        .modals .modal-row .landing-modal .card img[src="/assets/icons/mm-red.svg"] {
+          background: #EA4949; }
+        .modals .modal-row .landing-modal .card .card-info {
+          list-style-image: url("https://www.scdn.co/i/home/plan-checklist.svg");
+          margin: 0;
+          padding: 2rem 0;
+          border: 0 solid #D9DADC;
+          border-top-width: 1px;
+          border-bottom-width: 1px;
+          line-height: 2; }
+          .modals .modal-row .landing-modal .card .card-info li {
+            text-align: left; }
+        .modals .modal-row .landing-modal .card button {
+          margin: 1.5rem 0;
+          text-transform: uppercase;
+          border-radius: 500px;
+          padding: 16px 48px 18px;
+          white-space: normal;
+          letter-spacing: 2px;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 1; }
   .modals .card:hover {
     box-shadow: 0 14px 32px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-5px); }
@@ -254,30 +256,42 @@ footer {
 
 .show-intro {
   margin-top: 60px;
-  height: 100vh;
+  height: auto;
   background: #1E3264;
   background-image: linear-gradient(#2c5e92 0%, #552f6d 80%);
   color: white;
-  padding: 0 15px; }
-  .show-intro .show-header {
+  padding: 0 15px 15px; }
+  .show-intro h3 {
     font-weight: 700;
     text-transform: lowercase; }
-  .show-intro .profile-img {
+  .show-intro .profile-container {
     width: 100%;
     position: relative; }
-    .show-intro .profile-img .profile-bg {
-      width: 88%;
-      height: 90%;
-      background: #fff;
-      opacity: .05;
-      position: absolute;
-      bottom: -30px;
-      left: 6%; }
-    .show-intro .profile-img img {
-      width: 80%;
-      margin-bottom: 1rem;
-      display: block;
-      margin: 0 auto; }
+    .show-intro .profile-container .profile-img {
+      position: relative;
+      z-index: 1; }
+      .show-intro .profile-container .profile-img img {
+        width: 80%;
+        margin-bottom: 1rem;
+        display: block;
+        margin: 0 auto; }
+      .show-intro .profile-container .profile-img .name-banner {
+        background: #1E3264;
+        margin: 0 0 .5rem;
+        padding: 10px;
+        text-align: center; }
+    .show-intro .profile-container .content {
+      background: rgba(255, 255, 255, 0.05);
+      padding-top: 5rem;
+      position: relative;
+      bottom: 77px;
+      width: 90%;
+      margin: 0 auto;
+      z-index: 0; }
+      .show-intro .profile-container .content .traits {
+        padding-bottom: 1rem; }
+    .show-intro .profile-container .desc {
+      margin-top: -80px; }
 
 .comments {
   padding: 0; }
