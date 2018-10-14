@@ -261,26 +261,26 @@ footer {
   background-image: linear-gradient(#2c5e92 0%, #552f6d 80%);
   color: white;
   padding: 0 15px 15px; }
-  .show-intro h3 {
+  .show-intro .about h3 {
     font-weight: 700;
     text-transform: lowercase; }
-  .show-intro .profile-container {
+  .show-intro .about .profile-container {
     width: 100%;
     position: relative; }
-    .show-intro .profile-container .profile-img {
+    .show-intro .about .profile-container .profile-img {
       position: relative;
       z-index: 1; }
-      .show-intro .profile-container .profile-img img {
+      .show-intro .about .profile-container .profile-img img {
         width: 80%;
         margin-bottom: 1rem;
         display: block;
         margin: 0 auto; }
-      .show-intro .profile-container .profile-img .name-banner {
+      .show-intro .about .profile-container .profile-img .name-banner {
         background: #1E3264;
         margin: 0 0 .5rem;
         padding: 10px;
         text-align: center; }
-    .show-intro .profile-container .content {
+    .show-intro .about .profile-container .content {
       background: rgba(255, 255, 255, 0.05);
       padding-top: 5rem;
       position: relative;
@@ -288,10 +288,14 @@ footer {
       width: 90%;
       margin: 0 auto;
       z-index: 0; }
-      .show-intro .profile-container .content .traits {
+      .show-intro .about .profile-container .content .traits {
         padding-bottom: 1rem; }
-    .show-intro .profile-container .desc {
+    .show-intro .about .profile-container .desc {
       margin-top: -80px; }
+  .show-intro .about-more .title-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
 
 .comments {
   padding: 0; }

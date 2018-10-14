@@ -406,89 +406,68 @@ footer {
 	color: white;
 	padding: 0 15px 15px;
 
-	h3 {
-		font-weight: 700;
-		text-transform: lowercase;	
+	.about {
+		h3 {
+			font-weight: 700;
+			text-transform: lowercase;	
+		}
+
+		.profile-container {
+		    width: 100%;
+		    position: relative;
+
+		    .profile-img {
+		    	position: relative;
+		    	z-index: 1;
+
+			    img {
+			    	width: 80%;
+			    	margin-bottom: 1rem;
+			    	display: block;
+			    	margin: 0 auto;
+			    }	 
+
+			    .name-banner {
+		    		background: #1E3264;
+		    		margin: 0 0 .5rem;
+		    		padding: 10px;
+		    		text-align: center;
+	    		}   
+	    	}
+
+	    	.content {
+	    		background: rgba(255, 255, 255, .05);
+	    		padding-top: 5rem;
+	    		position: relative;
+	  		    bottom: 77px;
+			    width: 90%;
+			    margin: 0 auto;
+			    z-index: 0;
+
+			    .traits {
+			    	padding-bottom: 1rem;
+			    }
+	    	}
+
+	    	.desc {
+	    		margin-top: -80px;
+	    	}
+		}		
 	}
 
-	.profile-container {
-	    width: 100%;
-	    position: relative;
+	.about-more {
+		.title-container {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
 
-	    .profile-img {
-	    	position: relative;
-	    	z-index: 1;
-
-		    img {
-		    	width: 80%;
-		    	margin-bottom: 1rem;
-		    	display: block;
-		    	margin: 0 auto;
-		    }	 
-
-		    .name-banner {
-	    		background: #1E3264;
-	    		margin: 0 0 .5rem;
-	    		padding: 10px;
-	    		text-align: center;
-    		}   
-    	}
-
-    	.content {
-    		background: rgba(255, 255, 255, .05);
-    		padding-top: 5rem;
-    		position: relative;
-  		    bottom: 77px;
-		    width: 90%;
-		    margin: 0 auto;
-		    z-index: 0;
-
-		    .traits {
-		    	padding-bottom: 1rem;
-		    }
-    	}
-
-    	.desc {
-    		margin-top: -80px;
-    	}
+			.inactive {
+				
+			}
+		}
 	}
+
 }
-
-// .section-header {
-// 	color: #FFFFFF;
-// 	background: #3F7483;
-// 	margin: 0 0 1.5rem 0;
-// 	padding: 1rem;
-// 	letter-spacing: 2px;
-// }
-
-// .model-intro {
-// 	padding: 0;
-
-// 	.profile-img {
-// 		margin: 0 auto;
-// 	}
-// }
-
-// .row {
-// 	margin: 0;
-// }
-
-// .cmt-btn {
-// 	min-width: 88px;
-// }
-
-// .model-desc {
-// 	background: $section-bg-color;
-// 	.desc-content {
-// 		padding: 1rem;
-
-// 		p {
-// 			margin: 0;
-// 		}		
-// 	}
-// }
-
 
 .comments {
 	padding: 0;
