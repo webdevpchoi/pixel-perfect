@@ -406,12 +406,12 @@ footer {
 	color: white;
 	padding: 0 15px 15px;
 
-	.about {
-		h3 {
-			font-weight: 700;
-			text-transform: lowercase;	
-		}
+	h3 {
+		font-weight: 700;
+		text-transform: lowercase;	
+	}
 
+	.about {
 		.profile-container {
 		    width: 100%;
 		    position: relative;
@@ -456,13 +456,14 @@ footer {
 	}
 
 	.about-more {
-		.title-container {
+		.header-container {
 			display: flex;
 			justify-content: space-around;
 			align-items: center;
 
 			.inactive {
-				
+				opacity: .5;
+				font-size: 1.3em;
 			}
 		}
 	}

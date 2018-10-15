@@ -3,12 +3,15 @@ $(document).ready(function(){
 		itemSelector: '.grid-item',
 		columnWidth: '.grid-sizer',
 	})
-	//slick.js initialization
-	$('.more-img').slick({
-		dots: true,
-		infinite: true,
-		speed: 300,
-		slidesToShow: 1,
-		adaptiveHeight: true
-	})	
+	
+	const headers = $('.header-container > h3');
+
+	//switch back and forth from one selected header to the other
+	headers.on('click', function switchHeader(e) {
+		if($(this).hasClass('inactive')) {
+			$(this).removeClass('inactive');
+			$(this).siblings().addClass('inactive');
+		}
+	})
+
 });
