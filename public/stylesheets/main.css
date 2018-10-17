@@ -299,6 +299,10 @@ footer {
     .show-intro .about-more .header-container .inactive {
       opacity: .5;
       font-size: 1.3em; }
+  .show-intro .about-more .about-info {
+    display: flex; }
+    .show-intro .about-more .about-info .more-img {
+      min-width: 100%; }
 
 .comments {
   padding: 0; }

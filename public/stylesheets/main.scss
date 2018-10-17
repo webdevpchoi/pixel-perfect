@@ -466,6 +466,14 @@ footer {
 				font-size: 1.3em;
 			}
 		}
+
+		.about-info {
+			display: flex;
+
+			.more-img {
+				min-width: 100%;
+			}
+		}
 	}
 
 }
