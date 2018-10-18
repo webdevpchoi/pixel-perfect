@@ -34,23 +34,23 @@ h1, h3 {
     width: 90%;
     visibility: visible; }
 
-  40% {
-    transform: translate3d(-250%, 0, 0);
-    visibility: hidden;
-    width: 0; }
-
-  100% {
+  75% {
     transform: translate3d(-250%, 0, 0);
     width: 0;
+    visibility: hidden; }
+
+  100% {
+    width: 0;
+    transform: translate3d(-250%, 0, 0);
     visibility: hidden; } }
 
 @keyframes slideInLeft {
   0% {
     width: 0;
     visibility: hidden;
-    transform: translate3d(150%, 0, 0); }
+    transform: translate3d(250%, 0, 0); }
 
-  5% {
+  75% {
     width: 90%;
     visibility: visible;
     transform: translate3d(0, 0, 0); }
@@ -288,7 +288,6 @@ footer {
 
 .show-intro {
   margin-top: 60px;
-  height: 100%;
   background: #1E3264;
   background-image: linear-gradient(#2c5e92 0%, #552f6d 80%);
   color: white;
@@ -324,36 +323,45 @@ footer {
         padding-bottom: 1rem; }
     .show-intro .about .profile-container .desc {
       margin-top: -80px; }
-  .show-intro .about-more .header-container {
+
+.show-more {
+  background: #1E3264;
+  background-image: linear-gradient(#552f6d 0%, #2c5e92 80%);
+  color: #fff; }
+  .show-more .header-container {
     display: flex;
     justify-content: space-around;
     align-items: center; }
-    .show-intro .about-more .header-container .inactive {
+    .show-more .header-container h3 {
+      font-weight: 700; }
+    .show-more .header-container .inactive {
       opacity: .5;
       font-size: 1.3em; }
-  .show-intro .about-more .about-info {
+  .show-more .about-info {
     display: flex;
-    justify-content: center;
     align-items: center; }
-    .show-intro .about-more .about-info .inactive {
+    .show-more .about-info .more-img img {
+      max-width: 100%;
+      height: auto; }
+    .show-more .about-info .inactive {
       width: 0;
       visibility: hidden;
-      transform: translate3d(150%, 0, 0); }
-    .show-intro .about-more .about-info .comment-container .comments {
+      transform: translate3d(250%, 0, 0); }
+    .show-more .about-info .comment-container .comments {
       padding: 0; }
-      .show-intro .about-more .about-info .comment-container .comments .add-cmt {
+      .show-more .about-info .comment-container .comments .add-cmt {
         display: flex;
         justify-content: center;
         align-items: center; }
-      .show-intro .about-more .about-info .comment-container .comments li {
+      .show-more .about-info .comment-container .comments li {
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
         background: #FFFFFF;
         padding: 10px;
         margin: 10px; }
-  .show-intro .about-more .slideOutLeft {
-    animation: 1s slideOutLeft forwards !important; }
-  .show-intro .about-more .slideInLeft {
-    animation: 1s slideInLeft forwards !important; }
+  .show-more .slideOutLeft {
+    animation: 1s slideOutLeft forwards; }
+  .show-more .slideInLeft {
+    animation: 1s slideInLeft forwards; }
 
 .edit-model, .dlt-model {
   min-width: 114px; }

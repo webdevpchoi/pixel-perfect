@@ -38,50 +38,49 @@
 			</div>
 		</div>
 	</div>	
-
-	<!-- portfolio and comments section -->
-	<div class="about-more">
-		<div class="portfolio">
-			<div class="header-container">
-				<h3 class="text-center portfolio-header">Portfolio</h3>
-				<h3 class="text-center comment-header inactive">Comments</h3>	
-			</div>			
-			<div class="about-info">
-				<div class="more-img px-2">
-					<% model.images.forEach((image) => { %>
-						<img src="<%= image %>" class="img-thumbnail">
+</div>
+<!-- portfolio and comments section -->
+<div class="show-more">
+	<div class="portfolio">
+		<div class="header-container">
+			<h3 class="text-center portfolio-header">Portfolio</h3>
+			<h3 class="text-center comment-header inactive">Comments</h3>	
+		</div>			
+		<div class="about-info">
+			<div class="more-img px-2">
+				<% model.images.forEach((image) => { %>
+					<img src="<%= image %>">
+				<% }) %>
+			</div>				
+			<div class="comment-container inactive">
+				<ul class="comments">		
+					<div class="add-cmt mb-3">
+						<a href="/models/<%= model._id %>/comments/new">
+							<button class="btn btn-primary add-cmt">Add New Comment</button>
+						</a>		
+					</div>
+					<% model.comments.forEach((comment) => { %>
+						<li>
+							<%= comment.text %>
+							<br>
+							<br>
+							<div class="text-right mt-3">
+								<em><%= comment.author.username %></em>
+							</div>
+							<div class="d-flex justify-content-center">
+								<% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+									<a class="mx-2" href="/models/<%= model._id %>/comments/<%= comment._id %>/edit">
+										<button class="btn btn-warning cmt-btn">Edit</button>
+									</a>
+									<form class="mx-2" action="/models/<%= model._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+										<button class="btn btn-danger cmt-btn">Delete</button>
+									</form>
+								<% } %>			
+							</div>
+						</li>
 					<% }) %>
-				</div>				
-				<div class="comment-container inactive">
-					<ul class="comments">		
-						<div class="add-cmt mb-3">
-							<a href="/models/<%= model._id %>/comments/new">
-								<button class="btn btn-primary add-cmt">Add New Comment</button>
-							</a>		
-						</div>
-						<% model.comments.forEach((comment) => { %>
-							<li>
-								<%= comment.text %>
-								<br>
-								<br>
-								<div class="text-right mt-3">
-									<em><%= comment.author.username %></em>
-								</div>
-								<div class="d-flex justify-content-center">
-									<% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
-										<a class="mx-2" href="/models/<%= model._id %>/comments/<%= comment._id %>/edit">
-											<button class="btn btn-warning cmt-btn">Edit</button>
-										</a>
-										<form class="mx-2" action="/models/<%= model._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-											<button class="btn btn-danger cmt-btn">Delete</button>
-										</form>
-									<% } %>			
-								</div>
-							</li>
-						<% }) %>
-					</ul>			
-				</div>				
-			</div>
+				</ul>			
+			</div>				
 		</div>
 	</div>
 </div>

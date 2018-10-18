@@ -11,9 +11,9 @@ $(document).ready(function(){
 	headers.on('click', function switchHeader(e) {
 		if($(this).hasClass('inactive')) {
 			$(this).removeClass('inactive');
-			$(this).siblings().addClass('inactive');
-			// aboutInfo[1].classList.add('slideInLeft');
-			// aboutInfo[1].classList.remove('inactive');						
+			// $(this).siblings().addClass('inactive');
+			aboutInfo[1].classList.add('slideInLeft');
+			aboutInfo[1].classList.remove('inactive');						
 			aboutInfo[0].classList.add('slideOutLeft');
 		}
 	})
