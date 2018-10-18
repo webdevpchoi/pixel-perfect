@@ -9,7 +9,6 @@ input[type="number"] {
 }
 
 //global styles & variables
-
 $modal-bg-color: #FFFFFF;
 
 body, html {
@@ -39,6 +38,47 @@ h1, h3 {
 .alert + .auth {
 	margin-top: 0;
 	padding: 0 15px;
+}
+
+//animations 
+@keyframes slideOutLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+    width: 90%;
+    visibility: visible;
+  }
+  
+  40% {
+    transform: translate3d(-250%, 0, 0);
+    visibility: hidden;
+    width: 0;
+  }
+  
+  100% {
+    transform: translate3d(-250%, 0, 0);
+    width: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    width: 0;
+    visibility: hidden;
+    transform: translate3d(150%, 0, 0);
+  }
+  
+  5% {
+    width: 90%;
+    visibility: visible;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  100% {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    width: 90%;
+  }
 }
 
 //navbar 
@@ -400,7 +440,7 @@ footer {
 //show page
 .show-intro {
 	margin-top: 60px;
-	height: auto;
+	height: 100%;
 	background: #1E3264;
 	background-image: linear-gradient(#2C5E92 0%, #552F6D 80%);
 	color: white;
@@ -469,31 +509,45 @@ footer {
 
 		.about-info {
 			display: flex;
+			justify-content: center;
+			align-items: center;
 
-			.more-img {
-				min-width: 100%;
+			.inactive {
+				width: 0;
+				visibility: hidden;
+				transform: translate3d(150%, 0, 0);
+			}
+
+			.comment-container {
+				.comments {
+					padding: 0;
+
+					.add-cmt {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+
+					li {
+						box-shadow: 0 0 8px rgba(0,0,0,.2);
+						background: #FFFFFF;
+						padding: 10px;
+						margin: 10px;
+					}
+				}
 			}
 		}
-	}
 
-}
+		.slideOutLeft {
+	    	animation: 1s slideOutLeft forwards !important;
+		}
 
-.comments {
-	padding: 0;
-
-	.add-cmt {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	li {
-		box-shadow: 0 0 8px rgba(0,0,0,.2);
-		background: #FFFFFF;
-		padding: 10px;
-		margin: 10px;
+		.slideInLeft {
+	  		animation: 1s slideInLeft forwards !important;
+		}
 	}
 }
+
 
 .edit-model, .dlt-model {
 	min-width: 114px;

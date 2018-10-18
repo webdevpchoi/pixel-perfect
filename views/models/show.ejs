@@ -47,12 +47,12 @@
 				<h3 class="text-center comment-header inactive">Comments</h3>	
 			</div>			
 			<div class="about-info">
-				<div class="more-img px-2 animated">
+				<div class="more-img px-2">
 					<% model.images.forEach((image) => { %>
 						<img src="<%= image %>" class="img-thumbnail">
 					<% }) %>
 				</div>				
-				<div class="commments inactive animated">
+				<div class="comment-container inactive">
 					<ul class="comments">		
 						<div class="add-cmt mb-3">
 							<a href="/models/<%= model._id %>/comments/new">
