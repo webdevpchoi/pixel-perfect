@@ -107,6 +107,7 @@ const samplePhotographers = [
 		age: 34,
 		category: "Nature",
 		experience: 23,
+		images: ["https://images.pexels.com/photos/247295/pexels-photo-247295.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/289225/pexels-photo-289225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/37649/glamour-style-hat-woman-37649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "https://images.pexels.com/photos/165522/pexels-photo-165522.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"]
 	},
 
 	{

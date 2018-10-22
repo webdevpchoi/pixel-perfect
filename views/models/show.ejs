@@ -2,7 +2,7 @@
 <div class="show-intro">
 	<div class="row about">
 		<!-- about user -->
-		<div class="col-sm-12 col-md-6 model-desc">
+		<div class="col desc-container">
 			<h3 class="text-center">About Me</h3>
 			<div class="profile-container">
 				<div class="profile-img">
@@ -43,18 +43,23 @@
 <div class="show-more">
 	<div class="portfolio">
 		<div class="header-container">
-			<h3 class="text-center portfolio-header">Portfolio</h3>
+			<h3 class="text-center portfolio-header name-banner">Portfolio</h3>
 			<h3 class="text-center comment-header inactive">Comments</h3>	
 		</div>			
 		<div class="about-info">
-			<div class="more-img px-2">
+			<!-- images -->
+			<div class="more-img grid">
+				<div class="grid-sizer"></div>
 				<% model.images.forEach((image) => { %>
-					<img src="<%= image %>">
+					<div class="grid-item">
+						<img src="<%= image %>">						
+					</div>
 				<% }) %>
-			</div>				
-			<div class="comment-container inactive">
+			</div>
+			<!-- comments -->			
+			<div class="comment-container">
 				<ul class="comments">		
-					<div class="add-cmt mb-3">
+					<div class="add-cmt">
 						<a href="/models/<%= model._id %>/comments/new">
 							<button class="btn btn-primary add-cmt">Add New Comment</button>
 						</a>		
@@ -84,6 +89,5 @@
 		</div>
 	</div>
 </div>
-
 
 <%- include('../partials/footer') %>
